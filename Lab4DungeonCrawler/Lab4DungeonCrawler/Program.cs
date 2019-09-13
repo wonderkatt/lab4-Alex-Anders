@@ -10,6 +10,7 @@ namespace Lab4DungeonCrawler
     {
         static void Main(string[] args)
         {
+            Player player = new Player();
         }
     }
 }
