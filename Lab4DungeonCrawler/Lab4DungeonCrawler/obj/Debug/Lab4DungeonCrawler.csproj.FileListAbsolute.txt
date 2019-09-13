@@ -1,0 +1,7 @@
+C:\Users\alexander\Documents\GitHub\lab4-Alex-Anders\Lab4DungeonCrawler\Lab4DungeonCrawler\bin\Debug\Lab4DungeonCrawler.exe.config
+C:\Users\alexander\Documents\GitHub\lab4-Alex-Anders\Lab4DungeonCrawler\Lab4DungeonCrawler\bin\Debug\Lab4DungeonCrawler.exe
+C:\Users\alexander\Documents\GitHub\lab4-Alex-Anders\Lab4DungeonCrawler\Lab4DungeonCrawler\bin\Debug\Lab4DungeonCrawler.pdb
+C:\Users\alexander\Documents\GitHub\lab4-Alex-Anders\Lab4DungeonCrawler\Lab4DungeonCrawler\obj\Debug\Lab4DungeonCrawler.csprojAssemblyReference.cache
+C:\Users\alexander\Documents\GitHub\lab4-Alex-Anders\Lab4DungeonCrawler\Lab4DungeonCrawler\obj\Debug\Lab4DungeonCrawler.csproj.CoreCompileInputs.cache
+C:\Users\alexander\Documents\GitHub\lab4-Alex-Anders\Lab4DungeonCrawler\Lab4DungeonCrawler\obj\Debug\Lab4DungeonCrawler.exe
+C:\Users\alexander\Documents\GitHub\lab4-Alex-Anders\Lab4DungeonCrawler\Lab4DungeonCrawler\obj\Debug\Lab4DungeonCrawler.pdb
