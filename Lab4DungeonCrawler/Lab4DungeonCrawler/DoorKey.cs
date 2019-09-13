@@ -1,8 +1,8 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    public class Player
+    public class DoorKey
     {
-        public Player()
+        public DoorKey()
         {
         }
     }

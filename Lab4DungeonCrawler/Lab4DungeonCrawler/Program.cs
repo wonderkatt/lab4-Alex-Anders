@@ -11,6 +11,9 @@ namespace Lab4DungeonCrawler
         static void Main(string[] args)
         {
             Player player = new Player();
+            TileMap map = new TileMap();
+            DoorKey key = new DoorKey();
+            RoomType roomType = new RoomType();
         }
     }
 }

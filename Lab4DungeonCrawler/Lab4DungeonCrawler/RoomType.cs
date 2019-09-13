@@ -1,8 +1,8 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    public class Player
+    public class RoomType
     {
-        public Player()
+        public RoomType()
         {
         }
     }
