@@ -1,8 +1,8 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    public class Player
+    public class TileMap
     {
-        public Player()
+        public TileMap()
         {
         }
     }
