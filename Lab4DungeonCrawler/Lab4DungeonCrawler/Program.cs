@@ -11,7 +11,12 @@ namespace Lab4DungeonCrawler
         static void Main(string[] args)
         {
             TileMap map = new TileMap();
-            map.PrintOutMap();
+            PlayerController player = new PlayerController();
+            while(true)
+            {
+                map.PrintOutMap();
+                player.MovePlayer();
+            }
             Console.ReadKey();
         }
     }

@@ -6,7 +6,8 @@ namespace Lab4DungeonCrawler
     {
         private const int height = 50;
         private const int width = 10;
-        static string[,] map = new string[width,height];
+        public TileType[,] map = new TileType[width,height];
+        PlayerController playerController = new PlayerController();
 
         public TileMap()
         {
@@ -16,24 +17,26 @@ namespace Lab4DungeonCrawler
                 {
                     if ((row == 0 || column == 0 || row == map.GetLength(0) - 1 || column == map.GetLength(1) - 1))
                     {
-                        map[row, column] = "#";
+                        map[row, column] = new WallTile();
                     }
                     else
                     {
-                        map[row, column] = "-";
+                        map[row, column] = new FloorTile();
                     }
                     
                 }
             }
+            map[playerController.currentPosition.row, playerController.currentPosition.column] = new PlayerTile();
         }
 
         public void PrintOutMap()
         {
-            for (int i = 0; i < map.GetLength(0); i++)
+            Console.Clear();
+            for (int row = 0; row < map.GetLength(0); row++)
             {
-                for (int j = 0; j < map.GetLength(1); j++)
+                for (int column = 0; column < map.GetLength(1); column++)
                 {
-                    Console.Write(map[i, j]);
+                    Console.Write(map[row, column].TileGraphic);
                 }
                 Console.WriteLine();
             }

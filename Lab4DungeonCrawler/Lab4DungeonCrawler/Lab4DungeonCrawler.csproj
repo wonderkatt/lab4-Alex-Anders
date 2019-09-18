@@ -44,11 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoorKey.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="PlayerController.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="TileMapFolder\FloorTile.cs" />
+    <Compile Include="TileMapFolder\PlayerTile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoomType.cs" />
-    <Compile Include="TileMap.cs" />
+    <Compile Include="TileMapFolder\TileType.cs" />
+    <Compile Include="TileMapFolder\TileMap.cs" />
+    <Compile Include="TileMapFolder\WallTile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
