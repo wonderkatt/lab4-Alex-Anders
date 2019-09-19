@@ -4,12 +4,19 @@ namespace Lab4DungeonCrawler
 {
     public class TileMap
     {
-        private const int height = 50;
-        private const int width = 10;
+        private const int height = 15;
+        private const int width = 15;
+        private readonly Player player;
+        public PlayerController playerController;
         public TileType[,] map = new TileType[width,height];
-        PlayerController playerController = new PlayerController();
+       
 
-        public TileMap()
+        public TileMap(Player player)
+        {
+            this.player = player;
+        }
+
+        public void InitiateMap()
         {
             for (int row = 0; row < map.GetLength(0); row++)
             {
@@ -23,10 +30,11 @@ namespace Lab4DungeonCrawler
                     {
                         map[row, column] = new FloorTile();
                     }
-                    
+
                 }
             }
-            map[playerController.currentPosition.row, playerController.currentPosition.column] = new PlayerTile();
+            map[player.currentPosition.row, player.currentPosition.column] = new PlayerTile();
+
         }
 
         public void PrintOutMap()

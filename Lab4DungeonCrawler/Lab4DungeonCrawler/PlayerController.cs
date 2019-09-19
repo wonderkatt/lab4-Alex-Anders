@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    class PlayerController
+    public class PlayerController
     {
-        public Point currentPosition = new Point(1,1);
-        TileMap map = new TileMap();
-        public PlayerController()
-        {
+        
+        public readonly TileMap map;
+        private readonly Player player;
 
+        public PlayerController(TileMap map, Player player)
+        {
+            this.map = map;
+            this.player = player;
         }
 
         public void MovePlayer()
@@ -36,10 +39,11 @@ namespace Lab4DungeonCrawler
             }
         }
          
-        public void Move(int row, int column)
+        private void Move(int row, int column)
         {
-            map.map[currentPosition.row, currentPosition.column] = new FloorTile();
-            currentPosition = new Point(currentPosition.row + row, currentPosition.column + column);
+            map.map[player.currentPosition.row, player.currentPosition.column] = new FloorTile();
+            player.currentPosition = new Point(player.currentPosition.row + row, player.currentPosition.column + column);
+            map.map[player.currentPosition.row, player.currentPosition.column] = new PlayerTile();
         }
         
     }
