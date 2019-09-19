@@ -4,6 +4,6 @@
     {
         string tileGraphic;
 
-       public string TileGraphic { get { return tileGraphic; } set { tileGraphic = value; } }
+        public string TileGraphic { get { return tileGraphic; } set { tileGraphic = value; } }
     }
 }
