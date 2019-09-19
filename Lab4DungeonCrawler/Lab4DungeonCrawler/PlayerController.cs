@@ -34,6 +34,7 @@ namespace Lab4DungeonCrawler
                     Move(0, 1);
                     break;
             }
+            NumberOfMoves();
         }
          
         public void Move(int row, int column)
@@ -42,5 +43,6 @@ namespace Lab4DungeonCrawler
             currentPosition = new Point(currentPosition.row + row, currentPosition.column + column);
         }
         
+        public int NumberOfMoves { get { return numberOfMoves; } set { numberOfMoves++; } }
     }
 }
