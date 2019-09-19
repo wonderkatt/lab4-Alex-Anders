@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab4DungeonCrawler.TileMapFolder
+namespace Lab4DungeonCrawler
 {
     class DoorTile : TileType
     {
@@ -13,6 +13,6 @@ namespace Lab4DungeonCrawler.TileMapFolder
             this.TileGraphic = "D";
         }
 
-        
+        public bool UnlockDoor();
     }
 }
