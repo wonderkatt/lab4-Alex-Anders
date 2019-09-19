@@ -25,25 +25,25 @@ namespace Lab4DungeonCrawler
             switch(input.KeyChar)
             {
                 case 'w':
-                    Move(-1, 0);
-                    break;
-                case 's':
-                    Move(1, 0);
-                    break;
-                case 'a':
                     Move(0, -1);
                     break;
-                case 'd':
+                case 's':
                     Move(0, 1);
+                    break;
+                case 'a':
+                    Move(-1, 0);
+                    break;
+                case 'd':
+                    Move(1, 0);
                     break;
             }
         }
          
         private void Move(int row, int column)
         {
-            map.map[player.currentPosition.row, player.currentPosition.column] = new FloorTile();
+            map.map[player.currentPosition.column, player.currentPosition.row] = new FloorTile();
             player.currentPosition = new Point(player.currentPosition.row + row, player.currentPosition.column + column);
-            map.map[player.currentPosition.row, player.currentPosition.column] = new PlayerTile();
+            map.map[player.currentPosition.column, player.currentPosition.row] = new PlayerTile();
         }
         
     }

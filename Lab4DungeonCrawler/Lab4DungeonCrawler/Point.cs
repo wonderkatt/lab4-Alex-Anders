@@ -8,12 +8,12 @@ namespace Lab4DungeonCrawler
 {
     public struct Point
     {
-        public int row, column;
+        public int column, row;
 
         public Point(int x, int y)
         {
             row = x;
-            column = y;
+             this.column = y;
         }
     } 
 }
