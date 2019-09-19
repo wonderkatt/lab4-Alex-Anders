@@ -8,15 +8,20 @@ namespace Lab4DungeonCrawler
 {
     class Program
     {
-        static void Main(string[] args)
+        
+        public static void Main(string[] args)
         {
-            TileMap map = new TileMap();
-            PlayerController player = new PlayerController();
+            Player player = new Player();
+            TileMap map = new TileMap(player);
+            PlayerController playerController = new PlayerController(map, player);
+            map.InitiateMap();
             while(true)
             {
-                map.PrintOutMap();
-                player.MovePlayer();
+            map.PrintOutMap();
+                playerController.MovePlayer();
+
             }
+            
             Console.ReadKey();
         }
     }
