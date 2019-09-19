@@ -43,14 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoorKey.cs" />
+    <Compile Include="TileMapFolder\DoorsFolder\Door2.cs" />
+    <Compile Include="TileMapFolder\DoorsFolder\Door5.cs" />
+    <Compile Include="TileMapFolder\DoorsFolder\Door4.cs" />
+    <Compile Include="TileMapFolder\DoorsFolder\Door3.cs" />
+    <Compile Include="TileMapFolder\DoorsFolder\Door1.cs" />
     <Compile Include="EnumDoors.cs" />
     <Compile Include="EnumKeys.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerController.cs" />
     <Compile Include="PlayerInventory.cs" />
     <Compile Include="Point.cs" />
-    <Compile Include="TileMapFolder\Doortile.cs" />
+    <Compile Include="TileMapFolder\DoorsFolder\DoorTile.cs" />
     <Compile Include="TileMapFolder\FloorTile.cs" />
     <Compile Include="TileMapFolder\PlayerTile.cs" />
     <Compile Include="Program.cs" />
