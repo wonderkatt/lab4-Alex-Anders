@@ -44,8 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoorKey.cs" />
+    <Compile Include="EnumKeys.cs" />
     <Compile Include="PlayerController.cs" />
+    <Compile Include="PlayerInventory.cs" />
     <Compile Include="Point.cs" />
+    <Compile Include="EnumDoors.cs" />
+    <Compile Include="TileMapFolder\DoorTile.cs" />
     <Compile Include="TileMapFolder\FloorTile.cs" />
     <Compile Include="TileMapFolder\PlayerTile.cs" />
     <Compile Include="Program.cs" />

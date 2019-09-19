@@ -10,6 +10,7 @@ namespace Lab4DungeonCrawler
     {
         public Point currentPosition = new Point(1,1);
         TileMap map = new TileMap();
+        private int numberOfMoves = 0;
         public PlayerController()
         {
 
@@ -34,7 +35,7 @@ namespace Lab4DungeonCrawler
                     Move(0, 1);
                     break;
             }
-            NumberOfMoves();
+            SetNumberOfMoves();
         }
          
         public void Move(int row, int column)
@@ -42,7 +43,15 @@ namespace Lab4DungeonCrawler
             map.map[currentPosition.row, currentPosition.column] = new FloorTile();
             currentPosition = new Point(currentPosition.row + row, currentPosition.column + column);
         }
-        
-        public int NumberOfMoves { get { return numberOfMoves; } set { numberOfMoves++; } }
+
+        private void SetNumberOfMoves()
+        {
+            numberOfMoves++;
+        }
+
+        private int GetNumberOfMoves()
+        {
+            return numberOfMoves;
+        }
     }
 }
