@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    class Door5 : DoorTile
+    public class Door1 : DoorTile
     {
     }
 }
