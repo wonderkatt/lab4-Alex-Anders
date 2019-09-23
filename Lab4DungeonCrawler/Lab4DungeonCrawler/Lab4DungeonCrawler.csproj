@@ -48,8 +48,7 @@
     <Compile Include="DoorsFolder\Door4.cs" />
     <Compile Include="DoorsFolder\Door3.cs" />
     <Compile Include="DoorsFolder\Door1.cs" />
-    <Compile Include="DoorsFolder\IDoortype.cs" />
-    <Compile Include="EnumDoors.cs" />
+    <Compile Include="DoorsFolder\IDoorType.cs" />
     <Compile Include="EnumKeys.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerController.cs" />

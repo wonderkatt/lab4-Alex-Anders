@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab4DungeonCrawler.DoorsFolder
+namespace Lab4DungeonCrawler
 {
-    internal interface class IDoortype
+    public interface IDoorType
     {
+        bool OpenDoor(KeyType key);
     }
 }

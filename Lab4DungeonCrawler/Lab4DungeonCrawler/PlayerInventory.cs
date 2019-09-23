@@ -31,7 +31,9 @@ namespace Lab4DungeonCrawler
                 Console.WriteLine(playerInventory[i]);
             }
         }
+        public bool CheckInventory()
+        {
+            return true;
+        }
     }
-
-
 }
