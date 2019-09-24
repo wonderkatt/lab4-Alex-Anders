@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class DoorTile : TileType
+    public class DoorTile : IInteract
     {
         public DoorTile()
         {
             this.TileGraphic = "D";
         }
 
-        public bool UnlockDoor();
+        public bool ();
     }
 }

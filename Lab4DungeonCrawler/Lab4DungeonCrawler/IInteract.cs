@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class Door5 : IDoorType
+    public interface IInteract
     {
-        public bool OpenDoor(KeyType key)
-        {
-            return true;
-        }
+        bool InteractWith();
     }
 }

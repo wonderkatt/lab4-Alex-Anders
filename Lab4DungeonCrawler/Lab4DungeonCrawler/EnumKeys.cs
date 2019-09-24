@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    enum KeyType { Key1, Key2, Key3, Key4, Key5 };
+    public enum KeyType { Key1, Key2, Key3, Key4, Key5 };
 }
