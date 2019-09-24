@@ -8,14 +8,14 @@ namespace Lab4DungeonCrawler
 {
     public class PlayerController
     {
-        
-        public readonly TileMap map;
+
+        private TileType[,] map;
         private readonly Player player;
 
-        public PlayerController(TileMap map, Player player)
+        public PlayerController(Player player)
         {
-            this.map = map;
-            this.player = player;
+            this.map = TileMap.GetTileMap();
+            this.player = player ?? throw new ArgumentNullException(nameof(player));
         }
 
         public void MovePlayer()
@@ -25,6 +25,7 @@ namespace Lab4DungeonCrawler
             switch(input.KeyChar)
             {
                 case 'w':
+                    
                     Move(0, -1);
                     break;
                 case 's':
@@ -41,9 +42,7 @@ namespace Lab4DungeonCrawler
          
         private void Move(int row, int column)
         {
-            map.map[player.currentPosition.column, player.currentPosition.row] = new FloorTile();
-            player.currentPosition = new Point(player.currentPosition.row + row, player.currentPosition.column + column);
-            map.map[player.currentPosition.column, player.currentPosition.row] = new PlayerTile();
+            
         }
         
     }
