@@ -8,11 +8,15 @@ namespace Lab4DungeonCrawler
 {
     public class DoorTile : TileType
     {
+        
+        
         public DoorTile()
         {
             this.TileGraphic = "D";
+            
         }
+        
 
-        public bool UnlockDoor();
+        //public bool UnlockDoor();
     }
 }

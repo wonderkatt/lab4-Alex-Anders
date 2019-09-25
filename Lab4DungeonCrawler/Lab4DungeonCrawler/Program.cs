@@ -13,7 +13,7 @@ namespace Lab4DungeonCrawler
         {
             Player player = new Player();
             TileMap map = new TileMap(player);
-            PlayerController playerController = new PlayerController(map, player);
+            PlayerController playerController = new PlayerController(player);
             map.InitiateMap();
             while(true)
             {

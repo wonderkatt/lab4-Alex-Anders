@@ -10,6 +10,7 @@ namespace Lab4DungeonCrawler
     {
         public WallTile()
         {
+            
             this.TileGraphic = "#";
         }
     }
