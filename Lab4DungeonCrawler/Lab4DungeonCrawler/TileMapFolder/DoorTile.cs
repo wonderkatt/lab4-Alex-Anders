@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    class DoorTile : TileType
+    public class DoorTile : TileType
     {
         
         

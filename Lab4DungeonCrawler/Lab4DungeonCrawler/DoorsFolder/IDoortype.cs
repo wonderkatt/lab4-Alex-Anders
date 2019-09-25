@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab4DungeonCrawler
+namespace Lab4DungeonCrawler.DoorsFolder
 {
-    class Door4 : DoorTile
+    internal interface class IDoortype
     {
     }
 }
