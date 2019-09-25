@@ -37,7 +37,7 @@ namespace Lab4DungeonCrawler
 
                 }
             }
-            map[Player.GetCurrentPlayerPosition().column, Player.GetCurrentPlayerPosition().row] = new PlayerTile();
+            
 
         }
 
@@ -52,6 +52,8 @@ namespace Lab4DungeonCrawler
                 }
                 Console.WriteLine();
             }
+            Console.SetCursorPosition(10, 13);
+            Console.Write("#");
         }
     }
 }
