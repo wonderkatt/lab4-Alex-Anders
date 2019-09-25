@@ -8,11 +8,12 @@ namespace Lab4DungeonCrawler
 {
     public class DoorTile : IInteract
     {
+        
+        
         public DoorTile()
         {
             this.TileGraphic = "D";
+            
         }
-
-        public bool ();
     }
 }
