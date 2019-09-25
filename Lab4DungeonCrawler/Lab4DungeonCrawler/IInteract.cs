@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class Door1 : DoorTile
+    public interface IInteract
     {
+        bool InteractWith();
     }
 }

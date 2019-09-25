@@ -8,6 +8,9 @@ namespace Lab4DungeonCrawler
 {
     public class Player
     {
+        public Player()
+        {
+            PlayerInventory inventory = new PlayerInventory();
         private string symbol = "@";
         private static Point currentPosition = new Point(1, 1);
 

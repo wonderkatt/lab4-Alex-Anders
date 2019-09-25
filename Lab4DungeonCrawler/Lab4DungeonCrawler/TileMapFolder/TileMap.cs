@@ -8,11 +8,16 @@ namespace Lab4DungeonCrawler
         private const int width = 50;
         private readonly Player player;
         private static TileType[,] map = new TileType[height, width];
-       
 
         public TileMap(Player player)
         {
             this.player = player;
+            Door door1 = new Door(5, 5);
+            Door door2 = new Door(5, 10);
+            Door door3 = new Door(5, 15);
+            Door door4 = new Door(5, 20);
+            Door door5 = new Door(5, 25);
+
         }
 
         public static TileType[,] GetTileMap()

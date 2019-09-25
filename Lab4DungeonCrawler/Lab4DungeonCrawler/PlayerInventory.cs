@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 namespace Lab4DungeonCrawler
 {
 
-    class PlayerInventory
+    public class PlayerInventory
     {
-        private List<KeyType> playerInventory = new List<KeyType>();
+        private static List<KeyType> playerInventory = new List<KeyType>();
 
         public PlayerInventory()
         {
 
         }
-        public void AddToPlayerInventory(KeyType key)
+        public void AddItemToPlayerInventory(KeyType key)
         {
             playerInventory.Add(key);
         }
 
-        public void RemoveFromPlayerInventory(KeyType key)
+        public void RemoveItemFromPlayerInventory(KeyType key)
         {
             playerInventory.Remove(key);
         }
@@ -31,7 +31,13 @@ namespace Lab4DungeonCrawler
                 Console.WriteLine(playerInventory[i]);
             }
         }
+        public bool CheckItemInInventory(KeyType key)
+        {
+            if (playerInventory.Contains(key)
+            {
+                return true;
+            }
+            return false;
+        }
     }
-
-
 }
