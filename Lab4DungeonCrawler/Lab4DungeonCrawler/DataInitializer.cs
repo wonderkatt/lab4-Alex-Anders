@@ -9,28 +9,38 @@ namespace Lab4DungeonCrawler
     public class DataInitializer
     {
         private Player player;
-        private TileMap map;
+        private TileMap tileMap;
         private PlayerController playerController;
         private ConsoleHandler consoleHandler;
+        private InputManager inputManager;
+        private Renderer renderer;
 
         public DataInitializer()
         {
-             player = new Player();
-             map = new TileMap();
-             playerController = new PlayerController();
-             consoleHandler = new ConsoleHandler(this);
-             door1 = new Door(5, 5);
-             door2 = new Door(5, 10);
-             door3 = new Door(5, 15);
-             door4 = new Door(5, 20);
-             door5 = new Door(5, 25);
-
-            map.InitiateMap();
+            player = new Player();
+            tileMap = new TileMap();
+            playerController = new PlayerController();
+            consoleHandler = new ConsoleHandler();
+            inputManager = new InputManager();
+            renderer = new Renderer();
+            
+           
         }
 
-        public Player GetPlayer()
+       public Player GetPlayer()
         {
             return player;
         }
+
+        public PlayerController GetPlayerController()
+        {
+            return playerController;
+        }
+        
+        public TileMap GetMap()
+        {
+            return tileMap;
+        }
+        
     }
 }

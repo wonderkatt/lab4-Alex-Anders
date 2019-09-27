@@ -10,16 +10,12 @@ namespace Lab4DungeonCrawler
     {
         public FloorTile()
         {
-            
-            if (this.IsExplored)
-            {
+        
                 this.TileGraphic = "-";
 
-            }
-            else if (this.IsExplored != true)
-            {
-                this.TileGraphic = " ";
-            }
+            
+          
+           
         }
     }
 }

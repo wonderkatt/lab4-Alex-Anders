@@ -48,10 +48,13 @@
     <Compile Include="DoorsFolder\Door.cs" />
     <Compile Include="IInteract.cs" />
     <Compile Include="EnumKeys.cs" />
+    <Compile Include="InputManager.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerController.cs" />
     <Compile Include="PlayerInventory.cs" />
     <Compile Include="Point.cs" />
+    <Compile Include="Renderer.cs" />
+    <Compile Include="StateMachine.cs" />
     <Compile Include="TileMapFolder\DoorTile.cs" />
     <Compile Include="TileMapFolder\FloorTile.cs" />
     <Compile Include="TileMapFolder\PlayerTile.cs" />

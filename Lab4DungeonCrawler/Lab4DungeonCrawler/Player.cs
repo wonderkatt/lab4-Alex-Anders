@@ -9,7 +9,7 @@ namespace Lab4DungeonCrawler
     public class Player
     {
         private string symbol = "@";
-        private static Point currentPosition = new Point(1, 1);
+       
 
         public Player()
         {
@@ -18,10 +18,10 @@ namespace Lab4DungeonCrawler
 
         public string Symbol { get { return symbol; } private set { } }
 
-        public static Point GetCurrentPlayerPosition()
-        {
-                return currentPosition;
-        }
+        public static Point CurrentPlayerPosition { get; set; }
+
+        public static Point PreviousPlayerPosition { get; set; }
+       
 
        
     }
