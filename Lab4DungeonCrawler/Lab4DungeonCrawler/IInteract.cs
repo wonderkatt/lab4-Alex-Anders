@@ -8,6 +8,6 @@ namespace Lab4DungeonCrawler
 {
     public interface IInteract
     {
-        bool InteractWith();
+      
     }
 }

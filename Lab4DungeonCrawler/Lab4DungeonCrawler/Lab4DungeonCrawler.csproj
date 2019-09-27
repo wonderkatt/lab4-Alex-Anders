@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleHandler.cs" />
+    <Compile Include="DataInitializer.cs" />
     <Compile Include="DoorsFolder\Door.cs" />
     <Compile Include="IInteract.cs" />
     <Compile Include="EnumKeys.cs" />

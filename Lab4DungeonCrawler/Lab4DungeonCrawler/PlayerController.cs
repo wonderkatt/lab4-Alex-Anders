@@ -12,10 +12,10 @@ namespace Lab4DungeonCrawler
         private TileType[,] map;
         private readonly Player player;
 
-        public PlayerController(Player player)
+        public PlayerController()
         {
             this.map = TileMap.GetTileMap();
-            this.player = player ?? throw new ArgumentNullException(nameof(player));
+           // this.player = player ?? throw new ArgumentNullException(nameof(player));
         }
 
         public void MovePlayer()

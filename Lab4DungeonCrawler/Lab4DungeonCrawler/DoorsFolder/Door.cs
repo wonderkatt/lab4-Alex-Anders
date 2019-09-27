@@ -14,6 +14,6 @@ namespace Lab4DungeonCrawler
         {
             position = new Point(x, y);
         }
-        public Point GetPosition { get { return position; } set { position = value} }  
+        public Point GetPosition { get { return position; } }  
     }
 }

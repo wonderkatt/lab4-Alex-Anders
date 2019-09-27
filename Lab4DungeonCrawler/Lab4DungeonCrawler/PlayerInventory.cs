@@ -33,7 +33,7 @@ namespace Lab4DungeonCrawler
         }
         public bool CheckItemInInventory(KeyType key)
         {
-            if (playerInventory.Contains(key)
+            if (playerInventory.Contains(key))
             {
                 return true;
             }

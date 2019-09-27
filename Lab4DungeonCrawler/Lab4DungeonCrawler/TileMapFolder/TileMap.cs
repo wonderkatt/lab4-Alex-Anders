@@ -9,14 +9,10 @@ namespace Lab4DungeonCrawler
         private readonly Player player;
         private static TileType[,] map = new TileType[height, width];
 
-        public TileMap(Player player)
+        public TileMap()
         {
             this.player = player;
-            Door door1 = new Door(5, 5);
-            Door door2 = new Door(5, 10);
-            Door door3 = new Door(5, 15);
-            Door door4 = new Door(5, 20);
-            Door door5 = new Door(5, 25);
+            
 
         }
 
@@ -46,19 +42,6 @@ namespace Lab4DungeonCrawler
 
         }
 
-        public void PrintOutMap()
-        {
-            Console.Clear();
-            for (int column = 0; column < map.GetLength(0); column++)
-            {
-                for (int row = 0; row < map.GetLength(1); row++)
-                {
-                    Console.Write(map[column, row].TileGraphic);
-                }
-                Console.WriteLine();
-            }
-            Console.SetCursorPosition(10, 13);
-            Console.Write("#");
-        }
+        
     }
 }

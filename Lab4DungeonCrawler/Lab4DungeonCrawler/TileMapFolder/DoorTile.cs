@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class DoorTile : IInteract
+    public class DoorTile : TileType
     {
         
         
@@ -15,5 +15,8 @@ namespace Lab4DungeonCrawler
             this.TileGraphic = "D";
             
         }
+
+        
+
     }
 }
