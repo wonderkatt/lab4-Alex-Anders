@@ -28,8 +28,10 @@ namespace Lab4DungeonCrawler
                     {
                         break;
                     }
-                    Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
-                    Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row - 1);
+
+                    MovePlayer(0, -1);
+                    //Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
+                    //Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row - 1);
                     break;
                 case 's':
                     targetPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row + 1);
@@ -37,8 +39,9 @@ namespace Lab4DungeonCrawler
                     {
                         break;
                     }
-                    Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
-                    Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row + 1);
+                    MovePlayer(0, 1);
+                    //Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
+                    //Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row + 1);
                     break;
                 
                 case 'a':
@@ -47,8 +50,9 @@ namespace Lab4DungeonCrawler
                     {
                         break;
                     }
-                    Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
-                    Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column - 1, Player.CurrentPlayerPosition.row);
+                    MovePlayer(-1, 0);
+                    //Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
+                    //Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column - 1, Player.CurrentPlayerPosition.row);
                     break;
                 
                 case 'd':
@@ -57,8 +61,9 @@ namespace Lab4DungeonCrawler
                     {
                         break;
                     }
-                    Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
-                    Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column + 1, Player.CurrentPlayerPosition.row);
+                    MovePlayer(1, 0);
+                    //Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
+                    //Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column + 1, Player.CurrentPlayerPosition.row);
                     break;
                
                 default:
@@ -66,6 +71,12 @@ namespace Lab4DungeonCrawler
                     Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row);
                     break;
             }
+        }
+
+        public static void MovePlayer(int addColumn, int addRow)
+        {
+            Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
+            Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column + addColumn, Player.CurrentPlayerPosition.row + addRow);
         }
 
 

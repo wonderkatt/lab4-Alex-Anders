@@ -4,8 +4,8 @@ namespace Lab4DungeonCrawler
 {
     public class TileMap
     {
-        private const int x = 10;
-        private const int y = 10;
+        private const int x = 25;
+        private const int y = 25;
         private static TileType[,] map = new TileType[x, y];
 
         public TileMap()
