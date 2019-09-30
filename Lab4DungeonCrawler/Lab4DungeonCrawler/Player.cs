@@ -9,7 +9,7 @@ namespace Lab4DungeonCrawler
     public class Player
     {
         private string symbol = "@";
-       
+        public static int numberOfMoves = 0;
 
         public Player()
         {

@@ -30,8 +30,6 @@ namespace Lab4DungeonCrawler
                     }
 
                     MovePlayer(0, -1);
-                    //Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
-                    //Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row - 1);
                     break;
                 case 's':
                     targetPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row + 1);
@@ -40,8 +38,6 @@ namespace Lab4DungeonCrawler
                         break;
                     }
                     MovePlayer(0, 1);
-                    //Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
-                    //Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row + 1);
                     break;
                 
                 case 'a':
@@ -51,8 +47,6 @@ namespace Lab4DungeonCrawler
                         break;
                     }
                     MovePlayer(-1, 0);
-                    //Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
-                    //Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column - 1, Player.CurrentPlayerPosition.row);
                     break;
                 
                 case 'd':
@@ -62,8 +56,6 @@ namespace Lab4DungeonCrawler
                         break;
                     }
                     MovePlayer(1, 0);
-                    //Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
-                    //Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column + 1, Player.CurrentPlayerPosition.row);
                     break;
                
                 default:
@@ -77,6 +69,7 @@ namespace Lab4DungeonCrawler
         {
             Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
             Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column + addColumn, Player.CurrentPlayerPosition.row + addRow);
+            Player.numberOfMoves++;
         }
 
 
