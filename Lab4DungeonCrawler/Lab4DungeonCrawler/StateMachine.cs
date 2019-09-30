@@ -14,7 +14,7 @@
             this.dataInitializer = dataInitializer;
             playerController = dataInitializer.GetPlayerController();
             SetPlayer();
-            currentPlayerPosition = new Point(1, 1);
+            Player.CurrentPlayerPosition = new Point(1, 1);
         }
 
         private void SetPlayer()

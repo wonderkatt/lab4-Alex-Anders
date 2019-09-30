@@ -8,6 +8,13 @@ namespace Lab4DungeonCrawler
 {
     class InputManager
     {
+        private static Point targetPosition;
+        private static TileType[,] map;
+
+        public InputManager()
+        {
+           map = TileMap.GetTileMap();
+        }
 
         public static void GetInput()
         {
@@ -16,20 +23,40 @@ namespace Lab4DungeonCrawler
             switch (input.KeyChar)
             {
                 case 'w':
+                   targetPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row - 1);
+                   if (map[targetPosition.column, targetPosition.row].TileGraphic == "#")
+                    {
+                        break;
+                    }
                     Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
                     Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row - 1);
                     break;
                 case 's':
+                    targetPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row + 1);
+                    if (map[targetPosition.column, targetPosition.row].TileGraphic == "#")
+                    {
+                        break;
+                    }
                     Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
                     Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column, Player.CurrentPlayerPosition.row + 1);
                     break;
                 
                 case 'a':
+                    targetPosition = new Point(Player.CurrentPlayerPosition.column - 1, Player.CurrentPlayerPosition.row);
+                    if (map[targetPosition.column, targetPosition.row].TileGraphic == "#")
+                    {
+                        break;
+                    }
                     Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
                     Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column - 1, Player.CurrentPlayerPosition.row);
                     break;
                 
                 case 'd':
+                    targetPosition = new Point(Player.CurrentPlayerPosition.column + 1, Player.CurrentPlayerPosition.row);
+                    if (map[targetPosition.column, targetPosition.row].TileGraphic == "#")
+                    {
+                        break;
+                    }
                     Player.PreviousPlayerPosition = Player.CurrentPlayerPosition;
                     Player.CurrentPlayerPosition = new Point(Player.CurrentPlayerPosition.column + 1, Player.CurrentPlayerPosition.row);
                     break;
@@ -40,6 +67,8 @@ namespace Lab4DungeonCrawler
                     break;
             }
         }
+
+
     }
     
 }

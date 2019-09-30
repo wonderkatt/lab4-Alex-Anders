@@ -15,7 +15,7 @@ namespace Lab4DungeonCrawler
             var dataInitializer = new DataInitializer(); 
             
             var stateMachine = new StateMachine(dataInitializer);
-            Renderer.PrintOutMap(TileMap.GetTileMap());
+            Renderer.PrintOutMap(TileMap.GetTileMap(), stateMachine);
             
             //initializera map i datainitializer
             //skriv ut map i renderer

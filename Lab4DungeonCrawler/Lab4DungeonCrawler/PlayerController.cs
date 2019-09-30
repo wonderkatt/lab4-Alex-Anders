@@ -13,7 +13,7 @@ namespace Lab4DungeonCrawler
         }  
         public void MovePlayer(Point point)
         {
-            Point newPosition = new Point(Player.CurrentPlayerPosition.column + point.column, Player.CurrentPlayerPosition.row + point.row);
+            //Point newPosition = new Point(Player.CurrentPlayerPosition.column + point.column, Player.CurrentPlayerPosition.row + point.row);
 
             //StateMachine.CurrentPlayerPosition = newPosition;
         }
