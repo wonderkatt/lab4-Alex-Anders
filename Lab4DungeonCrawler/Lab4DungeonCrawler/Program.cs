@@ -8,13 +8,35 @@ namespace Lab4DungeonCrawler
 {
     class Program
     {
-        
+        public static States currentState;
+
         public static void Main(string[] args)
         {
+            
+            var gamePlayManager = new GamePlayManager();
+            switch (currentState)
+            {
+               
+                case States.StartState:
+                    var player = new Player();
+                    var tileMap = new TileMap();
+                    gamePlayManager.SetMap(GetTileMap());
+                    gamePlayManager.SetPlayer(player);
 
+                    //skapa karta
+                    break;
+                case States.GamePlayState:
+                    //gamePlayManager.Update();
+                    // Om målet nås, kör endstate
+                    break;
+                case States.EndState:
+                    //visa game over screen, välj starta om eller stänga av
+                    break;
+                
+            }
 
             //skapa statemachin
-                // starta StartState, skapar data spara i manager, kör igång nästa state
+            // starta StartState, skapar data spara i manager, kör igång nästa state
 
             // public static GameplayManager Instance, referens till det uppdaterade statet
 
@@ -22,10 +44,10 @@ namespace Lab4DungeonCrawler
 
 
 
-            
+
             var dataInitializer = new DataInitializer(); 
             
-            var gamePlayManager = new GamePlayManager(dataInitializer);
+            
             Renderer.PrintOutMap(TileMap.GetTileMap(), gamePlayManager);
             
             //initializera map i datainitializer

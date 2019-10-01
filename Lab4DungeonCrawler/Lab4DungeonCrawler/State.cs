@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    class State
+   
+    public enum States
     {
+        StartState,
+        GamePlayState,
+        EndState
     }
 }

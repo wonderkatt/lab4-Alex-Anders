@@ -34,6 +34,7 @@ namespace Lab4DungeonCrawler
         public static void RenderMap(GamePlayManager gameState)
         {
             ConsoleHandler.WriteAt(gameState.GetPlayer().Symbol, gameState.GetCurrentPlayerPosition());
+            
             ConsoleHandler.WriteAt(TileMap.GetTileMap()[Player.PreviousPlayerPosition.column, Player.PreviousPlayerPosition.row].TileGraphic, Player.PreviousPlayerPosition);
         }
     }

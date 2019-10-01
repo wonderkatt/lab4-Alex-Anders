@@ -2,24 +2,29 @@
 {
     internal class GamePlayManager
     {
-        private readonly DataInitializer dataInitializer;
+        
         private Player player;
         private static Point currentPlayerPosition;
         private PlayerController playerController;
-        
+        private char[,] map;
 
 
-        public GamePlayManager(DataInitializer dataInitializer)
+        public GamePlayManager()
         {
-            this.dataInitializer = dataInitializer;
+           
             playerController = dataInitializer.GetPlayerController();
             SetPlayer();
             Player.CurrentPlayerPosition = new Point(1, 1);
         }
 
-        private void SetPlayer()
+        public void SetMap(char[,] tileMap)
         {
-            player = dataInitializer.GetPlayer();
+            map = tileMap;
+        }
+
+        public void SetPlayer(Player newPlayer)
+        {
+            player = newPlayer;
         }
 
         public Player GetPlayer()
