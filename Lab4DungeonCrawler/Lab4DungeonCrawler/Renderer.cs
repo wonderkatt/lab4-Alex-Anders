@@ -18,9 +18,9 @@ namespace Lab4DungeonCrawler
             {
                 for (int column = 0; column < map.GetLength(1); column++)
                 {
-                    Console.WriteLine(map[row, column]);
+                    Console.Write(map[row, column]);
                 }
-                Console.WriteLine("/n");
+                Console.WriteLine();
             }
 
             //PrintPlayerStartingPosition(stateMachine);
