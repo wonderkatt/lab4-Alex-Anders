@@ -1,6 +1,6 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    internal class StateMachine
+    internal class GamePlayManager
     {
         private readonly DataInitializer dataInitializer;
         private Player player;
@@ -9,7 +9,7 @@
         
 
 
-        public StateMachine(DataInitializer dataInitializer)
+        public GamePlayManager(DataInitializer dataInitializer)
         {
             this.dataInitializer = dataInitializer;
             playerController = dataInitializer.GetPlayerController();
@@ -37,7 +37,7 @@
             currentPlayerPosition = Player.CurrentPlayerPosition;
         }
 
-        public StateMachine CreatGameState()
+        public GamePlayManager CreatGameState()
         {
             return this;
         }

@@ -11,20 +11,32 @@ namespace Lab4DungeonCrawler
         
         public static void Main(string[] args)
         {
+
+
+            //skapa statemachin
+                // starta StartState, skapar data spara i manager, kör igång nästa state
+
+            // public static GameplayManager Instance, referens till det uppdaterade statet
+
+            //gameplaymanager.GetData()
+
+
+
             
             var dataInitializer = new DataInitializer(); 
             
-            var stateMachine = new StateMachine(dataInitializer);
-            Renderer.PrintOutMap(TileMap.GetTileMap(), stateMachine);
+            var gamePlayManager = new GamePlayManager(dataInitializer);
+            Renderer.PrintOutMap(TileMap.GetTileMap(), gamePlayManager);
             
             //initializera map i datainitializer
             //skriv ut map i renderer
 
-
+            //klass för skapa karta, innehåller data
+            //
 
             while (true)
             {
-                stateMachine.Update();
+                gamePlayManager.Update();
                 //ta in input och updatera gamestate
                 //rendera nuvarande gamestate
               
