@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4DungeonCrawler", "Lab4DungeonCrawler\Lab4DungeonCrawler.csproj", "{32C888E1-B59A-46EE-A2A8-FCC9ECAB5A1A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{64C724EA-C7DD-44A5-B020-00EECC3CF975}"
+	ProjectSection(SolutionItems) = preProject
+		Lab4DungeonCrawler\GamePlayManager.cs = Lab4DungeonCrawler\GamePlayManager.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
