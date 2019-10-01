@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    class FloorTile : TileType
+    class FloorTile : TileType, IInteractable
     {
         public FloorTile()
         {
-        
-                this.TileGraphic = "-";
-
-            
-          
-           
         }
     }
 }

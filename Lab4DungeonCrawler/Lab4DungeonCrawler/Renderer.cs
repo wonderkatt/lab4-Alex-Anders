@@ -11,19 +11,19 @@ namespace Lab4DungeonCrawler
             
         }
 
-         public static void PrintOutMap(TileType[,] map, GamePlayManager stateMachine)
+         public static void PrintOutMap(char[,] map)
         {
             Console.Clear();
-            for (int column = 0; column < map.GetLength(0); column++)
+            for (int row = 0; row < map.GetLength(0); row++)
             {
-                for (int row = 0; row < map.GetLength(1); row++)
+                for (int column = 0; column < map.GetLength(1); column++)
                 {
-                    Console.Write(map[column, row].TileGraphic);
+                    Console.WriteLine(map[row, column]);
                 }
-                Console.WriteLine();
+                Console.WriteLine("/n");
             }
 
-            PrintPlayerStartingPosition(stateMachine);
+            //PrintPlayerStartingPosition(stateMachine);
         }
 
         private static void PrintPlayerStartingPosition(GamePlayManager stateMachine)
