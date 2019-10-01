@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class Door : IInteract
+    public class Door : IInteractable
     {
         private Point position;
 
