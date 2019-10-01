@@ -12,8 +12,7 @@
         public GamePlayManager()
         {
            
-            playerController = dataInitializer.GetPlayerController();
-            SetPlayer();
+          
             Player.CurrentPlayerPosition = new Point(1, 1);
         }
 
@@ -49,7 +48,7 @@
 
         public void Update()
         {
-            InputManager.GetInput();
+            //InputManager.GetInput();
             SetPlayerPosition();
             //player interaction here
             var gameState = GetGameState();

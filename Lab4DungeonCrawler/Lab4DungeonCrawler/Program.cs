@@ -20,9 +20,10 @@ namespace Lab4DungeonCrawler
                 case States.StartState:
                     var player = new Player();
                     var tileMap = new TileMap();
-                    gamePlayManager.SetMap(GetTileMap());
+                    gamePlayManager.SetMap(tileMap.GetTileMap());
                     gamePlayManager.SetPlayer(player);
-
+                    Renderer.PrintOutMap(tileMap.GetTileMap());
+                    Console.ReadKey();
                     //skapa karta
                     break;
                 case States.GamePlayState:
@@ -45,10 +46,10 @@ namespace Lab4DungeonCrawler
 
 
 
-            var dataInitializer = new DataInitializer(); 
+         //   var dataInitializer = new DataInitializer(); 
             
             
-            Renderer.PrintOutMap(TileMap.GetTileMap(), gamePlayManager);
+            
             
             //initializera map i datainitializer
             //skriv ut map i renderer
@@ -56,22 +57,22 @@ namespace Lab4DungeonCrawler
             //klass för skapa karta, innehåller data
             //
 
-            while (true)
-            {
-                gamePlayManager.Update();
-                //ta in input och updatera gamestate
-                //rendera nuvarande gamestate
-              
-
-               //statemachine.currentstate.update()
-               //{
-               //    
-               //    directinon = inputmanager.GetDirection from input()
-               //    player.move(directinon)
-               //    player.interact(Player.currentposition)
-               //    gameState = CreateGameState()
-               //    renderer.render(gameState);
-            }
+      //  while (true)
+      //  {
+      //      gamePlayManager.Update();
+      //      //ta in input och updatera gamestate
+      //      //rendera nuvarande gamestate
+      //    
+      //
+      //     //statemachine.currentstate.update()
+      //     //{
+      //     //    
+      //     //    directinon = inputmanager.GetDirection from input()
+      //     //    player.move(directinon)
+      //     //    player.interact(Player.currentposition)
+      //     //    gameState = CreateGameState()
+      //     //    renderer.render(gameState);
+      //  }
         }     
     }
 }

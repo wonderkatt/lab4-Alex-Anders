@@ -3,8 +3,6 @@ namespace Lab4DungeonCrawler
 {
     internal class Renderer
     {
-        
-
 
         public Renderer()
         {
@@ -18,12 +16,12 @@ namespace Lab4DungeonCrawler
             {
                 for (int column = 0; column < map.GetLength(1); column++)
                 {
-                    Console.WriteLine(map[row, column]);
+                    Console.Write(map[row, column]);
                 }
-                Console.WriteLine("/n");
+                Console.WriteLine();
             }
 
-            //PrintPlayerStartingPosition(stateMachine);
+            
         }
 
         private static void PrintPlayerStartingPosition(GamePlayManager stateMachine)
@@ -33,9 +31,9 @@ namespace Lab4DungeonCrawler
 
         public static void RenderMap(GamePlayManager gameState)
         {
-            ConsoleHandler.WriteAt(gameState.GetPlayer().Symbol, gameState.GetCurrentPlayerPosition());
-            
-            ConsoleHandler.WriteAt(TileMap.GetTileMap()[Player.PreviousPlayerPosition.column, Player.PreviousPlayerPosition.row].TileGraphic, Player.PreviousPlayerPosition);
+        //  ConsoleHandler.WriteAt(gameState.GetPlayer().Symbol, gameState.GetCurrentPlayerPosition());
+        //  
+        //  ConsoleHandler.WriteAt(TileMap.GetTileMap()[Player.PreviousPlayerPosition.column, Player.PreviousPlayerPosition.row].TileGraphic, Player.PreviousPlayerPosition);
         }
     }
 }
