@@ -37,7 +37,7 @@
             currentPlayerPosition = Player.CurrentPlayerPosition;
         }
 
-        public GamePlayManager CreatGameState()
+        public GamePlayManager GetGameState()
         {
             return this;
         }
@@ -47,7 +47,7 @@
             InputManager.GetInput();
             SetPlayerPosition();
             //player interaction here
-            var gameState = CreatGameState();
+            var gameState = GetGameState();
             Renderer.RenderMap(gameState);
             
 
