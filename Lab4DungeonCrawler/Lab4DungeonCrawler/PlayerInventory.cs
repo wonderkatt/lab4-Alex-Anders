@@ -26,6 +26,7 @@ namespace Lab4DungeonCrawler
         }
         public void PrintPlayerInventory()
         {
+            playerInventory = playerInventory.OrderBy(key => key).ToList();
             foreach (var item in playerInventory)
             {
                 Console.WriteLine(item);
