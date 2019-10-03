@@ -8,19 +8,50 @@ namespace Lab4DungeonCrawler
 {
     public class Player
     {
-        private string symbol = "@";
-        public static int numberOfMoves = 0;
+        private char symbol = '@';
+        public int numberOfMoves = 0;
 
         public Player()
         {
             PlayerInventory inventory = new PlayerInventory();
+            CurrentPlayerPosition = new Point(1, 1);
         }
 
-        public string Symbol { get { return symbol; } private set { } }
+        public void MovePlayer(Point point,char[,] map)
+        {
+                var targetPosition = new Point(CurrentPlayerPosition.column + point.column, CurrentPlayerPosition.row + point.row);
+            if (map[targetPosition.row,targetPosition.column] == '#')
+            {
+                return;
+            }
+            else
+            {
+                PreviousPlayerPosition = CurrentPlayerPosition;
+                CurrentPlayerPosition = targetPosition;
+                numberOfMoves++;
+            }
+           
+           
+        }
 
-        public static Point CurrentPlayerPosition { get; set; }
+        public TileType GetTileType(List<TileType> gameObjects, Point point)
+        {
+            foreach (var Tile in gameObjects)
+            {
+                if (Tile.Position.Equals(point))
+                {
+                    return Tile;
+                }
 
-        public static Point PreviousPlayerPosition { get; set; }
+            }
+            return null;
+        }
+
+        public char Symbol { get { return symbol; } private set { } }
+
+        public Point CurrentPlayerPosition { get; set; }
+
+        public Point PreviousPlayerPosition { get; set; }
        
 
        

@@ -8,7 +8,7 @@ namespace Lab4DungeonCrawler
 {
     public class DoorTile : TileType, IInteractable
     {
-        public DoorTile()
+        public DoorTile(Point point) : base(point)
         {
         }
     }

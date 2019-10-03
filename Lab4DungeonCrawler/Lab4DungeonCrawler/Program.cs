@@ -14,26 +14,37 @@ namespace Lab4DungeonCrawler
         {
             
             var gamePlayManager = new GamePlayManager();
+            while(true)
+            {
+
             switch (currentState)
             {
                
                 case States.StartState:
-                    var player = new Player();
-                    var tileMap = new TileMap();
-                    gamePlayManager.SetMap(tileMap.GetTileMap());
-                    gamePlayManager.SetPlayer(player);
-                    Renderer.PrintOutMap(tileMap.GetTileMap());
-                    Console.ReadKey();
-                    //skapa karta
+                        var player = new Player();
+                        var tileMap = new TileMap();
+                        //y är row, x är column.
+                        //gör om tilemap till en mapcreator. returnera alla object och stoppa in dom i gameplaymanager
+                        
+                        gamePlayManager.SetMap(tileMap.GetTileMap());
+                        gamePlayManager.SetPlayer(player);
+                        gamePlayManager.SetGameObjects(tileMap.GetGameObjects());
+                        Renderer.PrintOutMap(tileMap.GetTileMap(), gamePlayManager);
+                        currentState = States.GamePlayState;
+                    
                     break;
                 case States.GamePlayState:
-                    //gamePlayManager.Update();
+                    
+                        
+                   
+                    gamePlayManager.Update();
                     // Om målet nås, kör endstate
                     break;
                 case States.EndState:
                     //visa game over screen, välj starta om eller stänga av
                     break;
                 
+            }
             }
 
             //skapa statemachin

@@ -8,8 +8,10 @@ namespace Lab4DungeonCrawler
 {
     class FloorTile : TileType, IInteractable
     {
-        public FloorTile()
+        
+        public FloorTile(Point point) : base(point)
         {
+            this.Position = point;
         }
     }
 }

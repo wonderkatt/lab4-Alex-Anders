@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lab4DungeonCrawler
 {
     public class TileMap
     {
+
+        List<TileType> gameObjects = new List<TileType>();
+
         public TileMap()
         {
         }
@@ -29,7 +33,38 @@ namespace Lab4DungeonCrawler
             { '#','-','-','-','-','-','-','-','#','-','n','-','#','-','-','-','-','-','-','-','-','-','-','-','-','-','-','#','-','-','-','#','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','#' },
             { '#','-','-','-','-','-','-','-','#','-','-','-','#','-','-','-','-','-','-','-','-','-','M','-','-','-','-','D','-','-','-','#','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','#' },
             { '#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#' }
-        }; 
+        };
+        public void CreateMap()
+        {
+            Point point;
+            for (int column = 0; column < map.GetLength(0); column++)
+            {
+                for (int row = 0; row < map.GetLength(1); row++)
+                {
+                    if (map[column, row] == '#')
+                    {
+                        point = new Point(column, row);
+                        gameObjects.Add(new WallTile(point));
+                    }
+
+                    else if (map[column, row] == 'D')
+                    {
+                        point = new Point(column, row);
+                        gameObjects.Add(new DoorTile(point));
+                    }
+                    else
+                    {
+                        point = new Point(column, row);
+                        gameObjects.Add(new FloorTile(point));
+                    }
+                }
+            }
+        }
+
+        public List<TileType> GetGameObjects()
+        {
+            return gameObjects;
+        }
 
         public char[,] GetTileMap()
         {

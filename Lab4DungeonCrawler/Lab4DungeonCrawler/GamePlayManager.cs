@@ -1,58 +1,67 @@
-﻿namespace Lab4DungeonCrawler
+﻿using System.Collections.Generic;
+
+namespace Lab4DungeonCrawler
 {
-    internal class GamePlayManager
+    public class GamePlayManager
     {
         
-        private Player player;
-        private static Point currentPlayerPosition;
-        private PlayerController playerController;
-        private char[,] map;
+        public Player Player;
+        
+        public char[,] Map;
+        List<TileType> GameObjects;
+        
+        public GamePlayManager Instance { get; set; }
 
 
         public GamePlayManager()
-        {
-           
-          
-            Player.CurrentPlayerPosition = new Point(1, 1);
+        {    
         }
 
         public void SetMap(char[,] tileMap)
         {
-            map = tileMap;
+            Map = tileMap;
+        }
+
+        public void SetGameObjects(List<TileType> gameObjects)
+        {
+            GameObjects = gameObjects;
         }
 
         public void SetPlayer(Player newPlayer)
         {
-            player = newPlayer;
+            Player = newPlayer;
         }
 
         public Player GetPlayer()
         {
-            return player;
+            return Player;
         }
 
-        public Point GetCurrentPlayerPosition()
-        {
-            return currentPlayerPosition;
-        }
+       // public Point GetCurrentPlayerPosition()
+       // {
+       //     return CurrentPlayerPosition;
+       // }
+       //
+       // public void SetPlayerPosition()
+       // {
+       //     CurrentPlayerPosition = Player.CurrentPlayerPosition;
+       // }
 
-        public static void SetPlayerPosition()
+        public void GetGameState()
         {
-            currentPlayerPosition = Player.CurrentPlayerPosition;
-        }
-
-        public GamePlayManager GetGameState()
-        {
-            return this;
+            Instance = this; 
         }
 
         public void Update()
         {
-            //InputManager.GetInput();
-            SetPlayerPosition();
+            var direction = InputManager.GetInput();
+
+            Player.MovePlayer(direction, Map);
+            GetGameState();
+           // SetPlayerPosition();
             //player interaction here
-            var gameState = GetGameState();
-            Renderer.RenderMap(gameState);
+            
+            Renderer.RenderMap(Instance);
             
 
         }
