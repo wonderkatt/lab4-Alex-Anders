@@ -33,7 +33,6 @@ namespace Lab4DungeonCrawler
                     ConsoleHandler.WriteAt(Tile.Symbol, Tile.Position);
                 }
             }
-           // ConsoleHandler.WriteAt('-', gameState.GetPlayer().PreviousPlayerPosition);
         }
     }
 }

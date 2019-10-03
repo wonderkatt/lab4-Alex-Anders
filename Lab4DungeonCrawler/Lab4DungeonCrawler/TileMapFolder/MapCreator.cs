@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Lab4DungeonCrawler
 {
-    public class TileMap
+    public class MapCreator
     {
 
         List<TileType> gameObjects = new List<TileType>();
 
-        public TileMap()
+        public MapCreator()
         {
         }
 
