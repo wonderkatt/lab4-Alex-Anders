@@ -17,7 +17,7 @@ namespace Lab4DungeonCrawler
 
         public static void WriteAt(char s, Point point)
         {
-            Console.SetCursorPosition(point.column,point.row);
+            Console.SetCursorPosition(point.row,point.column);
             Console.Write(s);
         }
         

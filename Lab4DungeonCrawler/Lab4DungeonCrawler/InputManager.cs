@@ -8,8 +8,8 @@ namespace Lab4DungeonCrawler
 {
     class InputManager
     {
-      private static Point targetPosition;
-      private static TileType[,] map;
+      
+     
       
       public InputManager()
       {
@@ -23,17 +23,17 @@ namespace Lab4DungeonCrawler
           switch (input.KeyChar)
           {
               case 'w':
-                    point = new Point(0, -1);
+                    point = new Point(-1, 0);
                     return point;
                   
               case 's':
-                    point = new Point(0, 1);
+                    point = new Point(1, 0);
                     return point;
               case 'a':
-                    point = new Point(-1,0);
+                    point = new Point(0, -1);
                     return point;
               case 'd':
-                    point = new Point(1,0);
+                    point = new Point(0, 1);
                     return point;
               default:
                     point = new Point(0, 0);

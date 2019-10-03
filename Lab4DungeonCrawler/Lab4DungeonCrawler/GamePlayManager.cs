@@ -5,9 +5,7 @@ namespace Lab4DungeonCrawler
     public class GamePlayManager
     {
         
-        public Player Player;
-        
-        public char[,] Map;
+        public Player Player; 
         List<TileType> GameObjects;
         
         public GamePlayManager Instance { get; set; }
@@ -17,9 +15,9 @@ namespace Lab4DungeonCrawler
         {    
         }
 
-        public void SetMap(char[,] tileMap)
+       public List<TileType> GetGameObjects()
         {
-            Map = tileMap;
+            return GameObjects;
         }
 
         public void SetGameObjects(List<TileType> gameObjects)
@@ -37,16 +35,6 @@ namespace Lab4DungeonCrawler
             return Player;
         }
 
-       // public Point GetCurrentPlayerPosition()
-       // {
-       //     return CurrentPlayerPosition;
-       // }
-       //
-       // public void SetPlayerPosition()
-       // {
-       //     CurrentPlayerPosition = Player.CurrentPlayerPosition;
-       // }
-
         public void GetGameState()
         {
             Instance = this; 
@@ -56,10 +44,11 @@ namespace Lab4DungeonCrawler
         {
             var direction = InputManager.GetInput();
 
-            Player.MovePlayer(direction, Map);
+            Player.MovePlayer(direction, GameObjects);
+            //player interaction here
+
             GetGameState();
            // SetPlayerPosition();
-            //player interaction here
             
             Renderer.RenderMap(Instance);
             

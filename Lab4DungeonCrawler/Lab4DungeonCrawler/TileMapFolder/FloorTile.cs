@@ -12,6 +12,8 @@ namespace Lab4DungeonCrawler
         public FloorTile(Point point) : base(point)
         {
             this.Position = point;
+
+            this.Symbol = '-';
         }
     }
 }

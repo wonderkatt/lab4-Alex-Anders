@@ -34,41 +34,32 @@ namespace Lab4DungeonCrawler
             { '#','-','-','-','-','-','-','-','#','-','-','-','#','-','-','-','-','-','-','-','-','-','M','-','-','-','-','D','-','-','-','#','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','#' },
             { '#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#' }
         };
-        public void CreateMap()
+        public List<TileType> CreateMap()
         {
             Point point;
-            for (int column = 0; column < map.GetLength(0); column++)
+            for (int y = 0; y < map.GetLength(1); y++)
             {
-                for (int row = 0; row < map.GetLength(1); row++)
+                for (int x = 0; x < map.GetLength(0); x++)
                 {
-                    if (map[column, row] == '#')
+                    if (map[x, y] == '#')
                     {
-                        point = new Point(column, row);
+                        point = new Point(x, y);
                         gameObjects.Add(new WallTile(point));
                     }
 
-                    else if (map[column, row] == 'D')
+                    else if (map[x, y] == 'D')
                     {
-                        point = new Point(column, row);
+                        point = new Point(x, y);
                         gameObjects.Add(new DoorTile(point));
                     }
                     else
                     {
-                        point = new Point(column, row);
+                        point = new Point(x, y);
                         gameObjects.Add(new FloorTile(point));
                     }
                 }
             }
-        }
-
-        public List<TileType> GetGameObjects()
-        {
             return gameObjects;
-        }
-
-        public char[,] GetTileMap()
-        {
-            return map;
         }
     }
 }

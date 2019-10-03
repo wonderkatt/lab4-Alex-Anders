@@ -10,6 +10,8 @@ namespace Lab4DungeonCrawler
     {
         public WallTile(Point point) : base(point) 
         {
+            this.Position = point;
+            this.Symbol = '#';
         }
     }
 }

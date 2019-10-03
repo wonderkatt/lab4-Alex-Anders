@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Lab4DungeonCrawler
 {
     internal class Renderer
@@ -9,17 +11,13 @@ namespace Lab4DungeonCrawler
             
         }
 
-         public static void PrintOutMap(char[,] map, GamePlayManager gamePlayManager)
+         public static void PrintOutMap(GamePlayManager gamePlayManager)
         {
-            Console.Clear();
-            for (int column = 0; column < map.GetLength(0); column++)
+            foreach (var Tile in gamePlayManager.GetGameObjects())
             {
-                for (int row = 0; row < map.GetLength(1); row++)
-                {
-                    Console.Write(map[column, row]);
-                }
-                Console.WriteLine();
+                ConsoleHandler.WriteAt(Tile.Symbol, Tile.Position);
             }
+            
             ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition);
 
         }
@@ -28,7 +26,14 @@ namespace Lab4DungeonCrawler
         {
           ConsoleHandler.WriteAt(gameState.GetPlayer().Symbol, gameState.GetPlayer().CurrentPlayerPosition);
 
-            ConsoleHandler.WriteAt('-', gameState.GetPlayer().PreviousPlayerPosition);
+            foreach (var Tile in gameState.GetGameObjects())
+            {
+                if(Tile.Position.Equals(gameState.GetPlayer().PreviousPlayerPosition))
+                {
+                    ConsoleHandler.WriteAt(Tile.Symbol, Tile.Position);
+                }
+            }
+           // ConsoleHandler.WriteAt('-', gameState.GetPlayer().PreviousPlayerPosition);
         }
     }
 }

@@ -17,21 +17,19 @@ namespace Lab4DungeonCrawler
             CurrentPlayerPosition = new Point(1, 1);
         }
 
-        public void MovePlayer(Point point,char[,] map)
+        public void MovePlayer(Point point, List<TileType> gameObjects)
         {
-                var targetPosition = new Point(CurrentPlayerPosition.column + point.column, CurrentPlayerPosition.row + point.row);
-            if (map[targetPosition.row,targetPosition.column] == '#')
+            var targetPosition = new Point(CurrentPlayerPosition.column + point.column, CurrentPlayerPosition.row + point.row);
+
+            foreach (var Tile in gameObjects)
             {
-                return;
+                if(Tile.Position.Equals(targetPosition) && Tile is WallTile)
+                {
+                    return;
+                }
             }
-            else
-            {
-                PreviousPlayerPosition = CurrentPlayerPosition;
-                CurrentPlayerPosition = targetPosition;
-                numberOfMoves++;
-            }
-           
-           
+            PreviousPlayerPosition = CurrentPlayerPosition;
+            CurrentPlayerPosition = targetPosition;
         }
 
         public TileType GetTileType(List<TileType> gameObjects, Point point)
