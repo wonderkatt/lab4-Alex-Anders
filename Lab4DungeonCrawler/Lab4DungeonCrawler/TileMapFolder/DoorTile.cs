@@ -8,10 +8,11 @@ namespace Lab4DungeonCrawler
 {
     public class DoorTile : TileType, IInteractable
     {
-        public DoorTile(Point point) : base(point)
+        public DoorTile(Point point, bool explored) : base(point, explored)
         {
-            this.Position = point;
-            this.Symbol = 'D';
+            IsExplored = explored;
+            Position = point;
+            Symbol = 'D';
         }
     }
 }

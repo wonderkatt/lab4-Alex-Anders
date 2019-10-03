@@ -61,7 +61,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TileMapFolder\TileType.cs" />
-    <Compile Include="TileMapFolder\TileMap.cs" />
+    <Compile Include="TileMapFolder\MapCreator.cs" />
     <Compile Include="TileMapFolder\WallTile.cs" />
   </ItemGroup>
   <ItemGroup>

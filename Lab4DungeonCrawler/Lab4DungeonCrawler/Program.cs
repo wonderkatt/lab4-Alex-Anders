@@ -23,10 +23,6 @@ namespace Lab4DungeonCrawler
                 case States.StartState:
                         var player = new Player();
                         var mapCreator = new MapCreator();
-                        //y är row, x är column.
-                        //gör om tilemap till en mapcreator. returnera alla object och stoppa in dom i gameplaymanager
-                        
-                        
                         gamePlayManager.SetPlayer(player);
                         gamePlayManager.SetGameObjects(mapCreator.CreateMap());
                         Renderer.PrintOutMap(gamePlayManager);

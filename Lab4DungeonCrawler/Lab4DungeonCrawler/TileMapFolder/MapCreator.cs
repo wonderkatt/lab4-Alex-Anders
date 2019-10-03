@@ -41,21 +41,25 @@ namespace Lab4DungeonCrawler
             {
                 for (int x = 0; x < map.GetLength(0); x++)
                 {
-                    if (map[x, y] == '#')
+                    if (map[x, y] == '#' && x == 0 || y == 0 || x == map.GetLength(0)-1 || y == map.GetLength(1)-1)
                     {
                         point = new Point(x, y);
-                        gameObjects.Add(new WallTile(point));
+                        gameObjects.Add(new WallTile(point,true ));
                     }
-
+                    else if (map[x,y] == '#')
+                    {
+                        point = new Point(x, y);
+                        gameObjects.Add(new WallTile(point, false));
+                    }
                     else if (map[x, y] == 'D')
                     {
                         point = new Point(x, y);
-                        gameObjects.Add(new DoorTile(point));
+                        gameObjects.Add(new DoorTile(point, false));
                     }
                     else
                     {
                         point = new Point(x, y);
-                        gameObjects.Add(new FloorTile(point));
+                        gameObjects.Add(new FloorTile(point,false));
                     }
                 }
             }
