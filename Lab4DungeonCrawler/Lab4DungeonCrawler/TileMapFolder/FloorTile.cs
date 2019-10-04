@@ -8,7 +8,6 @@ namespace Lab4DungeonCrawler
 {
     class FloorTile : TileType, IInteractable
     {
-        
         public FloorTile(Point point, bool explored) : base(point, explored)
         {
             Position = point;
