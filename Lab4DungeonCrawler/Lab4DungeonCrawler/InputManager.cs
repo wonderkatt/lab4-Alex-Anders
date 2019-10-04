@@ -8,42 +8,37 @@ namespace Lab4DungeonCrawler
 {
     class InputManager
     {
-      
-     
-      
-      public InputManager()
-      {
+        public InputManager()
+        {
         // map = TileMap.GetTileMap();
-      }
+        }
       
-      public static Point GetInput()
-      {
-          var input = Console.ReadKey(true);
+        public static Point GetInput()
+        {
+            var input = Console.ReadKey(true);
             Point point;
-          switch (input.KeyChar)
-          {
-              case 'w':
+            switch (input.KeyChar)
+            {
+                case 'w':
                     point = new Point(-1, 0);
                     return point;
-                  
-              case 's':
+                case 's':
                     point = new Point(1, 0);
                     return point;
-              case 'a':
+                case 'a':
                     point = new Point(0, -1);
                     return point;
-              case 'd':
+                case 'd':
                     point = new Point(0, 1);
                     return point;
-              default:
+                default:
+                    if (input.Key == ConsoleKey.Escape)
+                    {
+                        System.Environment.Exit(0);
+                    }
                     point = new Point(0, 0);
                     return point;
-          }
-      }
-      
-    
-
-
+            }
+        }
     }
-    
 }

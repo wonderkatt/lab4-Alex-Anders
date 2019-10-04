@@ -15,10 +15,12 @@ namespace Lab4DungeonCrawler
         {
         }
 
-        public static void WriteAt(char s, Point point)
+        public static void WriteAt(char s, Point point, ConsoleColor colour = ConsoleColor.White)
         {
-            Console.SetCursorPosition(point.row,point.column);
+            Console.SetCursorPosition(point.column,point.row);
+            Console.ForegroundColor = colour;
             Console.Write(s);
+            Console.ResetColor();
         }
         
        

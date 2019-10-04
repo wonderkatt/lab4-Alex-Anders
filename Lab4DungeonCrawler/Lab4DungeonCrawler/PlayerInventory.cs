@@ -26,12 +26,13 @@ namespace Lab4DungeonCrawler
         }
         public void PrintPlayerInventory()
         {
-            for (int i = 0; i < playerInventory.Count; i++)
+            playerInventory = playerInventory.OrderBy(key => key).ToList();
+            foreach (var item in playerInventory)
             {
-                Console.WriteLine(playerInventory[i]);
+                Console.WriteLine(item);
             }
         }
-        public bool CheckItemInInventory(KeyType key)
+        public bool IsItemInInventory(KeyType key)
         {
             if (playerInventory.Contains(key))
             {

@@ -21,31 +21,65 @@ namespace Lab4DungeonCrawler
                 }
             }
             
-            ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition);
+            ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition, ConsoleColor.Gray);
 
         }
 
         public static void RenderMap(GamePlayManager gamePlayManager)
         {
-          ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition);
+            ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition, ConsoleColor.Gray);
             Point point;
             TileType tempTile;
-            for (int i = gamePlayManager.GetPlayer().CurrentPlayerPosition.column-1; i < gamePlayManager.GetPlayer().CurrentPlayerPosition.column+2; i++)
+            for (int x = gamePlayManager.GetPlayer().CurrentPlayerPosition.row-1; x < gamePlayManager.GetPlayer().CurrentPlayerPosition.row+2; x++)
             {
-                for (int j = gamePlayManager.GetPlayer().CurrentPlayerPosition.row -1; j < gamePlayManager.GetPlayer().CurrentPlayerPosition.row + 2; j++)
+                for (int y = gamePlayManager.GetPlayer().CurrentPlayerPosition.column -1; y < gamePlayManager.GetPlayer().CurrentPlayerPosition.column + 2; y++)
                 {
-                    if(i != gamePlayManager.GetPlayer().CurrentPlayerPosition.column || j != gamePlayManager.GetPlayer().CurrentPlayerPosition.row)
+                    if(x != gamePlayManager.GetPlayer().CurrentPlayerPosition.row || y != gamePlayManager.GetPlayer().CurrentPlayerPosition.column)
                     {
-
-                    point = new Point(i, j);
-                    tempTile = GetTileAtPoint(point, gamePlayManager);
-                    ConsoleHandler.WriteAt(tempTile.Symbol, tempTile.Position);
-                    tempTile.IsExplored = true;
+                        point = new Point(x, y);
+                        tempTile = GetTileAtPoint(point, gamePlayManager);
+                        ConsoleHandler.WriteAt(tempTile.Symbol, point);
+                        tempTile.IsExplored = true;
+                        foreach (var door in gamePlayManager.GetDoorObjects())
+                        {
+                            if (point.Equals(door.Position))
+                            {
+                                ConsoleHandler.WriteAt(door.Symbol, point, door.Colour);
+                            }
+                        }
+                        foreach (var key in gamePlayManager.GetKeyObjects())
+                        {
+                            if (point.Equals(key.Position))
+                            {
+                                ConsoleHandler.WriteAt(key.Symbol, point, key.Colour);
+                            }
+                        }
+                        foreach (var monster in gamePlayManager.GetMonsterObjects())
+                        {
+                            if (point.Equals(monster.Position))
+                            {
+                                ConsoleHandler.WriteAt(monster.Symbol, point, ConsoleColor.Green);
+                            }
+                        }
                     }
                 }
             }
             tempTile = GetTileAtPoint(gamePlayManager.GetPlayer().PreviousPlayerPosition, gamePlayManager);
             ConsoleHandler.WriteAt(tempTile.Symbol, tempTile.Position);
+            foreach (var door in gamePlayManager.GetDoorObjects())
+            {
+                if (tempTile.Position.Equals(door.Position))
+                {
+                    ConsoleHandler.WriteAt(door.Symbol, tempTile.Position, door.Colour);
+                }
+            }
+            foreach (var monster in gamePlayManager.GetMonsterObjects())
+            {
+                if (tempTile.Position.Equals(monster.Position))
+                {
+                    ConsoleHandler.WriteAt(monster.Symbol, tempTile.Position, ConsoleColor.Green);
+                }
+            }
         }
 
         public static TileType GetTileAtPoint(Point point, GamePlayManager gamePlayManager)
@@ -57,6 +91,7 @@ namespace Lab4DungeonCrawler
                     return Tile;
                 }
             }
+
             return null;
         }
 
