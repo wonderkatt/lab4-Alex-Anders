@@ -9,7 +9,7 @@ namespace Lab4DungeonCrawler
     public class DataInitializer
     {
         private Player player;
-        private TileMap tileMap;
+        private MapCreator tileMap;
         private PlayerController playerController;
         private ConsoleHandler consoleHandler;
         private InputManager inputManager;
@@ -18,7 +18,7 @@ namespace Lab4DungeonCrawler
         public DataInitializer()
         {
             player = new Player();
-            tileMap = new TileMap();
+            tileMap = new MapCreator();
             playerController = new PlayerController();
             consoleHandler = new ConsoleHandler();
             inputManager = new InputManager();
@@ -37,7 +37,7 @@ namespace Lab4DungeonCrawler
             return playerController;
         }
         
-        public TileMap GetMap()
+        public MapCreator GetMap()
         {
             return tileMap;
         }

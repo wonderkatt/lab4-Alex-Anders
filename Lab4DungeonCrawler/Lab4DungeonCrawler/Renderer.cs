@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Lab4DungeonCrawler
 {
     internal class Renderer
@@ -9,26 +11,55 @@ namespace Lab4DungeonCrawler
             
         }
 
-         public static void PrintOutMap(char[,] map, GamePlayManager gamePlayManager)
+         public static void PrintOutMap(GamePlayManager gamePlayManager)
         {
-            Console.Clear();
-            for (int column = 0; column < map.GetLength(0); column++)
+            foreach (var Tile in gamePlayManager.GetGameObjects())
             {
-                for (int row = 0; row < map.GetLength(1); row++)
+                if (Tile.IsExplored == true)
                 {
-                    Console.Write(map[column, row]);
+                ConsoleHandler.WriteAt(Tile.Symbol, Tile.Position);
                 }
-                Console.WriteLine();
             }
+            
             ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition);
 
         }
 
-        public static void RenderMap(GamePlayManager gameState)
+        public static void RenderMap(GamePlayManager gamePlayManager)
         {
-          ConsoleHandler.WriteAt(gameState.GetPlayer().Symbol, gameState.GetPlayer().CurrentPlayerPosition);
+          ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition);
+            Point point;
+            TileType tempTile;
+            for (int i = gamePlayManager.GetPlayer().CurrentPlayerPosition.column-1; i < gamePlayManager.GetPlayer().CurrentPlayerPosition.column+2; i++)
+            {
+                for (int j = gamePlayManager.GetPlayer().CurrentPlayerPosition.row -1; j < gamePlayManager.GetPlayer().CurrentPlayerPosition.row + 2; j++)
+                {
+                    if(i != gamePlayManager.GetPlayer().CurrentPlayerPosition.column || j != gamePlayManager.GetPlayer().CurrentPlayerPosition.row)
+                    {
 
-            ConsoleHandler.WriteAt('-', gameState.GetPlayer().PreviousPlayerPosition);
+                    point = new Point(i, j);
+                    tempTile = GetTileAtPoint(point, gamePlayManager);
+                    ConsoleHandler.WriteAt(tempTile.Symbol, tempTile.Position);
+                    tempTile.IsExplored = true;
+                    }
+                }
+            }
+            tempTile = GetTileAtPoint(gamePlayManager.GetPlayer().PreviousPlayerPosition, gamePlayManager);
+            ConsoleHandler.WriteAt(tempTile.Symbol, tempTile.Position);
         }
+
+        public static TileType GetTileAtPoint(Point point, GamePlayManager gamePlayManager)
+        {
+            foreach (var Tile in gamePlayManager.GetGameObjects())
+            {
+                if (Tile.Position.Equals(point))
+                {
+                    return Tile;
+                }
+            }
+            return null;
+        }
+
+       
     }
 }

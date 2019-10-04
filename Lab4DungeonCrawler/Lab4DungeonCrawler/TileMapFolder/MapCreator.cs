@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Lab4DungeonCrawler
 {
-    public class TileMap
+    public class MapCreator
     {
 
         List<TileType> gameObjects = new List<TileType>();
 
-        public TileMap()
+        public MapCreator()
         {
         }
 
@@ -34,41 +34,36 @@ namespace Lab4DungeonCrawler
             { '#','-','-','-','-','-','-','-','#','-','-','-','#','-','-','-','-','-','-','-','-','-','M','-','-','-','-','D','-','-','-','#','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','#' },
             { '#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#' }
         };
-        public void CreateMap()
+        public List<TileType> CreateMap()
         {
             Point point;
-            for (int column = 0; column < map.GetLength(0); column++)
+            for (int y = 0; y < map.GetLength(1); y++)
             {
-                for (int row = 0; row < map.GetLength(1); row++)
+                for (int x = 0; x < map.GetLength(0); x++)
                 {
-                    if (map[column, row] == '#')
+                    if (map[x, y] == '#' && x == 0 || y == 0 || x == map.GetLength(0)-1 || y == map.GetLength(1)-1)
                     {
-                        point = new Point(column, row);
-                        gameObjects.Add(new WallTile(point));
+                        point = new Point(x, y);
+                        gameObjects.Add(new WallTile(point,true ));
                     }
-
-                    else if (map[column, row] == 'D')
+                    else if (map[x,y] == '#')
                     {
-                        point = new Point(column, row);
-                        gameObjects.Add(new DoorTile(point));
+                        point = new Point(x, y);
+                        gameObjects.Add(new WallTile(point, false));
+                    }
+                    else if (map[x, y] == 'D')
+                    {
+                        point = new Point(x, y);
+                        gameObjects.Add(new DoorTile(point, false));
                     }
                     else
                     {
-                        point = new Point(column, row);
-                        gameObjects.Add(new FloorTile(point));
+                        point = new Point(x, y);
+                        gameObjects.Add(new FloorTile(point,false));
                     }
                 }
             }
-        }
-
-        public List<TileType> GetGameObjects()
-        {
             return gameObjects;
-        }
-
-        public char[,] GetTileMap()
-        {
-            return map;
         }
     }
 }
