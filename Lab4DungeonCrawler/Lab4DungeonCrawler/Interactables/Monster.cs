@@ -15,10 +15,11 @@ namespace Lab4DungeonCrawler
         public Monster(int x, int y)
         {
             Position = new Point(x, y);
+            Symbol = 'M';
         }
 
         public Point Position { get; set; }
-        public char Symbol { get { return 'M'; } }
+        public char Symbol { get; set; }
 
         public List<Monster> CreateMonsters()
         {

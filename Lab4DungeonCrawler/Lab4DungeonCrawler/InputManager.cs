@@ -8,7 +8,7 @@ namespace Lab4DungeonCrawler
 {
     class InputManager
     {
-<<<<<<< HEAD
+
       
      
       
@@ -16,12 +16,6 @@ namespace Lab4DungeonCrawler
       {
         
       }
-=======
-        public InputManager()
-        {
-        // map = TileMap.GetTileMap();
-        }
->>>>>>> f02851ba148617507f5b206bc1ff60a998939e1c
       
         public static Point GetInput()
         {

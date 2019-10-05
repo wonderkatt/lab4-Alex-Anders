@@ -18,11 +18,12 @@ namespace Lab4DungeonCrawler
         {
             Position = new Point(x, y);
             Colour = colour;
+            Symbol = 'D';
         }
 
         public Point Position { get; set; }
         public ConsoleColor Colour { get; set; }
-        public char Symbol { get { return 'D'; } }
+        public char Symbol { get; set; }
 
         public List<Door> CreateDoors()
         {
