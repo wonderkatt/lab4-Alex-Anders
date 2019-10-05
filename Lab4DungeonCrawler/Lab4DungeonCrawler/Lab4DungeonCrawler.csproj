@@ -60,6 +60,7 @@
     <Compile Include="TileMapFolder\FloorTile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TileMapFolder\TagTile.cs" />
     <Compile Include="TileMapFolder\TileType.cs" />
     <Compile Include="TileMapFolder\MapCreator.cs" />
     <Compile Include="TileMapFolder\WallTile.cs" />
