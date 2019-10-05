@@ -13,7 +13,7 @@ namespace Lab4DungeonCrawler
       
       public InputManager()
       {
-        // map = TileMap.GetTileMap();
+        
       }
       
       public static Point GetInput()

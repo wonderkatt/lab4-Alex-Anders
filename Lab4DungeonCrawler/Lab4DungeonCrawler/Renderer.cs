@@ -27,14 +27,17 @@ namespace Lab4DungeonCrawler
 
         public static void RenderMap(GamePlayManager gamePlayManager)
         {
-          ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition);
+            Point currentPlayerPosition = gamePlayManager.GetPlayer().CurrentPlayerPosition;
+            Point previousPlayerPosition = gamePlayManager.GetPlayer().PreviousPlayerPosition;
+
+          ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, currentPlayerPosition);
             Point point;
             TileType tempTile;
-            for (int i = gamePlayManager.GetPlayer().CurrentPlayerPosition.column-1; i < gamePlayManager.GetPlayer().CurrentPlayerPosition.column+2; i++)
+            for (int i = currentPlayerPosition.column-1; i < currentPlayerPosition.column+2; i++)
             {
-                for (int j = gamePlayManager.GetPlayer().CurrentPlayerPosition.row -1; j < gamePlayManager.GetPlayer().CurrentPlayerPosition.row + 2; j++)
+                for (int j = currentPlayerPosition.row -1; j < currentPlayerPosition.row + 2; j++)
                 {
-                    if(i != gamePlayManager.GetPlayer().CurrentPlayerPosition.column || j != gamePlayManager.GetPlayer().CurrentPlayerPosition.row)
+                    if(i != currentPlayerPosition.column || j != currentPlayerPosition.row)
                     {
 
                     point = new Point(i, j);
@@ -44,7 +47,7 @@ namespace Lab4DungeonCrawler
                     }
                 }
             }
-            tempTile = GetTileAtPoint(gamePlayManager.GetPlayer().PreviousPlayerPosition, gamePlayManager);
+            tempTile = GetTileAtPoint(previousPlayerPosition, gamePlayManager);
             ConsoleHandler.WriteAt(tempTile.Symbol, tempTile.Position);
         }
 
