@@ -17,13 +17,13 @@ namespace Lab4DungeonCrawler
         public Key(int x, int y, ConsoleColor colour, int numberOfUsesLeft)
         {
             Position = new Point(x, y);
-            Colour = colour;
+            Color = colour;
             NumberOfUsesLeft = numberOfUsesLeft;
             Symbol = 'k';
         }
 
         public Point Position { get; set; }
-        public ConsoleColor Colour { get; set; }
+        public ConsoleColor Color { get; set; }
         public int NumberOfUsesLeft { get; }
         public char Symbol { get; set; }
 

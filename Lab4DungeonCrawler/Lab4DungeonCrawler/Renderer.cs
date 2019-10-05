@@ -41,48 +41,32 @@ namespace Lab4DungeonCrawler
                     {
                         point = new Point(row, column);
                         tempTile = GetTileAtPoint(point, gamePlayManager);
+                        if(tempTile.Key != null)
+                        {
+                            ConsoleHandler.WriteAt(tempTile.Key.Symbol, point, tempTile.Key.Color);
+                            tempTile.IsExplored = true;
+                        }
+                        else if(tempTile.Monster != null)
+                        {
+                            ConsoleHandler.WriteAt(tempTile.Monster.Symbol, point, tempTile.Monster.Color);
+                            tempTile.IsExplored = true;
+                        }
+                        else if(tempTile.Door != null)
+                        {
+                            ConsoleHandler.WriteAt(tempTile.Door.Symbol, point, tempTile.Door.Color);
+                            tempTile.IsExplored = true;
+                        }
+                        else
+                        { 
                         ConsoleHandler.WriteAt(tempTile.Symbol, point);
                         tempTile.IsExplored = true;
-                        foreach (var door in gamePlayManager.GetDoorObjects())
-                        {
-                            if (point.Equals(door.Position))
-                            {
-                                ConsoleHandler.WriteAt(door.Symbol, point, door.Colour);
-                            }
-                        }
-                        foreach (var key in gamePlayManager.GetKeyObjects())
-                        {
-                            if (point.Equals(key.Position))
-                            {
-                                ConsoleHandler.WriteAt(key.Symbol, point, key.Colour);
-                            }
-                        }
-                        foreach (var monster in gamePlayManager.GetMonsterObjects())
-                        {
-                            if (point.Equals(monster.Position))
-                            {
-                                ConsoleHandler.WriteAt(monster.Symbol, point, monster.Color);
-                            }
                         }
                     }
                 }
             }
             tempTile = GetTileAtPoint(previousPlayerPosition, gamePlayManager);
             ConsoleHandler.WriteAt(tempTile.Symbol, tempTile.Position);
-            foreach (var door in gamePlayManager.GetDoorObjects())
-            {
-                if (tempTile.Position.Equals(door.Position))
-                {
-                    ConsoleHandler.WriteAt(door.Symbol, tempTile.Position, door.Colour);
-                }
-            }
-            foreach (var monster in gamePlayManager.GetMonsterObjects())
-            {
-                if (tempTile.Position.Equals(monster.Position))
-                {
-                    ConsoleHandler.WriteAt(monster.Symbol, tempTile.Position, ConsoleColor.Green);
-                }
-            }
+           
         }
 
       
