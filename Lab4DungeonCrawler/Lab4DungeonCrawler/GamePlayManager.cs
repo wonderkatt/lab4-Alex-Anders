@@ -7,9 +7,7 @@ namespace Lab4DungeonCrawler
         
         public Player Player; 
         List<TileType> GameObjects;
-        List<Door> DoorObjects;
-        List<Key> KeyObjects;
-        List<Monster> MonsterObjects;
+     
 
         public GamePlayManager Instance { get; set; }
 
@@ -28,30 +26,6 @@ namespace Lab4DungeonCrawler
             GameObjects = gameObjects;
         }
 
-        public List<Door> GetDoorObjects()
-        {
-            return DoorObjects;
-        }
-        public void SetDoorObjects(List<Door> doorObjects)
-        {
-            DoorObjects = doorObjects;
-        }
-        public List<Key> GetKeyObjects()
-        {
-            return KeyObjects;
-        }
-        public void SetKeyObjects(List<Key> keyObjects)
-        {
-            KeyObjects = keyObjects;
-        }
-        public List<Monster> GetMonsterObjects()
-        {
-            return MonsterObjects;
-        }
-        public void SetMonsterObjects(List<Monster> monsterObjects)
-        {
-            MonsterObjects = monsterObjects;
-        }
         public void SetPlayer(Player newPlayer)
         {
             Player = newPlayer;

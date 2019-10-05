@@ -25,18 +25,6 @@ namespace Lab4DungeonCrawler
         public ConsoleColor Colour { get; set; }
         public char Symbol { get; set; }
 
-        public List<Door> CreateDoors()
-        {
-            List<Door> doors = new List<Door>
-            {
-                new Door(10, 8, ConsoleColor.Red),
-                new Door(9, 19, ConsoleColor.Yellow),
-                new Door(15, 27, ConsoleColor.Yellow),
-                new Door(13, 31, ConsoleColor.Cyan),
-                new Door(5, 31, ConsoleColor.Magenta)
-            };
-
-            return doors;
-        }
+        
     }
 }

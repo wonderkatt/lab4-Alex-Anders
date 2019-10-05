@@ -61,7 +61,7 @@ namespace Lab4DungeonCrawler
                         {
                             if (point.Equals(monster.Position))
                             {
-                                ConsoleHandler.WriteAt(monster.Symbol, point, ConsoleColor.Green);
+                                ConsoleHandler.WriteAt(monster.Symbol, point, monster.Color);
                             }
                         }
                     }

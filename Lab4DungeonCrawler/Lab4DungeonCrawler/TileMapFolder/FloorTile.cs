@@ -8,11 +8,14 @@ namespace Lab4DungeonCrawler
 {
     class FloorTile : TileType
     {
-        public FloorTile(Point point, bool explored) : base(point, explored)
+        public FloorTile(Point point, bool explored, Monster monster, Key key, Door door) : base (point, explored)
         {
             Position = point;
             IsExplored = explored;
             Symbol = '-';
+            Monster = monster;
+            Key = key;
+            Door = door;
         }
     }
 }

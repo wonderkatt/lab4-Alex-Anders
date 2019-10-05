@@ -23,16 +23,14 @@ namespace Lab4DungeonCrawler
                     case States.StartState:
                             var player = new Player();
                             var playerInventory = new PlayerInventory();
-                            var mapCreator = new MapCreator();
-                            var doorCreator = new Door();
-                            var keyCreator = new Key();
-                            var monsterCreator = new Monster();
+                            var interActableObjectCreator = new InteractableObjectsCreator();
+                            var mapCreator = new MapCreator(interActableObjectCreator);
+                            
+                            
                             gamePlayManager.SetPlayer(player);
                             gamePlayManager.SetGameObjects(mapCreator.CreateMap());
                             Renderer.PrintOutMap(gamePlayManager);
-                            gamePlayManager.SetDoorObjects(doorCreator.CreateDoors());
-                            gamePlayManager.SetKeyObjects(keyCreator.CreateKeys());
-                            gamePlayManager.SetMonsterObjects(monsterCreator.CreateMonsters());
+                         
                             currentState = States.GamePlayState;
                         
                         break;

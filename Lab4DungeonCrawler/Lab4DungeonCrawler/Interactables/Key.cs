@@ -14,28 +14,18 @@ namespace Lab4DungeonCrawler
         {
 
         }
-        public Key(int x, int y, ConsoleColor colour)
+        public Key(int x, int y, ConsoleColor colour, int numberOfUsesLeft)
         {
             Position = new Point(x, y);
             Colour = colour;
+            NumberOfUsesLeft = numberOfUsesLeft;
             Symbol = 'k';
         }
 
         public Point Position { get; set; }
         public ConsoleColor Colour { get; set; }
+        public int NumberOfUsesLeft { get; }
         public char Symbol { get; set; }
 
-        public List<Key> CreateKeys()
-        {
-            List<Key> keys = new List<Key>
-            {
-                new Key(5, 2, ConsoleColor.Red),
-                new Key(2, 14, ConsoleColor.Yellow),
-                new Key(14, 10, ConsoleColor.Cyan),
-                new Key(10, 43, ConsoleColor.Magenta)
-            };
-
-            return keys;
-        }
     }
 }
