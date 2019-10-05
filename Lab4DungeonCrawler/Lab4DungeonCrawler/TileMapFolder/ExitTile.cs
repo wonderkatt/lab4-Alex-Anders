@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class DoorTile : TileType, IInteractable
+    public class ExitTile : TileType
     {
-        public DoorTile(Point point, bool explored) : base(point, explored)
+        public ExitTile(Point point, bool explored) : base(point, explored)
         {
             IsExplored = explored;
             Position = point;
-            Symbol = 'D';
+            Symbol = 'U';
         }
     }
 }

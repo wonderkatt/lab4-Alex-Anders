@@ -12,36 +12,43 @@ namespace Lab4DungeonCrawler
 
         public static void Main(string[] args)
         {
-            
+            Console.CursorVisible = false;
             var gamePlayManager = new GamePlayManager();
+
             while(true)
             {
-
-            switch (currentState)
-            {
-               
-                case States.StartState:
-                        var player = new Player();
-                        var mapCreator = new MapCreator();
-                        gamePlayManager.SetPlayer(player);
-                        gamePlayManager.SetGameObjects(mapCreator.CreateMap());
-                        Renderer.PrintOutMap(gamePlayManager);
-                        currentState = States.GamePlayState;
-                    
-                    break;
-                case States.GamePlayState:
-                    
-                        
+                switch (currentState)
+                {
                    
-                    gamePlayManager.Update();
-                    // Om målet nås, kör endstate
-                    break;
-                case States.EndState:
-                    //visa game over screen, välj starta om eller stänga av
-                    break;
-                
+                    case States.StartState:
+                            var player = new Player();
+                            var playerInventory = new PlayerInventory();
+                            var mapCreator = new MapCreator();
+                            var doorCreator = new Door();
+                            var keyCreator = new Key();
+                            var monsterCreator = new Monster();
+                            gamePlayManager.SetPlayer(player);
+                            gamePlayManager.SetGameObjects(mapCreator.CreateMap());
+                            Renderer.PrintOutMap(gamePlayManager);
+                            gamePlayManager.SetDoorObjects(doorCreator.CreateDoors());
+                            gamePlayManager.SetKeyObjects(keyCreator.CreateKeys());
+                            gamePlayManager.SetMonsterObjects(monsterCreator.CreateMonsters());
+                            currentState = States.GamePlayState;
+                        
+                        break;
+                    case States.GamePlayState:
+                       
+                        gamePlayManager.Update();
+                        // Om målet nås, kör endstate
+                        break;
+                    case States.EndState:
+                        //visa game over screen, välj starta om eller stänga av
+                        break;
+                    
+                }
             }
-            }
+
+            //Kvar att göra: Synliga namn på kartan, player inventory, interactable (door-key, door-player, key-player, monster-player)
 
             //skapa statemachin
             // starta StartState, skapar data spara i manager, kör igång nästa state

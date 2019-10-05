@@ -13,8 +13,8 @@ namespace Lab4DungeonCrawler
 
         public Point(int x, int y)
         {
-            column = x;
-            row = y;
+            row = x;
+            column = y;
         }
     } 
 }

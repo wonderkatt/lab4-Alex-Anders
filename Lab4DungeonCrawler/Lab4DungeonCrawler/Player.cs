@@ -8,18 +8,16 @@ namespace Lab4DungeonCrawler
 {
     public class Player
     {
-        private char symbol = '@';
         public int numberOfMoves = 0;
 
         public Player()
         {
-            PlayerInventory inventory = new PlayerInventory();
             CurrentPlayerPosition = new Point(1, 1);
         }
 
         public void MovePlayer(Point point, List<TileType> gameObjects)
         {
-            var targetPosition = new Point(CurrentPlayerPosition.column + point.column, CurrentPlayerPosition.row + point.row);
+            var targetPosition = new Point(CurrentPlayerPosition.row + point.row, CurrentPlayerPosition.column + point.column);
 
             foreach (var Tile in gameObjects)
             {
@@ -45,7 +43,7 @@ namespace Lab4DungeonCrawler
             return null;
         }
 
-        public char Symbol { get { return symbol; } private set { } }
+        public char Symbol { get { return '@'; } }
 
         public Point CurrentPlayerPosition { get; set; }
 
