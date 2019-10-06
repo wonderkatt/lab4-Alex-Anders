@@ -20,18 +20,15 @@ namespace Lab4DungeonCrawler
         {
             var targetPosition = new Point(CurrentPlayerPosition.row + point.row, CurrentPlayerPosition.column + point.column);
 
-            foreach (var Tile in gameObjects)
+            if(gameObjects.Find(tile => tile.Position.Equals(targetPosition)) is WallTile)
             {
-                if(Tile.Position.Equals(targetPosition) && Tile is WallTile)
-                {
-                    return;
-                }
+                return;
             }
             PreviousPlayerPosition = CurrentPlayerPosition;
             CurrentPlayerPosition = targetPosition;
         }
 
-        public TileType GetTileType(List<TileType> gameObjects, Point point)
+        public TileType GetTileType(List<TileType> gameObjects, Point point) // Används denna metod??
         {
             foreach (var Tile in gameObjects)
             {

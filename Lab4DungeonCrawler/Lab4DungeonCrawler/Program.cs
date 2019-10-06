@@ -26,7 +26,6 @@ namespace Lab4DungeonCrawler
                             var interActableObjectCreator = new InteractableObjectsCreator();
                             var mapCreator = new MapCreator(interActableObjectCreator);
                             
-                            
                             gamePlayManager.SetPlayer(player);
                             gamePlayManager.SetGameObjects(mapCreator.CreateMap());
                             Renderer.PrintOutMap(gamePlayManager);
@@ -46,7 +45,7 @@ namespace Lab4DungeonCrawler
                 }
             }
 
-            //Kvar att göra: Synliga namn på kartan, player inventory, interactable (door-key, door-player, key-player, monster-player)
+            //Kvar att göra: isOpen variabel till dörr? player inventory, interactable (door-key, door-player, key-player, monster-player)
 
             //skapa statemachin
             // starta StartState, skapar data spara i manager, kör igång nästa state

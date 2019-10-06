@@ -17,7 +17,6 @@ namespace Lab4DungeonCrawler
             Door yellowDoorTwo = new Door(15, 27, ConsoleColor.Yellow);
             Door cyanDoor = new Door(13, 31, ConsoleColor.Cyan);
             Door magentaDoor = new Door(5, 31, ConsoleColor.Magenta);
-            
 
             doors.Add(redDoor);
             doors.Add(yellowDoorOne);
@@ -41,7 +40,6 @@ namespace Lab4DungeonCrawler
 
             return monsters;
         }
-
 
         public List<Key> CreateKeys()
         {
