@@ -49,7 +49,6 @@
     <Compile Include="Interactables\Door.cs" />
     <Compile Include="GamePlayManager.cs" />
     <Compile Include="Interactables\IInteractable.cs" />
-    <Compile Include="EnumKeys.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="Interactables\Key.cs" />
     <Compile Include="Interactables\Monster.cs" />

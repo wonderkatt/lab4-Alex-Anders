@@ -8,8 +8,6 @@ namespace Lab4DungeonCrawler
 {
     public class Door : IInteractable
     {
-        // Införa en färgproperty?
-
         public Door()
         {
 

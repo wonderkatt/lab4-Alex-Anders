@@ -9,30 +9,29 @@ namespace Lab4DungeonCrawler
 
     public class PlayerInventory
     {
-        private static List<KeyType> playerInventory = new List<KeyType>();
+        private static List<Key> playerInventory = new List<Key>();
 
         public PlayerInventory()
         {
 
         }
-        public void AddItemToPlayerInventory(KeyType key)
+        public void AddItemToPlayerInventory(Key key)
         {
             playerInventory.Add(key);
         }
 
-        public void RemoveItemFromPlayerInventory(KeyType key)
+        public void RemoveItemFromPlayerInventory(Key key)
         {
             playerInventory.Remove(key);
         }
         public void PrintPlayerInventory()
         {
-            playerInventory = playerInventory.OrderBy(key => key).ToList();
-            foreach (var item in playerInventory)
+            foreach (var key in playerInventory)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(key);
             }
         }
-        public bool IsItemInInventory(KeyType key)
+        public bool IsKeyInInventory(Key key)
         {
             if (playerInventory.Contains(key))
             {
