@@ -17,71 +17,49 @@ namespace Lab4DungeonCrawler
             {
                 if (Tile.IsExplored == true)
                 {
-                ConsoleHandler.WriteAt(Tile.Symbol, Tile.Position);
+                ConsoleHandler.WriteCharAt(Tile.Symbol, Tile.Position);
                 }
             }
             
-            ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition, ConsoleColor.Gray);
+            ConsoleHandler.WriteCharAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition, ConsoleColor.Gray);
 
         }
 
-        public static void RenderMap(GamePlayManager gamePlayManager)
+        public static void RenderMap(GamePlayManager currentGameState)
         {
-            Point currentPlayerPosition = gamePlayManager.GetPlayer().CurrentPlayerPosition;
-            Point previousPlayerPosition = gamePlayManager.GetPlayer().PreviousPlayerPosition;
-
-            ConsoleHandler.WriteAt(gamePlayManager.GetPlayer().Symbol, currentPlayerPosition, ConsoleColor.Gray);
+            Point currentPlayerPosition = currentGameState.GetPlayer().CurrentPlayerPosition;
             Point point;
             TileType tempTile;
+
             for (int row = currentPlayerPosition.row - 1; row < currentPlayerPosition.row + 2; row++)
             {
                 for (int column = currentPlayerPosition.column - 1; column < currentPlayerPosition.column + 2; column++)
                 {
-                    if (row != currentPlayerPosition.row || column != currentPlayerPosition.column)
+                    point = new Point(row, column);
+                    tempTile = GameObjectHandler.GetTileAtPoint(point, currentGameState.GetGameObjects());
+                    if(tempTile.Key != null)
                     {
-                        point = new Point(row, column);
-                        tempTile = GetTileAtPoint(point, gamePlayManager);
-                        if(tempTile.Key != null)
-                        {
-                            ConsoleHandler.WriteAt(tempTile.Key.Symbol, point, tempTile.Key.Color);
-                            tempTile.IsExplored = true;
-                        }
-                        else if(tempTile.Monster != null)
-                        {
-                            ConsoleHandler.WriteAt(tempTile.Monster.Symbol, point, tempTile.Monster.Color);
-                            tempTile.IsExplored = true;
-                        }
-                        else if(tempTile.Door != null)
-                        {
-                            ConsoleHandler.WriteAt(tempTile.Door.Symbol, point, tempTile.Door.Color);
-                            tempTile.IsExplored = true;
-                        }
-                        else
-                        { 
-                        ConsoleHandler.WriteAt(tempTile.Symbol, point);
+                        ConsoleHandler.WriteCharAt(tempTile.Key.Symbol, point, tempTile.Key.Color);
                         tempTile.IsExplored = true;
-                        }
+                    }
+                    else if(tempTile.Monster != null)
+                    {
+                        ConsoleHandler.WriteCharAt(tempTile.Monster.Symbol, point, tempTile.Monster.Color);
+                        tempTile.IsExplored = true;
+                    }
+                    else if(tempTile.Door != null)
+                    {
+                        ConsoleHandler.WriteCharAt(tempTile.Door.Symbol, point, tempTile.Door.Color);
+                        tempTile.IsExplored = true;
+                    }
+                    else
+                    { 
+                    ConsoleHandler.WriteCharAt(tempTile.Symbol, point);
+                    tempTile.IsExplored = true;
                     }
                 }
             }
-            tempTile = GetTileAtPoint(previousPlayerPosition, gamePlayManager);
-            ConsoleHandler.WriteAt(tempTile.Symbol, tempTile.Position);
-           
+            ConsoleHandler.WriteCharAt(currentGameState.GetPlayer().Symbol, currentPlayerPosition, ConsoleColor.Gray);
         }
-
-      
-
-        public static TileType GetTileAtPoint(Point point, GamePlayManager gamePlayManager)
-        {
-            foreach (var Tile in gamePlayManager.GetGameObjects())
-            {
-                if (Tile.Position.Equals(point))
-                {
-                    return Tile;
-                }
-            }
-
-            return null;
-        }   
     }
 }

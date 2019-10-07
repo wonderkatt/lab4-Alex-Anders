@@ -15,25 +15,41 @@ namespace Lab4DungeonCrawler
         {
 
         }
-        public void AddItemToPlayerInventory(Key key)
+        public void AddKeyToInventory(Key key)
         {
             playerInventory.Add(key);
         }
-
-        public void RemoveItemFromPlayerInventory(Key key)
-        {
-            playerInventory.Remove(key);
-        }
-        public void PrintPlayerInventory()
+        public void RemoveKeyFromInventory(ConsoleColor color)
         {
             foreach (var key in playerInventory)
             {
-                Console.WriteLine(key);
+                if (key.Color.Equals(color) && key.NumberOfUsesLeft == 2)
+                {
+                    key.NumberOfUsesLeft--;
+                    break;
+                }
+                else if(key.Color.Equals(color))
+                {
+                    playerInventory.Remove(key);
+                    break;
+                }
             }
         }
-        public bool IsKeyInInventory(Key key)
+        public void PrintInventory()
         {
-            if (playerInventory.Contains(key))
+            var point = new Point(20, 0);
+            ConsoleHandler.WriteStringAt("Inventory:", point);
+            point.row++;
+            foreach (var key in playerInventory)
+            {
+                ConsoleHandler.WriteStringAt(key.Name, point);
+                point.row++;
+            }
+            ConsoleHandler.WriteStringAt(new string(' ', Console.WindowWidth), point);
+        }
+        public static bool IsKeyInInventory(ConsoleColor color)
+        {
+            if (playerInventory.Any(key => key.Color.Equals(color)))
             {
                 return true;
             }

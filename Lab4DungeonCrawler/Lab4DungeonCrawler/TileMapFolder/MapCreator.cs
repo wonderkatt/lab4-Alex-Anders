@@ -5,7 +5,6 @@ namespace Lab4DungeonCrawler
 {
     public class MapCreator
     {
-
         private readonly List<TileType> gameObjects = new List<TileType>();
         List<Door> doors;
         List<Monster> monsters;

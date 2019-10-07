@@ -19,18 +19,17 @@ namespace Lab4DungeonCrawler
             {
                 switch (currentState)
                 {
-                   
                     case States.StartState:
-                            var player = new Player();
-                            var playerInventory = new PlayerInventory();
-                            var interActableObjectCreator = new InteractableObjectsCreator();
-                            var mapCreator = new MapCreator(interActableObjectCreator);
-                            
-                            gamePlayManager.SetPlayer(player);
-                            gamePlayManager.SetGameObjects(mapCreator.CreateMap());
-                            Renderer.PrintOutMap(gamePlayManager);
-                         
-                            currentState = States.GamePlayState;
+                        var player = new Player();
+                        var interActableObjectCreator = new InteractableObjectsCreator();
+                        var mapCreator = new MapCreator(interActableObjectCreator);
+                        
+                        gamePlayManager.SetPlayer(player);
+                        gamePlayManager.SetGameObjects(mapCreator.CreateMap());
+                        Renderer.PrintOutMap(gamePlayManager);
+                        player.PrintNumberOfMoves();
+                        player.PlayerInventory.PrintInventory();
+                        currentState = States.GamePlayState;
                         
                         break;
                     case States.GamePlayState:
@@ -39,6 +38,9 @@ namespace Lab4DungeonCrawler
                         // Om målet nås, kör endstate
                         break;
                     case States.EndState:
+                        Console.Clear();
+                        Console.WriteLine("Spelet är slut!");
+                        Console.ReadKey(true);
                         //visa game over screen, välj starta om eller stänga av
                         break;
                     

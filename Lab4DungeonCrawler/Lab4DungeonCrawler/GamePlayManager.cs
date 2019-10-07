@@ -5,7 +5,7 @@ namespace Lab4DungeonCrawler
     public class GamePlayManager
     {
         
-        public Player Player; 
+        public Player Player;
         List<TileType> GameObjects;
      
 
@@ -46,12 +46,15 @@ namespace Lab4DungeonCrawler
             var direction = InputManager.GetInput();
 
             Player.MovePlayer(direction, GameObjects);
-            //player interaction here
+
+            GetGameState();
+            GameObjectHandler.InteractWith(Instance);
 
             GetGameState();
            // SetPlayerPosition();
             
             Renderer.RenderMap(Instance);
+            Player.PrintNumberOfMoves();
         }
     }
 }
