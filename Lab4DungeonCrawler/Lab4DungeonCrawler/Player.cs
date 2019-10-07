@@ -8,37 +8,33 @@ namespace Lab4DungeonCrawler
 {
     public class Player
     {
-        public int numberOfMoves = 0;
+        public int numberOfMoves;
 
         public Player()
         {
             Symbol = '@';
             CurrentPlayerPosition = new Point(1, 1);
+            PlayerInventory = new PlayerInventory();
+            numberOfMoves = 0;
         }
 
         public void MovePlayer(Point point, List<TileType> gameObjects)
         {
             var targetPosition = new Point(CurrentPlayerPosition.row + point.row, CurrentPlayerPosition.column + point.column);
-
-            if(gameObjects.Find(tile => tile.Position.Equals(targetPosition)) is WallTile)
+            var targetTile = GameObjectHandler.GetTileAtPoint(targetPosition, gameObjects);
+            if (targetTile is WallTile || (targetTile.Door is Door && !PlayerInventory.IsKeyInInventory(targetTile.Door.Color)))
             {
                 return;
             }
+            numberOfMoves++;
             PreviousPlayerPosition = CurrentPlayerPosition;
             CurrentPlayerPosition = targetPosition;
         }
 
-        public TileType GetTileType(List<TileType> gameObjects, Point point) // Används denna metod??
+        public void PrintNumberOfMoves()
         {
-            foreach (var Tile in gameObjects)
-            {
-                if (Tile.Position.Equals(point))
-                {
-                    return Tile;
-                }
-
-            }
-            return null;
+            var point = new Point(18, 0);
+            ConsoleHandler.WriteStringAt($"Number of moves: {numberOfMoves}", point);
         }
 
         public char Symbol { get; set; }
@@ -46,6 +42,8 @@ namespace Lab4DungeonCrawler
         public Point CurrentPlayerPosition { get; set; }
 
         public Point PreviousPlayerPosition { get; set; }
+
+        public PlayerInventory PlayerInventory { get; set; }
        
 
        

@@ -12,11 +12,11 @@ namespace Lab4DungeonCrawler
         public List<Door> CreateDoors()
         {
             List<Door> doors = new List<Door>();
-            Door redDoor = new Door(10, 8, ConsoleColor.Red);
-            Door yellowDoorOne = new Door(9, 19, ConsoleColor.Yellow);
-            Door yellowDoorTwo = new Door(15, 27, ConsoleColor.Yellow);
-            Door cyanDoor = new Door(13, 31, ConsoleColor.Cyan);
-            Door magentaDoor = new Door(5, 31, ConsoleColor.Magenta);
+            var redDoor = new Door(10, 8, ConsoleColor.Red);
+            var yellowDoorOne = new Door(9, 19, ConsoleColor.Yellow);
+            var yellowDoorTwo = new Door(15, 27, ConsoleColor.Yellow);
+            var cyanDoor = new Door(13, 31, ConsoleColor.Cyan);
+            var magentaDoor = new Door(5, 31, ConsoleColor.Magenta);
 
             doors.Add(redDoor);
             doors.Add(yellowDoorOne);
@@ -44,10 +44,10 @@ namespace Lab4DungeonCrawler
         public List<Key> CreateKeys()
         {
             List<Key> keys = new List<Key>();
-            Key redKey = new Key(5, 2, ConsoleColor.Red, 1);
-            Key yellowKey = new Key(2, 14, ConsoleColor.Yellow, 2);
-            Key cyanKey = new Key(14, 10, ConsoleColor.Cyan, 1);
-            Key magentaKey = new Key(10, 43, ConsoleColor.Magenta, 1);
+            var redKey = new Key("Red key", 5, 2, ConsoleColor.Red, 1);
+            var yellowKey = new Key("Yellow key", 2, 14, ConsoleColor.Yellow, 2);
+            var cyanKey = new Key("Cyan key", 14, 10, ConsoleColor.Cyan, 1);
+            var magentaKey = new Key("Magenta key", 10, 43, ConsoleColor.Magenta, 1);
 
             keys.Add(redKey);
             keys.Add(yellowKey);

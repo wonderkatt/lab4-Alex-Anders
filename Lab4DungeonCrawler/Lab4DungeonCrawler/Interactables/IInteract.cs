@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public interface IInteractable
+    public interface IInteract
     {
-      
+        void Interact(GamePlayManager currentGameState);
     }
 }
