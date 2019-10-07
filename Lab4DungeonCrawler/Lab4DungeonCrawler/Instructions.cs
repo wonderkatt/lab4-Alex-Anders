@@ -11,21 +11,27 @@ namespace Lab4DungeonCrawler
         public static void PrintInstructions()
         {
             var point = new Point(2, 60);
-            ConsoleHandler.WriteStringAt("*** FIND EXIT ***\n", point);
+            ConsoleHandler.WriteStringAt(" __________________________", point);
             point.row++;
-            ConsoleHandler.WriteStringAt("Move @ with a,s,d and w,", point);
+            ConsoleHandler.WriteStringAt("|    *** FIND EXIT ***     |", point);
             point.row++;
-            ConsoleHandler.WriteStringAt("collect keys(k),", point);
+            ConsoleHandler.WriteStringAt("|                          |", point);
             point.row++;
-            ConsoleHandler.WriteStringAt("move through doors(D),", point);
+            ConsoleHandler.WriteStringAt("|Move @ with a,s,d and w,  |", point);
             point.row++;
-            ConsoleHandler.WriteStringAt("watch out for monsters(M),", point);
+            ConsoleHandler.WriteStringAt("|collect keys(k),          |", point);
             point.row++;
-            ConsoleHandler.WriteStringAt("they give you extra steps,", point);
+            ConsoleHandler.WriteStringAt("|move through doors(D),    |", point);
             point.row++;
-            ConsoleHandler.WriteStringAt("find exit(E) with as few,", point);
+            ConsoleHandler.WriteStringAt("|watch out for monsters(M),|", point);
             point.row++;
-            ConsoleHandler.WriteStringAt("steps as possible.", point);
+            ConsoleHandler.WriteStringAt("|they give you extra steps,|", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|find exit(E) with as few, |", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|steps as possible.        |", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|__________________________|", point);
         }
     }
 }

@@ -8,18 +8,12 @@ namespace Lab4DungeonCrawler
 {
     public class Key : IInteract
     {
-        // Införa en färgproperty?
-
-        public Key()
-        {
-
-        }
-        public Key(string name, int x, int y, ConsoleColor colour, int numberOfUsesLeft)
+        public Key(string name, int numberOfUsesLeft, int x, int y, ConsoleColor colour)
         {
             Name = name;
-            Position = new Point(x, y);
-            Color = colour;
             NumberOfUsesLeft = numberOfUsesLeft;
+            Position = new Point(x, y);
+            Colour = colour;
             Symbol = 'k';
         }
         public void Interact(GamePlayManager currentGameState)
@@ -37,10 +31,9 @@ namespace Lab4DungeonCrawler
         }
 
         public string Name { get; set; }
-        public Point Position { get; set; }
-        public ConsoleColor Color { get; set; }
         public int NumberOfUsesLeft { get; set; }
+        public Point Position { get; set; }
+        public ConsoleColor Colour { get; set; }
         public char Symbol { get; set; }
-
     }
 }

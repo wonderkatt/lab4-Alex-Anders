@@ -23,12 +23,12 @@ namespace Lab4DungeonCrawler
         {
             foreach (var key in playerInventory)
             {
-                if (key.Color.Equals(color) && key.NumberOfUsesLeft == 2)
+                if (key.Colour.Equals(color) && key.NumberOfUsesLeft == 2)
                 {
                     key.NumberOfUsesLeft--;
                     break;
                 }
-                else if(key.Color.Equals(color))
+                else if(key.Colour.Equals(color))
                 {
                     playerInventory.Remove(key);
                     break;
@@ -37,7 +37,7 @@ namespace Lab4DungeonCrawler
         }
         public static bool IsKeyInInventory(ConsoleColor color)
         {
-            if (playerInventory.Any(key => key.Color.Equals(color)))
+            if (playerInventory.Any(key => key.Colour.Equals(color)))
             {
                 return true;
             }

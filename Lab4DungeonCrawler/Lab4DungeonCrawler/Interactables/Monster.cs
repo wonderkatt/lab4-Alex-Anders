@@ -8,21 +8,19 @@ namespace Lab4DungeonCrawler
 {
     public class Monster : IInteract
     {
-       
         public Monster(int x, int y)
         {
             Position = new Point(x, y);
+            Colour = ConsoleColor.Green;
             Symbol = 'M';
-            Color = ConsoleColor.Green;
         }
         public void Interact(GamePlayManager currentGameState)
         {
-            currentGameState.Player.numberOfMoves++;
+            currentGameState.Player.numberOfMoves += 3;
         }
 
         public Point Position { get; set; }
+        public ConsoleColor Colour { get; set; }
         public char Symbol { get; set; }
-        public ConsoleColor Color { get; set; }
-        
     }
 }

@@ -22,7 +22,7 @@ namespace Lab4DungeonCrawler
         {
             var targetPosition = new Point(CurrentPlayerPosition.row + point.row, CurrentPlayerPosition.column + point.column);
             var targetTile = GameObjectHandler.GetTileAtPoint(targetPosition, gameObjects);
-            if (targetTile is WallTile || (targetTile.Door is Door && !PlayerInventory.IsKeyInInventory(targetTile.Door.Color)))
+            if (targetTile is WallTile || (targetTile.Door is Door && !PlayerInventory.IsKeyInInventory(targetTile.Door.Colour)))
             {
                 return;
             }

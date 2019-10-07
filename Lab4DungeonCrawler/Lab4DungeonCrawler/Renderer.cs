@@ -39,17 +39,17 @@ namespace Lab4DungeonCrawler
                     tempTile = GameObjectHandler.GetTileAtPoint(point, currentGameState.GetGameObjects());
                     if(tempTile.Key != null)
                     {
-                        ConsoleHandler.WriteCharAt(tempTile.Key.Symbol, point, tempTile.Key.Color);
+                        ConsoleHandler.WriteCharAt(tempTile.Key.Symbol, point, tempTile.Key.Colour);
                         tempTile.IsExplored = true;
                     }
                     else if(tempTile.Monster != null)
                     {
-                        ConsoleHandler.WriteCharAt(tempTile.Monster.Symbol, point, tempTile.Monster.Color);
+                        ConsoleHandler.WriteCharAt(tempTile.Monster.Symbol, point, tempTile.Monster.Colour);
                         tempTile.IsExplored = true;
                     }
                     else if(tempTile.Door != null)
                     {
-                        ConsoleHandler.WriteCharAt(tempTile.Door.Symbol, point, tempTile.Door.Color);
+                        ConsoleHandler.WriteCharAt(tempTile.Door.Symbol, point, tempTile.Door.Colour);
                         tempTile.IsExplored = true;
                     }
                     else

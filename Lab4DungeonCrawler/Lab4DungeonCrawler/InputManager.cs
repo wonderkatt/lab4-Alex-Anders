@@ -8,15 +8,6 @@ namespace Lab4DungeonCrawler
 {
     class InputManager
     {
-
-      
-     
-      
-      public InputManager()
-      {
-        
-      }
-      
         public static Point GetInput()
         {
             var input = Console.ReadKey(true);
