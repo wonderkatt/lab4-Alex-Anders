@@ -35,18 +35,6 @@ namespace Lab4DungeonCrawler
                 }
             }
         }
-        public void PrintInventory()
-        {
-            var point = new Point(20, 0);
-            ConsoleHandler.WriteStringAt("Inventory:", point);
-            point.row++;
-            foreach (var key in playerInventory)
-            {
-                ConsoleHandler.WriteStringAt(key.Name, point);
-                point.row++;
-            }
-            ConsoleHandler.WriteStringAt(new string(' ', Console.WindowWidth), point);
-        }
         public static bool IsKeyInInventory(ConsoleColor color)
         {
             if (playerInventory.Any(key => key.Color.Equals(color)))
@@ -54,6 +42,19 @@ namespace Lab4DungeonCrawler
                 return true;
             }
             return false;
+        }
+        public void PrintInventory()
+        {
+            var point = new Point(20, 0);
+            ConsoleHandler.WriteStringAt("Inventory:", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt(new string(' ', Console.WindowWidth), point);
+            foreach (var key in playerInventory)
+            {
+                ConsoleHandler.WriteStringAt(key.Name, point);
+                point.row++;
+            }
+            ConsoleHandler.WriteStringAt(new string(' ', Console.WindowWidth), point);
         }
     }
 }
