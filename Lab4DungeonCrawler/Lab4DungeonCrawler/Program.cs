@@ -29,6 +29,7 @@ namespace Lab4DungeonCrawler
                         Renderer.PrintOutMap(gamePlayManager);
                         player.PrintNumberOfMoves();
                         player.PlayerInventory.PrintInventory();
+                        Instructions.PrintInstructions();
                         currentState = States.GamePlayState;
                         
                         break;

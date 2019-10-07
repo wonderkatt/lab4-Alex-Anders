@@ -12,7 +12,7 @@ namespace Lab4DungeonCrawler
         {
             IsExplored = explored;
             Position = point;
-            Symbol = 'U';
+            Symbol = 'E';
         }
     }
 }

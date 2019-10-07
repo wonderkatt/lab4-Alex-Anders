@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ConsoleHandler.cs" />
     <Compile Include="GameObjectHandler.cs" />
+    <Compile Include="Instructions.cs" />
     <Compile Include="Interactables\InteractableObjectsCreator.cs" />
     <Compile Include="TileMapFolder\ExitTile.cs" />
     <Compile Include="Interactables\Door.cs" />

@@ -34,7 +34,7 @@ namespace Lab4DungeonCrawler
         public void PrintNumberOfMoves()
         {
             var point = new Point(18, 0);
-            ConsoleHandler.WriteStringAt($"Number of moves: {numberOfMoves}", point);
+            ConsoleHandler.WriteStringAt($"Number of steps: {numberOfMoves}", point);
         }
 
         public char Symbol { get; set; }
