@@ -11,19 +11,14 @@ namespace Lab4DungeonCrawler
     {
         public List<Door> CreateDoors()
         {
-            List<Door> doors = new List<Door>();
-            var redDoor = new Door(10, 8, ConsoleColor.Red);
-            var yellowDoorOne = new Door(9, 19, ConsoleColor.Yellow);
-            var yellowDoorTwo = new Door(15, 27, ConsoleColor.Yellow);
-            var cyanDoor = new Door(13, 31, ConsoleColor.Cyan);
-            var magentaDoor = new Door(5, 31, ConsoleColor.Magenta);
-
-            doors.Add(redDoor);
-            doors.Add(yellowDoorOne);
-            doors.Add(yellowDoorTwo);
-            doors.Add(cyanDoor);
-            doors.Add(magentaDoor);
-       
+            List<Door> doors = new List<Door>
+            {
+                new Door(10, 8, ConsoleColor.Red),
+                new Door(9, 20, ConsoleColor.Yellow),
+                new Door(15, 27, ConsoleColor.Yellow),
+                new Door(13, 31, ConsoleColor.Cyan),
+                new Door(5, 31, ConsoleColor.Magenta)
+            };
             return doors;
         }
 
@@ -32,30 +27,24 @@ namespace Lab4DungeonCrawler
             List<Monster> monsters = new List<Monster>
             {
                 new Monster(13, 4),
-                new Monster(6, 19),
-                new Monster(15, 22),
+                new Monster(5, 20),
+                new Monster(15, 24),
                 new Monster(5, 28),
                 new Monster(4, 41)
             };
-
             return monsters;
         }
 
         public List<Key> CreateKeys()
         {
-            List<Key> keys = new List<Key>();
-            var redKey = new Key("Red key", 5, 2, ConsoleColor.Red, 1);
-            var yellowKey = new Key("Yellow key", 2, 14, ConsoleColor.Yellow, 2);
-            var cyanKey = new Key("Cyan key", 14, 10, ConsoleColor.Cyan, 1);
-            var magentaKey = new Key("Magenta key", 10, 43, ConsoleColor.Magenta, 1);
-
-            keys.Add(redKey);
-            keys.Add(yellowKey);
-            keys.Add(cyanKey);
-            keys.Add(magentaKey);
+            List<Key> keys = new List<Key>
+            {
+                new Key("Red key", 1, 5, 2, ConsoleColor.Red),
+                new Key("Yellow key", 2, 2, 14, ConsoleColor.Yellow),
+                new Key("Cyan key", 1, 14, 10, ConsoleColor.Cyan),
+                new Key("Magenta key", 1, 10, 44, ConsoleColor.Magenta)
+            };
             return keys;
         }
     }
-
-   
 }
