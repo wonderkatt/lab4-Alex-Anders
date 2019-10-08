@@ -6,29 +6,28 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class Door : IInteract
+    public class Door : GameObject, IInteractable
     {
-        public Door(int x, int y, ConsoleColor colour)
+        public Door()
         {
-            Position = new Point(x, y);
-            Colour = colour;
             Symbol = 'D';
         }
-        public void Interact(GamePlayManager currentGameState)
+
+        public void Interact(GamePlayManager instance)
         {
-            foreach (var floortile in currentGameState.GetGameObjects())
+            instance.GameObjects.Remove(this);
+            instance.GameObjects.Add(new FloorTile(this.Position, true));
+            foreach (var key in instance.Player.PlayerInventory.playerInventory)
             {
-                if (floortile.Position.Equals(currentGameState.Player.CurrentPlayerPosition))
+                if(key.Color == this.Color)
                 {
-                    currentGameState.Player.PlayerInventory.RemoveKeyFromInventory(floortile.Door.Colour);
-                    floortile.Door = null;
+                    key.NumberOfUses--;
+                    if (key.NumberOfUses == 0)
+                    {
+                    instance.Player.PlayerInventory.playerInventory.Remove(key);
+                    }
                 }
             }
-            currentGameState.Player.PlayerInventory.PrintInventory();
         }
-
-        public Point Position { get; set; }
-        public ConsoleColor Colour { get; set; }
-        public char Symbol { get; set; }
     }
 }

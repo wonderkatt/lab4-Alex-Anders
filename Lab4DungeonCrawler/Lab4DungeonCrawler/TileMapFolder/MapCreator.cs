@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Lab4DungeonCrawler
 {
     public class MapCreator
     {
-        private readonly List<TileType> gameObjects = new List<TileType>();
+        private readonly List<GameObject> gameObjects = new List<GameObject>();
         readonly List<Door> doors;
         readonly List<Monster> monsters;
         readonly List<Key> keys;
@@ -13,7 +14,6 @@ namespace Lab4DungeonCrawler
         public MapCreator(InteractableObjectsCreator interactableObjectsCreator)
         {
             doors = interactableObjectsCreator.CreateDoors();
-            monsters = interactableObjectsCreator.CreateMonsters();
             keys = interactableObjectsCreator.CreateKeys();
         }
 
@@ -37,7 +37,7 @@ namespace Lab4DungeonCrawler
             { '#',' ',' ',' ',' ',' ',' ',' ','#',' ',' ',' ','#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','M',' ',' ','D',' ',' ',' ','#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
             { '#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#' }
         };
-        public List<TileType> CreateMap()
+        public List<GameObject> CreateMap()
         {
             Point point;
             for (int x = 0; x < map.GetLength(0); x++)
@@ -64,49 +64,22 @@ namespace Lab4DungeonCrawler
                         point = new Point(x, y);
                         gameObjects.Add(new ExitTile(point, false));
                     }
-                    else if (map[x, y] == 'k')
-                    {
-                        point = new Point(x, y);
-                        foreach (var key in keys)
-                        {
-                            if (key.Position.Equals(point))
-                            {
-                                gameObjects.Add(new FloorTile(point, false, null, key, null));
-                                break;
-                            }
-                        }
-                    }
-                    else if (map[x, y] == 'D')
-                    {
-                        point = new Point(x, y);
-                        foreach (var door in doors)
-                        {
-                            if (door.Position.Equals(point))
-                            {
-                                gameObjects.Add(new FloorTile(point, false, null, null, door));
-                                break;
-                            }
-                        }
-                    }
                     else if (map[x, y] == 'M')
                     {
                         point = new Point(x, y);
-                        foreach (var monster in monsters)
-                        {
-                            if(monster.Position.Equals(point))
-                            {
-                                gameObjects.Add(new FloorTile(point, false, monster, null, null));
-                                break;
-                            }
-                        }
+                        gameObjects.Add(new Monster(point, false));
+                        gameObjects.Add(new FloorTile(point, false));
                     }
-                    else
+                    else if (map[x, y] == ' ') 
                     {
                         point = new Point(x, y);
-                        gameObjects.Add(new FloorTile(point,false, null, null, null));
-                    }
+                        gameObjects.Add(new FloorTile(point, false));
+                    } 
                 }
             }
+            gameObjects.AddRange(keys);
+            gameObjects.AddRange(doors);
+            
             return gameObjects;
         }
     }

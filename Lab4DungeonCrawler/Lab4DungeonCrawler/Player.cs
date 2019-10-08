@@ -18,24 +18,41 @@ namespace Lab4DungeonCrawler
             numberOfMoves = 0;
         }
 
-        public void MovePlayer(Point point, List<TileType> gameObjects)
+        public void MovePlayer(Point point, List<GameObject> gameObjects)
         {
             var targetPosition = new Point(CurrentPlayerPosition.row + point.row, CurrentPlayerPosition.column + point.column);
             var targetTile = GameObjectHandler.GetTileAtPoint(targetPosition, gameObjects);
-            if (targetTile is WallTile || (targetTile.Door is Door && !PlayerInventory.IsKeyInInventory(targetTile.Door.Colour)))
+            if (targetTile is WallTile)
             {
                 return;
             }
+            else if (targetTile is Door)
+            {
+                if (!CheckForKey(targetTile))
+                {
+                    return;
+                }
+            }
+            
+            
             numberOfMoves++;
             PreviousPlayerPosition = CurrentPlayerPosition;
             CurrentPlayerPosition = targetPosition;
         }
 
-        public void PrintNumberOfMoves()
+        private bool CheckForKey(GameObject targetTile)
         {
-            var point = new Point(18, 0);
-            ConsoleHandler.WriteStringAt($"Number of steps: {numberOfMoves}", point);
+            foreach (var key in PlayerInventory.playerInventory)
+            {
+               if (targetTile.Color == key.Color)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
+
+        
 
         public char Symbol { get; set; }
 

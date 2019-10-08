@@ -14,6 +14,7 @@ namespace Lab4DungeonCrawler
         {
             Console.CursorVisible = false;
             var gamePlayManager = new GamePlayManager();
+            var gameEngine = new GameEngine();
 
             while(true)
             {
@@ -27,15 +28,14 @@ namespace Lab4DungeonCrawler
                         gamePlayManager.SetPlayer(player);
                         gamePlayManager.SetGameObjects(mapCreator.CreateMap());
                         Renderer.PrintOutMap(gamePlayManager);
-                        player.PrintNumberOfMoves();
-                        player.PlayerInventory.PrintInventory();
+                        
                         Instructions.PrintInstructions();
                         currentState = States.GamePlayState;
                         
                         break;
                     case States.GamePlayState:
-                       
-                        gamePlayManager.Update();
+                        var instance = gamePlayManager.GetGameState();
+                        gameEngine.Update(instance);
                         // Om målet nås, kör endstate
                         break;
                     case States.EndState:

@@ -8,40 +8,13 @@ namespace Lab4DungeonCrawler
 {
     public static class GameObjectHandler
     {
-        public static TileType GetTileAtPoint(Point point, List<TileType> gameObjects)
+        public static GameObject GetTileAtPoint(Point point, List<GameObject> gameObjects)
         {
-            var returnTile = gameObjects.Find(tile => tile.Position.Equals(point));
-            return returnTile;
+           
+            var returnObject = gameObjects.Find(gameObject => gameObject.Position.Equals(point));
+            return returnObject;
         }
-        public static void InteractWith(GamePlayManager currentGameState)
-        {
-            var tempTile = GetTileAtPoint(currentGameState.Player.CurrentPlayerPosition, currentGameState.GetGameObjects());
-            if (tempTile.Symbol.Equals('E'))
-            {
-                Program.currentState = States.EndState;
-                return;
-            }
-
-            var interactable = (IInteract)tempTile;
-            if (interactable != null)
-            {
-                interactable.Interact(currentGameState);
-            }
-
-            tempTile = (FloorTile)tempTile;
-            if (tempTile.Door is Door)
-            {
-                tempTile.Door.Interact(currentGameState);
-            }
-            if (tempTile.Key is Key)
-            {
-                tempTile.Key.Interact(currentGameState);
-            }
-            if (tempTile.Monster is Monster)
-            {
-                tempTile.Monster.Interact(currentGameState);
-            }
-            //50 till if satser
-        }
+       
+        
     }
 }

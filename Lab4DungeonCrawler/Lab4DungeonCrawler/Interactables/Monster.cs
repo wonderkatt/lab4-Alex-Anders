@@ -6,21 +6,19 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class Monster : IInteract
+    public class Monster : GameObject, IInteractable
     {
-        public Monster(int x, int y)
+        public Monster(Point point, bool isExplored)
         {
-            Position = new Point(x, y);
-            Colour = ConsoleColor.Green;
+            Color = ConsoleColor.Green;
+            IsExplored = isExplored;
             Symbol = 'M';
-        }
-        public void Interact(GamePlayManager currentGameState)
-        {
-            currentGameState.Player.numberOfMoves += 3;
+            Position = point;
         }
 
-        public Point Position { get; set; }
-        public ConsoleColor Colour { get; set; }
-        public char Symbol { get; set; }
+        public void Interact(GamePlayManager instance)
+        {
+            instance.Player.numberOfMoves = instance.Player.numberOfMoves + 4;
+        }
     }
 }

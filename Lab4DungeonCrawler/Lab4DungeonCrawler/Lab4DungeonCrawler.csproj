@@ -44,9 +44,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleHandler.cs" />
+    <Compile Include="GameEngine.Cs" />
     <Compile Include="GameObjectHandler.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Instructions.cs" />
+    <Compile Include="Interactables\CyanDoor.cs" />
+    <Compile Include="Interactables\CyanKey.cs" />
     <Compile Include="Interactables\InteractableObjectsCreator.cs" />
+    <Compile Include="Interactables\MagentaDoor.cs" />
+    <Compile Include="Interactables\MagentaKey.cs" />
+    <Compile Include="Interactables\RedDoor.cs" />
+    <Compile Include="Interactables\RedKey.cs" />
+    <Compile Include="Interactables\YellowDoor.cs" />
+    <Compile Include="Interactables\YellowKey.cs" />
     <Compile Include="TileMapFolder\ExitTile.cs" />
     <Compile Include="Interactables\Door.cs" />
     <Compile Include="GamePlayManager.cs" />

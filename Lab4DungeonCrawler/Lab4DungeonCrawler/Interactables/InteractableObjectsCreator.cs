@@ -11,39 +11,36 @@ namespace Lab4DungeonCrawler
     {
         public List<Door> CreateDoors()
         {
-            List<Door> doors = new List<Door>
-            {
-                new Door(10, 8, ConsoleColor.Red),
-                new Door(9, 20, ConsoleColor.Yellow),
-                new Door(15, 27, ConsoleColor.Yellow),
-                new Door(13, 31, ConsoleColor.Cyan),
-                new Door(5, 31, ConsoleColor.Magenta)
-            };
-            return doors;
-        }
 
-        public List<Monster> CreateMonsters()
-        {
-            List<Monster> monsters = new List<Monster>
-            {
-                new Monster(13, 4),
-                new Monster(5, 20),
-                new Monster(15, 24),
-                new Monster(5, 28),
-                new Monster(4, 41)
-            };
-            return monsters;
+            var redDoor = new RedDoor();
+            var yellowDoor = new YellowDoor(new Point(9, 20));
+            var yellowDoorTwo = new YellowDoor(new Point(15, 27));
+            var cyanDoor = new CyanDoor();
+            var magentaDoor = new MagentaDoor();
+
+            List<Door> doors = new List<Door>();
+            doors.Add(redDoor);
+            doors.Add(yellowDoor);
+            doors.Add(yellowDoorTwo);
+            doors.Add(cyanDoor);
+            doors.Add(magentaDoor);
+
+            return doors;
         }
 
         public List<Key> CreateKeys()
         {
-            List<Key> keys = new List<Key>
-            {
-                new Key("Red key", 1, 5, 2, ConsoleColor.Red),
-                new Key("Yellow key", 2, 2, 14, ConsoleColor.Yellow),
-                new Key("Cyan key", 1, 14, 10, ConsoleColor.Cyan),
-                new Key("Magenta key", 1, 10, 44, ConsoleColor.Magenta)
-            };
+            var redKey = new RedKey();
+            var yellowKey = new YellowKey();
+            var cyanKey = new CyanKey();
+            var magentaKey = new MagentaKey();
+
+            List<Key> keys = new List<Key>();
+            keys.Add(redKey);
+            keys.Add(yellowKey);
+            keys.Add(cyanKey);
+            keys.Add(magentaKey);
+
             return keys;
         }
     }

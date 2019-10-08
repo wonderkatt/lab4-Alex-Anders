@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public interface IInteract
+    public interface IInteractable
     {
-        void Interact(GamePlayManager currentGameState);
-        Point Position { get; set; }
-        ConsoleColor Colour { get; set; }
-        char Symbol { get; set; }
+        void Interact(GamePlayManager instance);
     }
+
+   
 }
