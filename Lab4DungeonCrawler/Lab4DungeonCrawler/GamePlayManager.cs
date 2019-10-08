@@ -35,6 +35,13 @@ namespace Lab4DungeonCrawler
             return Instance;
         }
 
-        
+        public  GameObject GetTileAtPoint(Point point, List<GameObject> gameObjects)
+        {
+
+            var returnObject = gameObjects.Find(gameObject => gameObject.Position.Equals(point));
+            return returnObject;
+        }
+
+
     }
 }

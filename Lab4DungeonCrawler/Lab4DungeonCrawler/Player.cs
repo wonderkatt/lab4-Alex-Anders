@@ -18,10 +18,10 @@ namespace Lab4DungeonCrawler
             numberOfMoves = 0;
         }
 
-        public void MovePlayer(Point point, List<GameObject> gameObjects)
+        public void MovePlayer(Point point, GamePlayManager instance)
         {
             var targetPosition = new Point(CurrentPlayerPosition.row + point.row, CurrentPlayerPosition.column + point.column);
-            var targetTile = GameObjectHandler.GetTileAtPoint(targetPosition, gameObjects);
+            var targetTile = instance.GetTileAtPoint(targetPosition, instance.GameObjects);
             if (targetTile is WallTile)
             {
                 return;

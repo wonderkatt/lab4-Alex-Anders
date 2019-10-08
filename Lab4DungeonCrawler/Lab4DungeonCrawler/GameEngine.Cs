@@ -16,7 +16,7 @@ namespace Lab4DungeonCrawler
         public void Update(GamePlayManager instance)
         {
             var direction = InputManager.GetInput();
-            instance.Player.MovePlayer(direction, instance.GameObjects);
+            instance.Player.MovePlayer(direction, instance);
             CheckForInteraction(instance);
 
 
@@ -27,7 +27,7 @@ namespace Lab4DungeonCrawler
 
         public void CheckForInteraction(GamePlayManager instance)
         {
-            var tempTile = GameObjectHandler.GetTileAtPoint(instance.Player.CurrentPlayerPosition, instance.GetGameObjects());
+            var tempTile = instance.GetTileAtPoint(instance.Player.CurrentPlayerPosition, instance.GetGameObjects());
             
             try
             {

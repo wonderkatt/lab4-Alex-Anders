@@ -8,7 +8,6 @@ namespace Lab4DungeonCrawler
     {
         private readonly List<GameObject> gameObjects = new List<GameObject>();
         readonly List<Door> doors;
-        readonly List<Monster> monsters;
         readonly List<Key> keys;
 
         public MapCreator(InteractableObjectsCreator interactableObjectsCreator)

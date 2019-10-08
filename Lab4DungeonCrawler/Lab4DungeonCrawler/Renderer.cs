@@ -36,7 +36,7 @@ namespace Lab4DungeonCrawler
                 for (int column = currentPlayerPosition.column - 1; column < currentPlayerPosition.column + 2; column++)
                 {
                     point = new Point(row, column);
-                    tempTile = GameObjectHandler.GetTileAtPoint(point, currentGameState.GetGameObjects());
+                    tempTile = currentGameState.GetTileAtPoint(point, currentGameState.GetGameObjects());
                     if(tempTile is Key)
                     {
                         ConsoleHandler.WriteCharAt(tempTile.Symbol, point, tempTile.Color);
