@@ -31,11 +31,8 @@ namespace Lab4DungeonCrawler
                 {
                     return;
                 }
-            }
-            
-            
+            } 
             numberOfMoves++;
-            PreviousPlayerPosition = CurrentPlayerPosition;
             CurrentPlayerPosition = targetPosition;
         }
 
@@ -51,18 +48,8 @@ namespace Lab4DungeonCrawler
             return false;
         }
 
-        
-
         public char Symbol { get; set; }
-
         public Point CurrentPlayerPosition { get; set; }
-
-        public Point PreviousPlayerPosition { get; set; }
-
-        public PlayerInventory PlayerInventory { get; set; }
-       
-
-       
     }
 }
 

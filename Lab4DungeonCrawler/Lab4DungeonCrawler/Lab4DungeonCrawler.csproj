@@ -59,12 +59,11 @@
     <Compile Include="TileMapFolder\ExitTile.cs" />
     <Compile Include="Interactables\Door.cs" />
     <Compile Include="GamePlayManager.cs" />
-    <Compile Include="Interactables\IInteract.cs" />
+    <Compile Include="Interactables\IInteractable.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="Interactables\Key.cs" />
     <Compile Include="Interactables\Monster.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerInventory.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Renderer.cs" />
     <Compile Include="State.cs" />
