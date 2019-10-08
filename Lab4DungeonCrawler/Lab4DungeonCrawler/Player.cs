@@ -22,7 +22,7 @@ namespace Lab4DungeonCrawler
         {
             var targetPosition = new Point(CurrentPlayerPosition.row + point.row, CurrentPlayerPosition.column + point.column);
             var targetTile = GameObjectHandler.GetTileAtPoint(targetPosition, gameObjects);
-            if (targetTile is WallTile || (targetTile.Door is Door && !PlayerInventory.IsKeyInInventory(targetTile.Door.Color)))
+            if (targetTile is WallTile || (targetTile.Door is Door && !PlayerInventory.IsKeyInInventory(targetTile.Door.Colour)))
             {
                 return;
             }
@@ -34,7 +34,7 @@ namespace Lab4DungeonCrawler
         public void PrintNumberOfMoves()
         {
             var point = new Point(18, 0);
-            ConsoleHandler.WriteStringAt($"Number of moves: {numberOfMoves}", point);
+            ConsoleHandler.WriteStringAt($"Number of steps: {numberOfMoves}", point);
         }
 
         public char Symbol { get; set; }

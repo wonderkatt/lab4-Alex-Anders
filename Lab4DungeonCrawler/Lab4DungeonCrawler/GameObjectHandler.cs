@@ -16,7 +16,7 @@ namespace Lab4DungeonCrawler
         public static void InteractWith(GamePlayManager currentGameState)
         {
             var tempTile = GetTileAtPoint(currentGameState.Player.CurrentPlayerPosition, currentGameState.GetGameObjects());
-            if (tempTile.Symbol.Equals('U'))
+            if (tempTile.Symbol.Equals('E'))
             {
                 Program.currentState = States.EndState;
                 return;
