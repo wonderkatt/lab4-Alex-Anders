@@ -11,9 +11,9 @@ namespace Lab4DungeonCrawler
             
         }
 
-         public static void PrintOutMap(GamePlayManager gamePlayManager)
+         public static void PrintOutMap(GamePlayManager instance)
         {
-            foreach (var Tile in gamePlayManager.GetGameObjects())
+            foreach (var Tile in instance.GetGameObjects())
             {
                 if (Tile.IsExplored == true)
                 {
@@ -21,23 +21,23 @@ namespace Lab4DungeonCrawler
                 }
             }
             
-            ConsoleHandler.WriteCharAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition, ConsoleColor.Gray);
-            ConsoleHandler.WriteStringAt(gamePlayManager.Player.numberOfMoves.ToString(), new Point(18, 0));
-            PrintInventory(gamePlayManager);
+            ConsoleHandler.WriteCharAt(instance.Player.Symbol, instance.Player.CurrentPlayerPosition, ConsoleColor.Gray);
+            ConsoleHandler.WriteStringAt(instance.Player.numberOfMoves.ToString(), new Point(18, 0));
+            PrintInventory(instance);
         }
 
-        public static void RenderMap(GamePlayManager currentGameState)
+        public static void RenderMap(GamePlayManager instance)
         {
-            Point currentPlayerPosition = currentGameState.GetPlayer().CurrentPlayerPosition;
+            Point currentPlayerPosition = instance.Player.CurrentPlayerPosition;
             Point point;
             GameObject tempTile;
-            ConsoleHandler.WriteStringAt(currentGameState.Player.numberOfMoves.ToString(), new Point(18, 0));
+            ConsoleHandler.WriteStringAt(instance.Player.numberOfMoves.ToString(), new Point(18, 0));
             for (int row = currentPlayerPosition.row - 1; row < currentPlayerPosition.row + 2; row++)
             {
                 for (int column = currentPlayerPosition.column - 1; column < currentPlayerPosition.column + 2; column++)
                 {
                     point = new Point(row, column);
-                    tempTile = currentGameState.GetTileAtPoint(point, currentGameState.GetGameObjects());
+                    tempTile = instance.GetTileAtPoint(point, instance.GetGameObjects());
                     if(tempTile is Key)
                     {
                         ConsoleHandler.WriteCharAt(tempTile.Symbol, point, tempTile.Color);
@@ -60,14 +60,14 @@ namespace Lab4DungeonCrawler
                     }
                 }
             }
-            ConsoleHandler.WriteCharAt(currentGameState.GetPlayer().Symbol, currentPlayerPosition, ConsoleColor.Gray);
+            ConsoleHandler.WriteCharAt(instance.Player.Symbol, currentPlayerPosition, ConsoleColor.Gray);
 
-            PrintInventory(currentGameState);
+            PrintInventory(instance);
            
             
         }
 
-        private static void PrintInventory(GamePlayManager currentGameState)
+        private static void PrintInventory(GamePlayManager instance)
         {
             ConsoleHandler.WriteStringAt("Inventory: ", new Point(20, 0));
             for (int i = 0; i < 5; i++)
@@ -75,9 +75,9 @@ namespace Lab4DungeonCrawler
                 ConsoleHandler.WriteCharAt(' ', new Point(20, 11 + i));
             }
 
-            for (int i = 0; i < currentGameState.Player.PlayerInventory.playerInventory.Count; i++)
+            for (int i = 0; i < instance.Player.PlayerInventory.playerInventory.Count; i++)
             {
-                ConsoleHandler.WriteCharAt(currentGameState.Player.PlayerInventory.playerInventory[i].Symbol, new Point(20, 11 + i), currentGameState.Player.PlayerInventory.playerInventory[i].Color);
+                ConsoleHandler.WriteCharAt(instance.Player.PlayerInventory.playerInventory[i].Symbol, new Point(20, 11 + i), instance.Player.PlayerInventory.playerInventory[i].Color);
             }
         }
     }

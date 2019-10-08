@@ -24,11 +24,6 @@ namespace Lab4DungeonCrawler
             Player = newPlayer;
         }
 
-        public Player GetPlayer()
-        {
-            return Player;
-        }
-
         public GamePlayManager GetGameState()
         {
             Instance = this;
