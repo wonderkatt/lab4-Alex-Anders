@@ -22,6 +22,12 @@ namespace Lab4DungeonCrawler
                 return;
             }
 
+            var interactable = (IInteract)tempTile;
+            if (interactable != null)
+            {
+                interactable.Interact(currentGameState);
+            }
+
             tempTile = (FloorTile)tempTile;
             if (tempTile.Door is Door)
             {
@@ -35,6 +41,7 @@ namespace Lab4DungeonCrawler
             {
                 tempTile.Monster.Interact(currentGameState);
             }
+            //50 till if satser
         }
     }
 }
