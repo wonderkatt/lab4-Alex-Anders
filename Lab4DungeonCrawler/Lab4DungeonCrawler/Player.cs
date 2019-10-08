@@ -9,12 +9,11 @@ namespace Lab4DungeonCrawler
     public class Player
     {
         public int numberOfMoves;
-
+        public List<Key> playerInventory = new List<Key>();
         public Player()
         {
             Symbol = '@';
             CurrentPlayerPosition = new Point(1, 1);
-            PlayerInventory = new PlayerInventory();
             numberOfMoves = 0;
         }
 
@@ -42,7 +41,7 @@ namespace Lab4DungeonCrawler
 
         private bool CheckForKey(GameObject targetTile)
         {
-            foreach (var key in PlayerInventory.playerInventory)
+            foreach (var key in playerInventory)
             {
                if (targetTile.Color == key.Color)
                 {

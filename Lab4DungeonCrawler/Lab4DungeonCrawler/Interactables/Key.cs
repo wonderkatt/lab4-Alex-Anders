@@ -11,12 +11,10 @@ namespace Lab4DungeonCrawler
 
         public void Interact(GamePlayManager instance)
         {
-            instance.Player.PlayerInventory.playerInventory.Add(this);
+            instance.Player.playerInventory.Add(this);
             instance.GameObjects.Remove(this);
             instance.GameObjects.Add(new FloorTile(this.Position, true));
         }
-
         public int NumberOfUses { get; set; }
- 
     }
 }

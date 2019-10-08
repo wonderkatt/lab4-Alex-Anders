@@ -6,23 +6,7 @@ namespace Lab4DungeonCrawler
     {
         public Player Player;
         public List<GameObject> GameObjects;
-
         public GamePlayManager Instance { get; set; }
-
-        public List<GameObject> GetGameObjects()
-        {
-            return GameObjects;
-        }
-
-        public void SetGameObjects(List<GameObject> gameObjects)
-        {
-            GameObjects = gameObjects;
-        }
-
-        public void SetPlayer(Player newPlayer)
-        {
-            Player = newPlayer;
-        }
 
         public GamePlayManager GetGameState()
         {
@@ -30,13 +14,10 @@ namespace Lab4DungeonCrawler
             return Instance;
         }
 
-        public  GameObject GetTileAtPoint(Point point, List<GameObject> gameObjects)
+        public GameObject GetTileAtPoint(Point point, List<GameObject> gameObjects)
         {
-
             var returnObject = gameObjects.Find(gameObject => gameObject.Position.Equals(point));
             return returnObject;
         }
-
-
     }
 }

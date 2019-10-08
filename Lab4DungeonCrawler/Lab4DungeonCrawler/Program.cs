@@ -24,9 +24,8 @@ namespace Lab4DungeonCrawler
                         var player = new Player();
                         var interActableObjectCreator = new InteractableObjectsCreator();
                         var mapCreator = new MapCreator(interActableObjectCreator);
-                        
-                        gamePlayManager.SetPlayer(player);
-                        gamePlayManager.SetGameObjects(mapCreator.CreateMap());
+                        gamePlayManager.Player = player;
+                        gamePlayManager.GameObjects =  mapCreator.CreateMap();
                         Renderer.PrintOutMap(gamePlayManager);
                         
                         Instructions.PrintInstructions();
@@ -47,46 +46,6 @@ namespace Lab4DungeonCrawler
                     
                 }
             }
-
-            //Kvar att göra: isOpen variabel till dörr? player inventory, interactable (door-key, door-player, key-player, monster-player)
-
-            //skapa statemachin
-            // starta StartState, skapar data spara i manager, kör igång nästa state
-
-            // public static GameplayManager Instance, referens till det uppdaterade statet
-
-            //gameplaymanager.GetData()
-
-
-
-
-         //   var dataInitializer = new DataInitializer(); 
-            
-            
-            
-            
-            //initializera map i datainitializer
-            //skriv ut map i renderer
-
-            //klass för skapa karta, innehåller data
-            //
-
-      //  while (true)
-      //  {
-      //      gamePlayManager.Update();
-      //      //ta in input och updatera gamestate
-      //      //rendera nuvarande gamestate
-      //    
-      //
-      //     //statemachine.currentstate.update()
-      //     //{
-      //     //    
-      //     //    directinon = inputmanager.GetDirection from input()
-      //     //    player.move(directinon)
-      //     //    player.interact(Player.currentposition)
-      //     //    gameState = CreateGameState()
-      //     //    renderer.render(gameState);
-      //  }
         }     
     }
 }

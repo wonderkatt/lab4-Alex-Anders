@@ -17,14 +17,14 @@ namespace Lab4DungeonCrawler
         {
             instance.GameObjects.Remove(this);
             instance.GameObjects.Add(new FloorTile(this.Position, true));
-            foreach (var key in instance.Player.PlayerInventory.playerInventory)
+            foreach (var key in instance.Player.playerInventory)
             {
                 if(key.Color == this.Color)
                 {
                     key.NumberOfUses--;
                     if (key.NumberOfUses == 0)
                     {
-                    instance.Player.PlayerInventory.playerInventory.Remove(key);
+                    instance.Player.playerInventory.Remove(key);
                     }
                 }
             }
