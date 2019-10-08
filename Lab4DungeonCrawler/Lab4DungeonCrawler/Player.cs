@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Lab4DungeonCrawler
 {
@@ -47,7 +43,6 @@ namespace Lab4DungeonCrawler
             }
             return false;
         }
-
         public char Symbol { get; set; }
         public Point CurrentPlayerPosition { get; set; }
     }

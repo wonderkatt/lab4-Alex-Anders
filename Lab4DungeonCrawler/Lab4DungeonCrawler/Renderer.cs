@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Lab4DungeonCrawler
 {
-    internal class Renderer
+    public class Renderer
     {
 
         public Renderer()
@@ -11,7 +11,33 @@ namespace Lab4DungeonCrawler
             
         }
 
-         public static void PrintOutMap(GamePlayManager instance)
+        public void PrintInstructions()
+        {
+            var point = new Point(2, 60);
+            ConsoleHandler.WriteStringAt(" __________________________", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|    *** FIND EXIT ***     |", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|                          |", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|Move @ with a,s,d and w,  |", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|collect keys(k),          |", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|move through doors(D),    |", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|watch out for monsters(M),|", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|they give you extra steps,|", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|find exit(E) with as few, |", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|steps as possible.        |", point);
+            point.row++;
+            ConsoleHandler.WriteStringAt("|__________________________|", point);
+        }
+
+        public void PrintOutMap(GamePlayManager instance)
         {
             foreach (var Tile in instance.GameObjects)
             {
@@ -26,7 +52,7 @@ namespace Lab4DungeonCrawler
             PrintInventory(instance);
         }
 
-        public static void RenderMap(GamePlayManager instance)
+        public void RenderMap(GamePlayManager instance)
         {
             Point currentPlayerPosition = instance.Player.CurrentPlayerPosition;
 
@@ -36,7 +62,7 @@ namespace Lab4DungeonCrawler
             PrintInventory(instance);  
         }
 
-        private static void ExploreTilesAroundPlayer(GamePlayManager instance, Point currentPlayerPosition)
+        private void ExploreTilesAroundPlayer(GamePlayManager instance, Point currentPlayerPosition)
         {
             Point point;
             GameObject tempTile;
@@ -70,7 +96,7 @@ namespace Lab4DungeonCrawler
             }
         }
 
-        private static void PrintInventory(GamePlayManager instance)
+        private void PrintInventory(GamePlayManager instance)
         {
             ConsoleHandler.WriteStringAt("Inventory: ", new Point(20, 0));
             for (int i = 0; i < 5; i++)

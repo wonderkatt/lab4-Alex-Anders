@@ -19,7 +19,7 @@ namespace Lab4DungeonCrawler
             CheckForInteraction(instance);
 
             instance = instance.GetGameState();
-            Renderer.RenderMap(instance);
+            instance.Renderer.RenderMap(instance);
             
         }
 

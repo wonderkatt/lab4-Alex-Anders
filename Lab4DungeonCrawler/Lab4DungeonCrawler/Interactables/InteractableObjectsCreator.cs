@@ -12,7 +12,7 @@ namespace Lab4DungeonCrawler
                 new RedDoor(),
                 new YellowDoor(new Point(9, 20)),
                 new YellowDoor(new Point(15, 27)),
-                new YellowDoor(new Point(15, 27)),
+                new CyanDoor(),
                 new MagentaDoor()
             };
             return doors;

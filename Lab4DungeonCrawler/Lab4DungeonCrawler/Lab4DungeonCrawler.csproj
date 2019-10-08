@@ -46,7 +46,6 @@
     <Compile Include="ConsoleHandler.cs" />
     <Compile Include="GameEngine.Cs" />
     <Compile Include="GameObject.cs" />
-    <Compile Include="Instructions.cs" />
     <Compile Include="Interactables\CyanDoor.cs" />
     <Compile Include="Interactables\CyanKey.cs" />
     <Compile Include="Interactables\InteractableObjectsCreator.cs" />

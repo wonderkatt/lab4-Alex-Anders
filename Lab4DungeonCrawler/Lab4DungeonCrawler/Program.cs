@@ -24,11 +24,13 @@ namespace Lab4DungeonCrawler
                         var player = new Player();
                         var interActableObjectCreator = new InteractableObjectsCreator();
                         var mapCreator = new MapCreator(interActableObjectCreator);
+                        var renderer = new Renderer();
+                        gamePlayManager.Renderer = renderer;
                         gamePlayManager.Player = player;
                         gamePlayManager.GameObjects =  mapCreator.CreateMap();
-                        Renderer.PrintOutMap(gamePlayManager);
+                        renderer.PrintOutMap(gamePlayManager);
                         
-                        Instructions.PrintInstructions();
+                        renderer.PrintInstructions();
                         currentState = States.GamePlayState;
                         
                         break;
