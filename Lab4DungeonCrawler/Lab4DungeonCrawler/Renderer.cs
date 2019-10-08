@@ -22,7 +22,8 @@ namespace Lab4DungeonCrawler
             }
             
             ConsoleHandler.WriteCharAt(gamePlayManager.GetPlayer().Symbol, gamePlayManager.GetPlayer().CurrentPlayerPosition, ConsoleColor.Gray);
-
+            ConsoleHandler.WriteStringAt(gamePlayManager.Player.numberOfMoves.ToString(), new Point(18, 0));
+            PrintInventory(gamePlayManager);
         }
 
         public static void RenderMap(GamePlayManager currentGameState)
@@ -68,14 +69,15 @@ namespace Lab4DungeonCrawler
 
         private static void PrintInventory(GamePlayManager currentGameState)
         {
+            ConsoleHandler.WriteStringAt("Inventory: ", new Point(20, 0));
             for (int i = 0; i < 5; i++)
             {
-                ConsoleHandler.WriteCharAt(' ', new Point(20, i));
+                ConsoleHandler.WriteCharAt(' ', new Point(20, 11 + i));
             }
 
             for (int i = 0; i < currentGameState.Player.PlayerInventory.playerInventory.Count; i++)
             {
-                ConsoleHandler.WriteCharAt(currentGameState.Player.PlayerInventory.playerInventory[i].Symbol, new Point(20, i), currentGameState.Player.PlayerInventory.playerInventory[i].Color);
+                ConsoleHandler.WriteCharAt(currentGameState.Player.PlayerInventory.playerInventory[i].Symbol, new Point(20, 11 + i), currentGameState.Player.PlayerInventory.playerInventory[i].Color);
             }
         }
     }

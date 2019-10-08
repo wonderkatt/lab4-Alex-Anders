@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="ConsoleHandler.cs" />
     <Compile Include="GameEngine.Cs" />
-    <Compile Include="GameObjectHandler.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Instructions.cs" />
     <Compile Include="Interactables\CyanDoor.cs" />
