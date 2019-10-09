@@ -8,11 +8,10 @@ namespace Lab4DungeonCrawler
 {
     class ShortcutTile : TileType, IInteractable
     {
-        public ShortcutTile(Point point, bool isExplored) : base(point, isExplored)
+        public ShortcutTile(Point point, bool explored) : base(point, explored)
         {
-            IsExplored = isExplored;
-            Symbol = '*';
-            Position = point;
+            Symbol = ' ';
+            Color = ConsoleColor.Black;
         }
 
         public void Interact(GamePlayManager gamePlayerManager)
@@ -27,7 +26,7 @@ namespace Lab4DungeonCrawler
             {
                 gamePlayerManager.GameObjects.Remove(tempTile);
                 gamePlayerManager.GameObjects.Add(new FloorTile(tempTile.Position, true));
-                ConsoleHandler.WriteCharAt(tempTile.Symbol, tempTile.Position);
+                ConsoleHandler.WriteCharAt(tempTile.Symbol, tempTile.Position, tempTile.Color);
             }
         }
     }

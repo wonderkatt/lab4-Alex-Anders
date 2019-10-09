@@ -10,15 +10,13 @@ namespace Lab4DungeonCrawler
     {
         public TrapTile(Point point, bool explored) : base(point, explored)
         {
-            Symbol = '_';
-            Position = point;
-            IsExplored = explored;
+            Symbol = '!';
         }
 
         public void Interact(GamePlayManager gamePlayManager)
         {
             var tempTile = gamePlayManager.GetTileAtPoint(gamePlayManager.Player.PreviousPlayerPosition, gamePlayManager.GameObjects);
-            ConsoleHandler.WriteCharAt(tempTile.Symbol, tempTile.Position);
+            ConsoleHandler.WriteCharAt(tempTile.Symbol, tempTile.Position, tempTile.Color);
             gamePlayManager.Player.CurrentPlayerPosition = new Point(1, 1);
         }
     }

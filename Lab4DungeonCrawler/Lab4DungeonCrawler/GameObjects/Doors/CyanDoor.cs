@@ -2,11 +2,9 @@
 {
     internal class CyanDoor : Door
     {
-        public CyanDoor(Point point)
+        public CyanDoor(Point point) : base(point)
         {
-            Position = point;
             Color = System.ConsoleColor.Cyan;
-            IsExplored = false;
         }
     }
 }

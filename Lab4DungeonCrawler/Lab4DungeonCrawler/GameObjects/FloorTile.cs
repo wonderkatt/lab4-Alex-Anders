@@ -10,8 +10,6 @@ namespace Lab4DungeonCrawler
     {
         public FloorTile(Point point, bool explored) : base (point, explored)
         {
-            Position = point;
-            IsExplored = explored;
             Symbol = '-';
         }
     }

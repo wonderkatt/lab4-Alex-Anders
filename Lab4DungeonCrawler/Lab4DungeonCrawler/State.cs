@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-   
     public enum States
     {
         StartState,

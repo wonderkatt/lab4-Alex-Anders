@@ -4,8 +4,9 @@ namespace Lab4DungeonCrawler
 {
     public class Key : GameObject, IInteractable
     {
-        public Key()
+        public Key(Point point)
         {
+            Position = point;
             Symbol = 'k';
         }
 

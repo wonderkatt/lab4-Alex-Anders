@@ -8,8 +8,9 @@ namespace Lab4DungeonCrawler
 {
     public class Door : GameObject, IInteractable
     {
-        public Door()
+        public Door(Point point)
         {
+            Position = point;
             Symbol = 'D';
         }
 
@@ -24,7 +25,7 @@ namespace Lab4DungeonCrawler
                     key.NumberOfUses--;
                     if (key.NumberOfUses == 0)
                     {
-                    gamePlayManager.Player.playerInventory.Remove(key);
+                        gamePlayManager.Player.playerInventory.Remove(key);
                         break;
                     }
                 }

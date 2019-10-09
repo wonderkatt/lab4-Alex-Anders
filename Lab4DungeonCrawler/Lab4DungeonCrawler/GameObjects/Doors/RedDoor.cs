@@ -2,11 +2,9 @@
 {
     internal class RedDoor : Door
     {
-        public RedDoor(Point point)
+        public RedDoor(Point point) : base(point)
         {
-            Position = point;
             Color = System.ConsoleColor.Red;
-            IsExplored = false;
         }
     }
 }

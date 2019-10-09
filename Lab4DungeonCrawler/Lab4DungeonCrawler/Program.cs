@@ -36,7 +36,8 @@ namespace Lab4DungeonCrawler
                         
                         break;
                     case States.GamePlayState:
-                       
+                        // Inkonsekvent asignment av IsExplored i objekt. Dörrar och nycklar har false som default,
+                        // men de andra sätts vid skapade av objekt. FloorTile och WallTile måste bestämmas vid objektskapande.
                         gameEngine.Update();
                         //gameEngine.Update();
                         // Om målet nås, kör endstate

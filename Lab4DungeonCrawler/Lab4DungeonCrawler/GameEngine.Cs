@@ -29,17 +29,6 @@ namespace Lab4DungeonCrawler
             
         }
 
-        private void CheckWinCondition()
-        {
-            foreach (var tile in GamePlayManager.GameObjects)
-            {
-                if (tile is ExitTile && tile.Position.Equals(GamePlayManager.Player.CurrentPlayerPosition))
-                {
-                    Program.currentState = States.EndState;
-                }
-            }
-        }
-
         public bool CheckForCollision(Point point)
         {
             var targetPosition = new Point(GamePlayManager.Player.CurrentPlayerPosition.row + point.row, GamePlayManager.Player.CurrentPlayerPosition.column + point.column);
@@ -48,7 +37,7 @@ namespace Lab4DungeonCrawler
             {
                 return false;
             }
-            if (targetTile is Door && !GamePlayManager.Player.CheckForKey(targetTile)) 
+            if (targetTile is Door && !GamePlayManager.Player.CheckForKey(targetTile.Color)) 
             {
                 return false;
             }
@@ -57,12 +46,18 @@ namespace Lab4DungeonCrawler
         public void CheckForInteraction()
         {
             var tempTile = GamePlayManager.GetTileAtPoint(GamePlayManager.Player.CurrentPlayerPosition, GamePlayManager.GameObjects);
-
-                if (tempTile is IInteractable interactable)
-                {
-                 interactable.Interact(GamePlayManager);
-                }
+            if (tempTile is IInteractable interactable)
+            {
+                interactable.Interact(GamePlayManager);
+            }
         }
 
+        private void CheckWinCondition()
+        {
+            if (GamePlayManager.GetTileAtPoint(GamePlayManager.Player.CurrentPlayerPosition, GamePlayManager.GameObjects) is ExitTile)
+            {
+                Program.currentState = States.EndState;
+            }
+        }
     }
 }

@@ -10,8 +10,6 @@ namespace Lab4DungeonCrawler
     {
         public ExitTile(Point point, bool explored) : base(point, explored)
         {
-            IsExplored = explored;
-            Position = point;
             Symbol = 'E';
         }
     }

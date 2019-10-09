@@ -7,8 +7,8 @@ namespace Lab4DungeonCrawler
     public class MapCreator
     {
         private readonly List<GameObject> gameObjects = new List<GameObject>();
-        readonly List<Door> Doors;
-        readonly List<Key> Keys;
+        private readonly List<Door> Doors;
+        private readonly List<Key> Keys;
 
         public MapCreator()
         {
@@ -23,10 +23,10 @@ namespace Lab4DungeonCrawler
 
             Keys = new List<Key>
             {
-            new RedKey(new Point(5, 2)),
-            new YellowKey(new Point(2, 14)),
-            new CyanKey(new Point(14, 10)),
-            new MagentaKey(new Point(10, 44))
+                new RedKey(new Point(5, 2)),
+                new YellowKey(new Point(2, 14)),
+                new CyanKey(new Point(14, 10)),
+                new MagentaKey(new Point(10, 44))
             };
         }
 
@@ -72,25 +72,25 @@ namespace Lab4DungeonCrawler
                         point = new Point(x, y);
                         gameObjects.Add(new TagTile(point, true));
                     }
-                    else if (map[x, y] == 'E')
-                    {
-                        point = new Point(x, y);
-                        gameObjects.Add(new ExitTile(point, false));
-                    }
                     else if (map[x, y] == 'M')
                     {
                         point = new Point(x, y);
                         gameObjects.Add(new Monster(point, false));
+                    }
+                    else if (map[x,y] == '*')
+                    {
+                        point = new Point(x, y);
+                        gameObjects.Add(new ShortcutTile(point, false));
                     }
                     else if (map[x,y] == '_')
                     {
                         point = new Point(x, y);
                         gameObjects.Add(new TrapTile(point, false));
                     }
-                    else if (map[x,y] == '*')
+                    else if (map[x, y] == 'E')
                     {
                         point = new Point(x, y);
-                        gameObjects.Add(new ShortcutTile(point, false));
+                        gameObjects.Add(new ExitTile(point, false));
                     }
                     else if (map[x, y] == ' ')
                     {

@@ -5,11 +5,6 @@ namespace Lab4DungeonCrawler
 {
     public class Renderer
     {
-        public Renderer()
-        {
-            
-        }
-
         public void PrintInstructions()
         {
             var point = new Point(2, 60);
@@ -29,7 +24,7 @@ namespace Lab4DungeonCrawler
             point.row++;
             ConsoleHandler.WriteStringAt("|they give you extra steps,|", point);
             point.row++;
-            ConsoleHandler.WriteStringAt("|find exit(E) with as few, |", point);
+            ConsoleHandler.WriteStringAt("|find exit(E) with as few  |", point);
             point.row++;
             ConsoleHandler.WriteStringAt("|steps as possible.        |", point);
             point.row++;
@@ -42,7 +37,7 @@ namespace Lab4DungeonCrawler
             {
                 if (Tile.IsExplored == true)
                 {
-                ConsoleHandler.WriteCharAt(Tile.Symbol, Tile.Position);
+                    ConsoleHandler.WriteCharAt(Tile.Symbol, Tile.Position, Tile.Color);
                 }
             }
             
@@ -55,9 +50,9 @@ namespace Lab4DungeonCrawler
         {
             Point currentPlayerPosition = instance.Player.CurrentPlayerPosition;
 
-            ConsoleHandler.WriteStringAt(instance.Player.numberOfMoves.ToString(), new Point(18, 17));
             ExploreTilesAroundPlayer(instance, currentPlayerPosition);
             ConsoleHandler.WriteCharAt(instance.Player.Symbol, currentPlayerPosition, ConsoleColor.Gray);
+            ConsoleHandler.WriteStringAt(instance.Player.numberOfMoves.ToString(), new Point(18, 17));
             PrintInventory(instance);  
         }
 

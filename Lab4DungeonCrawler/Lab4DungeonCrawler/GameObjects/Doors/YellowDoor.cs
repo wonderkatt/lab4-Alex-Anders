@@ -2,11 +2,9 @@
 {
     internal class YellowDoor : Door
     {
-        public YellowDoor(Point point)
+        public YellowDoor(Point point) : base(point)
         {
-            Position = point;
             Color = System.ConsoleColor.Yellow;
-            IsExplored = false;
         }
     }
 }
