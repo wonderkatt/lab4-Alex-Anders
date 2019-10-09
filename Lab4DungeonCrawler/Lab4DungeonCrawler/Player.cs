@@ -19,6 +19,7 @@ namespace Lab4DungeonCrawler
             var targetTile = instance.GetTileAtPoint(targetPosition, instance.GameObjects);
            
             numberOfMoves++;
+            PreviousPlayerPosition = CurrentPlayerPosition;
             CurrentPlayerPosition = targetPosition;
         }
 
@@ -35,6 +36,7 @@ namespace Lab4DungeonCrawler
         }
         public char Symbol { get; set; }
         public Point CurrentPlayerPosition { get; set; }
+        public Point PreviousPlayerPosition { get; set; }
     }
 }
 
