@@ -69,7 +69,7 @@ namespace Lab4DungeonCrawler
                         gameObjects.Add(new Monster(point, false));
                         gameObjects.Add(new FloorTile(point, false));
                     }
-                    else if (map[x, y] == ' ') 
+                    else if (map[x, y] == ' ')
                     {
                         point = new Point(x, y);
                         gameObjects.Add(new FloorTile(point, false));

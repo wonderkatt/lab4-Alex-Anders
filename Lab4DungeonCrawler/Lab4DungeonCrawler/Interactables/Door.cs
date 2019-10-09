@@ -25,9 +25,11 @@ namespace Lab4DungeonCrawler
                     if (key.NumberOfUses == 0)
                     {
                     instance.Player.playerInventory.Remove(key);
+                        break;
                     }
                 }
             }
+
         }
     }
 }

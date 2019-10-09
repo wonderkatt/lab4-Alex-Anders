@@ -12,35 +12,43 @@ namespace Lab4DungeonCrawler
         {
         }
 
-        public void Update(GamePlayManager instance)
+        public void Update(GamePlayManager gamePlayManager) 
         {
             var direction = InputManager.GetInput();
-            instance.Player.MovePlayer(direction, instance);
-            CheckForInteraction(instance);
+            var canWalk = CheckForCollision(direction, gamePlayManager);
+            if(canWalk)
+            {
+            gamePlayManager.Player.MovePlayer(direction, gamePlayManager); 
+            }
+            CheckForInteraction(gamePlayManager);
 
-            instance = instance.GetGameState();
-            instance.Renderer.RenderMap(instance);
+            gamePlayManager = gamePlayManager.GetGameState();
+            gamePlayManager.Renderer.RenderMap(gamePlayManager);
             
         }
 
-        public void CheckForInteraction(GamePlayManager instance)
+        public bool CheckForCollision(Point point, GamePlayManager gamePlayManager)
         {
-            var tempTile = instance.GetTileAtPoint(instance.Player.CurrentPlayerPosition, instance.GameObjects);
-            
-            try
+            var targetPosition = new Point(gamePlayManager.Player.CurrentPlayerPosition.row + point.row, gamePlayManager.Player.CurrentPlayerPosition.column + point.column);
+            var targetTile = gamePlayManager.GetTileAtPoint(targetPosition, gamePlayManager.GameObjects);
+            if (targetTile is WallTile)
             {
-                var interactable = (IInteractable)tempTile;
-                if (interactable != null)
-                {
-                    interactable.Interact(instance);
-                }
+                return false;
             }
-            catch
+            if (targetTile is Door && !gamePlayManager.Player.CheckForKey(targetTile)) 
             {
+                return false;
+            }
+            return true;
+        }
+        public void CheckForInteraction(GamePlayManager gamePlayManager)
+        {
+            var tempTile = gamePlayManager.GetTileAtPoint(gamePlayManager.Player.CurrentPlayerPosition, gamePlayManager.GameObjects);
 
-            }
-         
-           
+                if (tempTile is IInteractable interactable)
+                {
+                 interactable.Interact(gamePlayManager);
+                }
         }
 
     }
