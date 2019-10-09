@@ -24,12 +24,12 @@ namespace Lab4DungeonCrawler
             }
             CheckForInteraction();
             GamePlayManager.Renderer.RenderMap(GamePlayManager);
-            CheckWindCondition();
+            CheckWinCondition();
            
             
         }
 
-        private void CheckWindCondition()
+        private void CheckWinCondition()
         {
             foreach (var tile in GamePlayManager.GameObjects)
             {
