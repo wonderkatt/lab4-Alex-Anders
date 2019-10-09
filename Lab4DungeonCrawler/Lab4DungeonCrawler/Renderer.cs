@@ -71,11 +71,31 @@ namespace Lab4DungeonCrawler
                 {
                     point = new Point(row, column);
                     tempTile = instance.GetTileAtPoint(point, instance.GameObjects);
-                    
-                                       
+                    if (tempTile is Key)
+                    {
                         ConsoleHandler.WriteCharAt(tempTile.Symbol, point, tempTile.Color);
                         tempTile.IsExplored = true;
-                    
+                    }
+                    else if (tempTile is Monster)
+                    {
+                        ConsoleHandler.WriteCharAt(tempTile.Symbol, point, tempTile.Color);
+                        tempTile.IsExplored = true;
+                    }
+                    else if (tempTile is Door)
+                    {
+                        ConsoleHandler.WriteCharAt(tempTile.Symbol, point, tempTile.Color);
+                        tempTile.IsExplored = true;
+                    }
+                    else if (tempTile is TrapTile)
+                    {
+                        ConsoleHandler.WriteCharAt(tempTile.Symbol, point);
+                        tempTile.IsExplored = true;
+                    }
+                    else
+                    {
+                        ConsoleHandler.WriteCharAt(tempTile.Symbol, point);
+                        tempTile.IsExplored = true;
+                    }
                 }
             }
         }

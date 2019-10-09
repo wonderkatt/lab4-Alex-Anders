@@ -4,9 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab4DungeonCrawler.GameObjects
+namespace Lab4DungeonCrawler
 {
-    class TrapTile
+   public class TrapTile : TileType, IInteractable
     {
+        public TrapTile(Point point, bool explored) : base(point, explored)
+        {
+            Symbol = '_';
+            Position = point;
+            IsExplored = explored;
+        }
+
+        public void Interact(GamePlayManager gamePlayManager)
+        {
+            gamePlayManager.Player.CurrentPlayerPosition = new Point(1, 1);
+        }
     }
 }
