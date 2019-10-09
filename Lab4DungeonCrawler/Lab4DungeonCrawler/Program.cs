@@ -44,9 +44,9 @@ namespace Lab4DungeonCrawler
                         break;
                     case States.EndState:
                         Console.Clear();
-                        Console.WriteLine("Spelet är slut!");
+                        Console.WriteLine("Game Over!");
+                        Console.WriteLine($"You finnished the game with {gamePlayManager.Player.numberOfMoves} moves! ");
                         Console.ReadKey(true);
-                        //visa game over screen, välj starta om eller stänga av
                         break;
                     
                 }
