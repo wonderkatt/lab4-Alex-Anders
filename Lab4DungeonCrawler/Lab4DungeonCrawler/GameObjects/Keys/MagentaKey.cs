@@ -2,11 +2,12 @@
 {
     internal class MagentaKey : Key
     {
-        public MagentaKey()
+        public MagentaKey(Point point)
         {
+            Name = "Magenta key";
             NumberOfUses = 1;
             Color = System.ConsoleColor.Magenta;
-            Position = new Point(10, 44);
+            Position = point;
         }
     }
 }

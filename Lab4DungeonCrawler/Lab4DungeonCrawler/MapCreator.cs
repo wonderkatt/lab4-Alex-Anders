@@ -14,19 +14,19 @@ namespace Lab4DungeonCrawler
         {
             List<Door> doors = new List<Door>
             {
-                new RedDoor(),
+                new RedDoor(new Point(10, 8)),
                 new YellowDoor(new Point(9, 20)),
                 new YellowDoor(new Point(15, 27)),
-                new CyanDoor(),
-                new MagentaDoor()
+                new CyanDoor(new Point(13, 31)),
+                new MagentaDoor(new Point(5, 31))
             };
 
             List<Key> keys = new List<Key>
             {
-            new RedKey(),
-            new YellowKey(),
-            new CyanKey(),
-            new MagentaKey()
+            new RedKey(new Point(5, 2)),
+            new YellowKey(new Point(2, 14)),
+            new CyanKey(new Point(14, 10)),
+            new MagentaKey(new Point(10, 44))
             };
 
             Doors = doors;

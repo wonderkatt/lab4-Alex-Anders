@@ -15,6 +15,7 @@ namespace Lab4DungeonCrawler
             instance.GameObjects.Remove(this);
             instance.GameObjects.Add(new FloorTile(this.Position, true));
         }
+        public string Name { get; set; }
         public int NumberOfUses { get; set; }
     }
 }
