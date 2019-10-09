@@ -82,11 +82,6 @@ namespace Lab4DungeonCrawler
                         point = new Point(x, y);
                         gameObjects.Add(new Monster(point, false));
                     }
-                    else if (map[x, y] == ' ')
-                    {
-                        point = new Point(x, y);
-                        gameObjects.Add(new FloorTile(point, false));
-                    } 
                     else if (map[x,y] == '_')
                     {
                         point = new Point(x, y);
@@ -97,6 +92,11 @@ namespace Lab4DungeonCrawler
                         point = new Point(x, y);
                         gameObjects.Add(new ShortcutTile(point, false));
                     }
+                    else if (map[x, y] == ' ')
+                    {
+                        point = new Point(x, y);
+                        gameObjects.Add(new FloorTile(point, false));
+                    } 
                 }
             }
             gameObjects.AddRange(Keys);
