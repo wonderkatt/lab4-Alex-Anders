@@ -6,6 +6,7 @@
         {
             Position = point;
             IsExplored = explored;
+            Color = System.ConsoleColor.White;
         }
     }
 }

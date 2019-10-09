@@ -7,12 +7,12 @@ namespace Lab4DungeonCrawler
     public class MapCreator
     {
         private readonly List<GameObject> gameObjects = new List<GameObject>();
-        readonly List<Door> doors;
-        readonly List<Key> keys;
+        readonly List<Door> Doors;
+        readonly List<Key> Keys;
 
         public MapCreator()
         {
-            List<Door> doors = new List<Door>
+            Doors = new List<Door>
             {
                 new RedDoor(new Point(10, 8)),
                 new YellowDoor(new Point(9, 20)),
@@ -21,7 +21,7 @@ namespace Lab4DungeonCrawler
                 new MagentaDoor(new Point(5, 31))
             };
 
-            List<Key> keys = new List<Key>
+            Keys = new List<Key>
             {
             new RedKey(new Point(5, 2)),
             new YellowKey(new Point(2, 14)),
@@ -83,15 +83,20 @@ namespace Lab4DungeonCrawler
                         gameObjects.Add(new Monster(point, false));
                         gameObjects.Add(new FloorTile(point, false));
                     }
-                    else if (map[x, y] == ' ') 
+                    else if (map[x, y] == ' ')
                     {
                         point = new Point(x, y);
                         gameObjects.Add(new FloorTile(point, false));
                     } 
+                    else if (map[x,y] == '_')
+                    {
+                        point = new Point(x, y);
+                        gameObjects.Add(new TrapTile(point, false));
+                    }
                 }
             }
-            gameObjects.AddRange(keys);
-            gameObjects.AddRange(doors);
+            gameObjects.AddRange(Keys);
+            gameObjects.AddRange(Doors);
             
             return gameObjects;
         }

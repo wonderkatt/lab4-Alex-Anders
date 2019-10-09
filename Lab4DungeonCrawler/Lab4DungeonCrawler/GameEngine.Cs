@@ -8,39 +8,60 @@ namespace Lab4DungeonCrawler
 {
     class GameEngine
     {
-        public GameEngine()
+        private GamePlayManager GamePlayManager;
+        public GameEngine(GamePlayManager gamePlayManager)
         {
+            GamePlayManager = gamePlayManager;
         }
 
-        public void Update(GamePlayManager instance)
+        public void Update() 
         {
             var direction = InputManager.GetInput();
-            instance.Player.MovePlayer(direction, instance);
-            CheckForInteraction(instance);
-
-            instance = instance.GetGameState();
-            instance.Renderer.RenderMap(instance);
+            var canWalk = CheckForCollision(direction);
+            if(canWalk)
+            {
+            GamePlayManager.Player.MovePlayer(direction, GamePlayManager); 
+            }
+            CheckForInteraction();
+            GamePlayManager.Renderer.RenderMap(GamePlayManager);
+            CheckWinCondition();
+           
             
         }
 
-        public void CheckForInteraction(GamePlayManager instance)
+        private void CheckWinCondition()
         {
-            var tempTile = instance.GetTileAtPoint(instance.Player.CurrentPlayerPosition, instance.GameObjects);
-            
-            try
+            foreach (var tile in GamePlayManager.GameObjects)
             {
-                var interactable = (IInteractable)tempTile;
-                if (interactable != null)
+                if (tile is ExitTile && tile.Position.Equals(GamePlayManager.Player.CurrentPlayerPosition))
                 {
-                    interactable.Interact(instance);
+                    Program.currentState = States.EndState;
                 }
             }
-            catch
-            {
+        }
 
+        public bool CheckForCollision(Point point)
+        {
+            var targetPosition = new Point(GamePlayManager.Player.CurrentPlayerPosition.row + point.row, GamePlayManager.Player.CurrentPlayerPosition.column + point.column);
+            var targetTile = GamePlayManager.GetTileAtPoint(targetPosition, GamePlayManager.GameObjects);
+            if (targetTile is WallTile)
+            {
+                return false;
             }
-         
-           
+            if (targetTile is Door && !GamePlayManager.Player.CheckForKey(targetTile)) 
+            {
+                return false;
+            }
+            return true;
+        }
+        public void CheckForInteraction()
+        {
+            var tempTile = GamePlayManager.GetTileAtPoint(GamePlayManager.Player.CurrentPlayerPosition, GamePlayManager.GameObjects);
+
+                if (tempTile is IInteractable interactable)
+                {
+                 interactable.Interact(GamePlayManager);
+                }
         }
 
     }

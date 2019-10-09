@@ -17,22 +17,12 @@ namespace Lab4DungeonCrawler
         {
             var targetPosition = new Point(CurrentPlayerPosition.row + point.row, CurrentPlayerPosition.column + point.column);
             var targetTile = instance.GetTileAtPoint(targetPosition, instance.GameObjects);
-            if (targetTile is WallTile)
-            {
-                return;
-            }
-            else if (targetTile is Door)
-            {
-                if (!CheckForKey(targetTile))
-                {
-                    return;
-                }
-            } 
+           
             numberOfMoves++;
             CurrentPlayerPosition = targetPosition;
         }
 
-        private bool CheckForKey(GameObject targetTile)
+        public bool CheckForKey(GameObject targetTile)
         {
             foreach (var key in playerInventory)
             {

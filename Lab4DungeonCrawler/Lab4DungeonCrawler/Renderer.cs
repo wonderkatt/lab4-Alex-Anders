@@ -86,6 +86,11 @@ namespace Lab4DungeonCrawler
                         ConsoleHandler.WriteCharAt(tempTile.Symbol, point, tempTile.Color);
                         tempTile.IsExplored = true;
                     }
+                    else if (tempTile is TrapTile)
+                    {
+                        ConsoleHandler.WriteCharAt(tempTile.Symbol, point);
+                        tempTile.IsExplored = true;
+                    }
                     else
                     {
                         ConsoleHandler.WriteCharAt(tempTile.Symbol, point);
