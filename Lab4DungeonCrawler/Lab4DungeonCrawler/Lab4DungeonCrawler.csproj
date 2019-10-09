@@ -62,7 +62,7 @@
     <Compile Include="GameObjects\IInteractable.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="GameObjects\Keys\Key.cs" />
-    <Compile Include="GameObjects\MonsterTile.cs" />
+    <Compile Include="GameObjects\Tiles\MonsterTile.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="MapFolder\Point.cs" />
     <Compile Include="MapFolder\Renderer.cs" />
