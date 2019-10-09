@@ -12,7 +12,7 @@ namespace Lab4DungeonCrawler
 
         public MapCreator()
         {
-            List<Door> doors = new List<Door>
+            Doors = new List<Door>
             {
                 new RedDoor(new Point(10, 8)),
                 new YellowDoor(new Point(9, 20)),
@@ -21,16 +21,13 @@ namespace Lab4DungeonCrawler
                 new MagentaDoor(new Point(5, 31))
             };
 
-            List<Key> keys = new List<Key>
+            Keys = new List<Key>
             {
             new RedKey(new Point(5, 2)),
             new YellowKey(new Point(2, 14)),
             new CyanKey(new Point(14, 10)),
             new MagentaKey(new Point(10, 44))
             };
-
-            Doors = doors;
-            Keys = keys;
         }
 
         private readonly char[,] map = new char[,]
