@@ -13,18 +13,18 @@ namespace Lab4DungeonCrawler
             Symbol = 'D';
         }
 
-        public void Interact(GamePlayManager instance)
+        public void Interact(GamePlayManager gamePlayManager)
         {
-            instance.GameObjects.Remove(this);
-            instance.GameObjects.Add(new FloorTile(this.Position, true));
-            foreach (var key in instance.Player.playerInventory)
+            gamePlayManager.GameObjects.Remove(this);
+            gamePlayManager.GameObjects.Add(new FloorTile(this.Position, true));
+            foreach (var key in gamePlayManager.Player.playerInventory)
             {
                 if(key.Color == this.Color)
                 {
                     key.NumberOfUses--;
                     if (key.NumberOfUses == 0)
                     {
-                    instance.Player.playerInventory.Remove(key);
+                    gamePlayManager.Player.playerInventory.Remove(key);
                         break;
                     }
                 }

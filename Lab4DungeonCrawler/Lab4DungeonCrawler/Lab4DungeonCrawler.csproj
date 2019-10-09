@@ -56,6 +56,7 @@
     <Compile Include="GameObjects\Keys\YellowKey.cs" />
     <Compile Include="GameObjects\ExitTile.cs" />
     <Compile Include="GameObjects\Doors\Door.cs" />
+    <Compile Include="GameObjects\ShortcutTile.cs" />
     <Compile Include="GamePlayManager.cs" />
     <Compile Include="GameObjects\IInteractable.cs" />
     <Compile Include="InputManager.cs" />
