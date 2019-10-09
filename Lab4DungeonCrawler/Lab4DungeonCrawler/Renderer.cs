@@ -5,7 +5,6 @@ namespace Lab4DungeonCrawler
 {
     public class Renderer
     {
-
         public Renderer()
         {
             
@@ -48,7 +47,7 @@ namespace Lab4DungeonCrawler
             }
             
             ConsoleHandler.WriteCharAt(instance.Player.Symbol, instance.Player.CurrentPlayerPosition, ConsoleColor.Gray);
-            ConsoleHandler.WriteStringAt(instance.Player.numberOfMoves.ToString(), new Point(18, 0));
+            ConsoleHandler.WriteStringAt($"Number of steps: {instance.Player.numberOfMoves.ToString()}", new Point(18, 0));
             PrintInventory(instance);
         }
 
@@ -56,7 +55,7 @@ namespace Lab4DungeonCrawler
         {
             Point currentPlayerPosition = instance.Player.CurrentPlayerPosition;
 
-            ConsoleHandler.WriteStringAt(instance.Player.numberOfMoves.ToString(), new Point(18, 0));
+            ConsoleHandler.WriteStringAt(instance.Player.numberOfMoves.ToString(), new Point(18, 17));
             ExploreTilesAroundPlayer(instance, currentPlayerPosition);
             ConsoleHandler.WriteCharAt(instance.Player.Symbol, currentPlayerPosition, ConsoleColor.Gray);
             PrintInventory(instance);  
@@ -98,16 +97,16 @@ namespace Lab4DungeonCrawler
 
         private void PrintInventory(GamePlayManager instance)
         {
-            ConsoleHandler.WriteStringAt("Inventory: ", new Point(20, 0));
-            for (int i = 0; i < 5; i++)
+            var point = new Point(20, 0);
+            ConsoleHandler.WriteStringAt("Inventory: ", point);
+            foreach (var key in instance.Player.playerInventory)
             {
-                ConsoleHandler.WriteCharAt(' ', new Point(20, 11 + i));
+                point.row++;
+                ConsoleHandler.WriteStringAt(new string(' ', Console.WindowWidth), point);
+                ConsoleHandler.WriteStringAt(key.Name, point);
             }
-
-            for (int i = 0; i < instance.Player.playerInventory.Count; i++)
-            {
-                ConsoleHandler.WriteCharAt(instance.Player.playerInventory[i].Symbol, new Point(20, 11 + i), instance.Player.playerInventory[i].Color);
-            }
+            point.row++;
+            ConsoleHandler.WriteStringAt(new string(' ', Console.WindowWidth), point);
         }
     }
 }

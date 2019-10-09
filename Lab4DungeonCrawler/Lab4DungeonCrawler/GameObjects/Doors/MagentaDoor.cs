@@ -2,9 +2,9 @@
 {
     internal class MagentaDoor : Door
     {
-        public MagentaDoor()
+        public MagentaDoor(Point point)
         {
-            Position = new Point(5, 31);
+            Position = point;
             Color = System.ConsoleColor.Magenta;
             IsExplored = false;
         }

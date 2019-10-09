@@ -2,11 +2,12 @@
 {
     internal class RedKey : Key
     {
-        public RedKey()
+        public RedKey(Point point)
         {
+            Name = "Red key";
             NumberOfUses = 1;
             Color = System.ConsoleColor.Red;
-            Position = new Point(5, 2);
+            Position = point;
             
         }
     }
