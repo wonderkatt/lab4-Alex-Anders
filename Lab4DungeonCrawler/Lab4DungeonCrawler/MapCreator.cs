@@ -12,8 +12,22 @@ namespace Lab4DungeonCrawler
 
         public MapCreator(InteractableObjectsCreator interactableObjectsCreator)
         {
-            doors = interactableObjectsCreator.CreateDoors();
-            keys = interactableObjectsCreator.CreateKeys();
+            List<Door> doors = new List<Door>
+            {
+                new RedDoor(),
+                new YellowDoor(new Point(9, 20)),
+                new YellowDoor(new Point(15, 27)),
+                new CyanDoor(),
+                new MagentaDoor()
+            };
+
+            List<Key> keys = new List<Key>
+            {
+            new RedKey(),
+            new YellowKey(),
+            new CyanKey(),
+            new MagentaKey()
+            };
         }
 
         private readonly char[,] map = new char[,]
