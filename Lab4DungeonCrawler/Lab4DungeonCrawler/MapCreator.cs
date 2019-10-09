@@ -7,10 +7,10 @@ namespace Lab4DungeonCrawler
     public class MapCreator
     {
         private readonly List<GameObject> gameObjects = new List<GameObject>();
-        readonly List<Door> doors;
-        readonly List<Key> keys;
+        readonly List<Door> Doors;
+        readonly List<Key> Keys;
 
-        public MapCreator(InteractableObjectsCreator interactableObjectsCreator)
+        public MapCreator()
         {
             List<Door> doors = new List<Door>
             {
@@ -28,6 +28,9 @@ namespace Lab4DungeonCrawler
             new CyanKey(),
             new MagentaKey()
             };
+
+            Doors = doors;
+            Keys = keys;
         }
 
         private readonly char[,] map = new char[,]
@@ -90,8 +93,8 @@ namespace Lab4DungeonCrawler
                     } 
                 }
             }
-            gameObjects.AddRange(keys);
-            gameObjects.AddRange(doors);
+            gameObjects.AddRange(Keys);
+            gameObjects.AddRange(Doors);
             
             return gameObjects;
         }

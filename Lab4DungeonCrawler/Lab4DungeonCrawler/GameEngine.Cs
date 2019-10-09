@@ -8,46 +8,59 @@ namespace Lab4DungeonCrawler
 {
     class GameEngine
     {
-        public GameEngine()
+        private GamePlayManager GamePlayManager;
+        public GameEngine(GamePlayManager gamePlayManager)
         {
+            GamePlayManager = gamePlayManager;
         }
 
-        public void Update(GamePlayManager gamePlayManager) 
+        public void Update() 
         {
             var direction = InputManager.GetInput();
-            var canWalk = CheckForCollision(direction, gamePlayManager);
+            var canWalk = CheckForCollision(direction);
             if(canWalk)
             {
-            gamePlayManager.Player.MovePlayer(direction, gamePlayManager); 
+            GamePlayManager.Player.MovePlayer(direction, GamePlayManager); 
             }
-            CheckForInteraction(gamePlayManager);
-
-            gamePlayManager = gamePlayManager.GetGameState();
-            gamePlayManager.Renderer.RenderMap(gamePlayManager);
+            CheckForInteraction();
+            GamePlayManager.Renderer.RenderMap(GamePlayManager);
+            CheckWindCondition();
+           
             
         }
 
-        public bool CheckForCollision(Point point, GamePlayManager gamePlayManager)
+        private void CheckWindCondition()
         {
-            var targetPosition = new Point(gamePlayManager.Player.CurrentPlayerPosition.row + point.row, gamePlayManager.Player.CurrentPlayerPosition.column + point.column);
-            var targetTile = gamePlayManager.GetTileAtPoint(targetPosition, gamePlayManager.GameObjects);
+            foreach (var tile in GamePlayManager.GameObjects)
+            {
+                if (tile is ExitTile && tile.Position.Equals(GamePlayManager.Player.CurrentPlayerPosition))
+                {
+                    Program.currentState = States.EndState;
+                }
+            }
+        }
+
+        public bool CheckForCollision(Point point)
+        {
+            var targetPosition = new Point(GamePlayManager.Player.CurrentPlayerPosition.row + point.row, GamePlayManager.Player.CurrentPlayerPosition.column + point.column);
+            var targetTile = GamePlayManager.GetTileAtPoint(targetPosition, GamePlayManager.GameObjects);
             if (targetTile is WallTile)
             {
                 return false;
             }
-            if (targetTile is Door && !gamePlayManager.Player.CheckForKey(targetTile)) 
+            if (targetTile is Door && !GamePlayManager.Player.CheckForKey(targetTile)) 
             {
                 return false;
             }
             return true;
         }
-        public void CheckForInteraction(GamePlayManager gamePlayManager)
+        public void CheckForInteraction()
         {
-            var tempTile = gamePlayManager.GetTileAtPoint(gamePlayManager.Player.CurrentPlayerPosition, gamePlayManager.GameObjects);
+            var tempTile = GamePlayManager.GetTileAtPoint(GamePlayManager.Player.CurrentPlayerPosition, GamePlayManager.GameObjects);
 
                 if (tempTile is IInteractable interactable)
                 {
-                 interactable.Interact(gamePlayManager);
+                 interactable.Interact(GamePlayManager);
                 }
         }
 

@@ -14,7 +14,8 @@ namespace Lab4DungeonCrawler
         {
             Console.CursorVisible = false;
             var gamePlayManager = new GamePlayManager();
-            var gameEngine = new GameEngine(); //var gameEngine = new GameEngine(gamePlayManager);
+            var gameEngine = new GameEngine(gamePlayManager); //var gameEngine = new GameEngine(gamePlayManager);
+            
 
             while (true)
             {
@@ -22,8 +23,8 @@ namespace Lab4DungeonCrawler
                 {
                     case States.StartState:
                         var player = new Player();
-                        var interActableObjectCreator = new InteractableObjectsCreator();
-                        var mapCreator = new MapCreator(interActableObjectCreator);
+                        
+                        var mapCreator = new MapCreator();
                         var renderer = new Renderer();
                         gamePlayManager.Renderer = renderer;
                         gamePlayManager.Player = player;
@@ -35,8 +36,8 @@ namespace Lab4DungeonCrawler
                         
                         break;
                     case States.GamePlayState:
-                        var instance = gamePlayManager.GetGameState();
-                        gameEngine.Update(instance);
+                       
+                        gameEngine.Update();
                         //gameEngine.Update();
                         // Om målet nås, kör endstate
                         //get tile på player pos, om det är exit tile. sätt currentState = EndState

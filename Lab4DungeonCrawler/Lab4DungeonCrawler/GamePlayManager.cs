@@ -9,11 +9,11 @@ namespace Lab4DungeonCrawler
         public GamePlayManager Instance { get; set; }
         public Renderer Renderer { get; set; }
 
-        public GamePlayManager GetGameState()
-        {
-            Instance = this;
-            return Instance;
-        }
+      // public GamePlayManager GetGameState()
+      // {
+      //     Instance = this;
+      //     return Instance;
+      // }
 
         public GameObject GetTileAtPoint(Point point, List<GameObject> gameObjects)
         {
