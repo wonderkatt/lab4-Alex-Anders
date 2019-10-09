@@ -72,9 +72,8 @@ namespace Lab4DungeonCrawler
                     point = new Point(row, column);
                     tempTile = instance.GetTileAtPoint(point, instance.GameObjects);
                     
-                        ConsoleHandler.WriteCharAt(tempTile.Symbol, point, tempTile.Color);
-                        tempTile.IsExplored = true;
-                    
+                    ConsoleHandler.WriteCharAt(tempTile.Symbol, point, tempTile.Color);
+                    tempTile.IsExplored = true;
                 }
             }
         }
