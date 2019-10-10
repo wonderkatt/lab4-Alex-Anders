@@ -81,7 +81,7 @@ namespace Lab4DungeonCrawler
             {
                 point.row++;
                 ConsoleHandler.WriteStringAt(new string(' ', Console.WindowWidth), point);
-                ConsoleHandler.WriteStringAt(key.Name, point);
+                ConsoleHandler.WriteStringAt(key.Name, point, key.Color);
             }
             point.row++;
             ConsoleHandler.WriteStringAt(new string(' ', Console.WindowWidth), point);
