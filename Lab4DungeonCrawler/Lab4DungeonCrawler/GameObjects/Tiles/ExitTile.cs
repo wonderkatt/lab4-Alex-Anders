@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class ExitTile : TileType
+    public class ExitTile : Tile
     {
         public ExitTile(Point point, bool explored) : base(point, explored)
         {

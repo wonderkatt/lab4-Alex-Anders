@@ -10,11 +10,11 @@ namespace Lab4DungeonCrawler
             Symbol = 'k';
         }
 
-        public void Interact(GamePlayManager instance)
+        public void Interact(GamePlayManager gamePlayManager)
         {
-            instance.Player.playerInventory.Add(this);
-            instance.GameObjects.Remove(this);
-            instance.GameObjects.Add(new FloorTile(this.Position, true));
+            gamePlayManager.Player.playerInventory.Add(this);
+            gamePlayManager.GameObjects.Remove(this);
+            gamePlayManager.GameObjects.Add(new FloorTile(this.Position, true));
         }
         public string Name { get; set; }
         public int NumberOfUses { get; set; }

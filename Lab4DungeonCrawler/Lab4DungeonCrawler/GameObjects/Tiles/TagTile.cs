@@ -1,6 +1,6 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    internal class TagTile : TileType
+    internal class TagTile : Tile
     {
         private char[,] tagSymbols = new char[,]
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-   public class TrapTile : TileType, IInteractable
+   public class TrapTile : Tile, IInteractable
     {
         public TrapTile(Point point, bool explored) : base(point, explored)
         {

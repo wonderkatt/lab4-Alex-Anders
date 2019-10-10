@@ -6,7 +6,6 @@ namespace Lab4DungeonCrawler
     {
         public Player Player;
         public List<GameObject> GameObjects;
-        public GamePlayManager Instance { get; set; }
         public Renderer Renderer { get; set; }
 
         // public GamePlayManager GetGameState()
