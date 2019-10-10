@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    class ShortcutTile : TileType, IInteractable
+    class ShortcutTile : Tile, IInteractable
     {
         public ShortcutTile(Point point, bool explored) : base(point, explored)
         {

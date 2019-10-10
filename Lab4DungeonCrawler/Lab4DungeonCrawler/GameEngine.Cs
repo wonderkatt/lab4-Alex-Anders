@@ -20,7 +20,7 @@ namespace Lab4DungeonCrawler
             var canWalk = CheckForCollision(direction);
             if(canWalk)
             {
-            GamePlayManager.Player.MovePlayer(direction, GamePlayManager); 
+                GamePlayManager.Player.MovePlayer(direction, GamePlayManager); 
             }
             CheckForInteraction();
             GamePlayManager.Renderer.RenderMap(GamePlayManager);
@@ -43,6 +43,7 @@ namespace Lab4DungeonCrawler
             }
             return true;
         }
+
         public void CheckForInteraction()
         {
             var tempTile = GamePlayManager.GetTileAtPoint(GamePlayManager.Player.CurrentPlayerPosition, GamePlayManager.GameObjects);

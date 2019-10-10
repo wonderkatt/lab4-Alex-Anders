@@ -1,8 +1,8 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    public abstract class TileType : GameObject
+    public abstract class Tile : GameObject
     {
-        public TileType(Point point, bool explored)
+        public Tile(Point point, bool explored)
         {
             Position = point;
             IsExplored = explored;

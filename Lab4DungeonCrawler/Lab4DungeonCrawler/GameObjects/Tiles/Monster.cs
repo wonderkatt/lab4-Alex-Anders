@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lab4DungeonCrawler
 {
-    public class Monster : TileType, IInteractable
+    public class Monster : GameObject, IInteractable
     {
-        public Monster(Point point, bool explored) : base(point, explored)
+        public Monster(Point point, bool explored)
         {
+            Position = point;
             Color = ConsoleColor.Green;
             Symbol = 'M';
         }
