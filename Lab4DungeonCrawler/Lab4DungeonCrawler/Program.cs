@@ -15,7 +15,6 @@ namespace Lab4DungeonCrawler
             Console.CursorVisible = false;
             var gamePlayManager = new GamePlayManager();
             var gameEngine = new GameEngine(gamePlayManager);
-            
 
             while (true)
             {
@@ -47,7 +46,6 @@ namespace Lab4DungeonCrawler
                             System.Environment.Exit(0);
                         }
                         break;
-                    
                 }
             }
         }     
