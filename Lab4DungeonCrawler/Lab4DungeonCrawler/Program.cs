@@ -47,7 +47,11 @@ namespace Lab4DungeonCrawler
                         Console.Clear();
                         Console.WriteLine("Game Over!");
                         Console.WriteLine($"You finnished the game with {gamePlayManager.Player.numberOfMoves} moves! ");
-                        Console.ReadKey(true);
+                        var input = Console.ReadKey(true);
+                        if (input.Key == ConsoleKey.Escape)
+                        {
+                            System.Environment.Exit(0);
+                        }
                         break;
                     
                 }
