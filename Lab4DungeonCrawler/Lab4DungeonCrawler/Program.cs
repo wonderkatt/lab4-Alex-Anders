@@ -52,3 +52,9 @@ namespace Lab4DungeonCrawler
     }
 }
 
+//High scores:
+//Daniel: 282
+//John: 408
+//Sofia: 516
+//Emil: 700
+
