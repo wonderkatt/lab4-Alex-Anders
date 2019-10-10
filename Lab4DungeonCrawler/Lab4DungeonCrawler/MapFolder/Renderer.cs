@@ -5,7 +5,6 @@ namespace Lab4DungeonCrawler
 {
     public class Renderer
     {
-       
         public void PrintInstructions()
         {
             var point = new Point(2, 60);
