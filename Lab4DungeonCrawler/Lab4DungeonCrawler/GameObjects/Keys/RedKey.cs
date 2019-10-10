@@ -1,6 +1,6 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    internal class RedKey : Key
+    public class RedKey : Key
     {
         public RedKey(Point point) : base(point)
         {

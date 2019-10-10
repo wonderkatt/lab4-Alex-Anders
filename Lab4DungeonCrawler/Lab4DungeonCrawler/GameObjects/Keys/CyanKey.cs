@@ -1,6 +1,6 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    internal class CyanKey : Key
+    public class CyanKey : Key
     {
         public CyanKey(Point point) : base(point)
         {

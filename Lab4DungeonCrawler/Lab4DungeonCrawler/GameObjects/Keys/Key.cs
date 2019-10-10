@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Lab4DungeonCrawler
 {
     public class Key : GameObject, IInteractable

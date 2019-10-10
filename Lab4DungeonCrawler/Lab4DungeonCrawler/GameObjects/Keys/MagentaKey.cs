@@ -1,6 +1,6 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    internal class MagentaKey : Key
+    public class MagentaKey : Key
     {
         public MagentaKey(Point point) : base(point)
         {

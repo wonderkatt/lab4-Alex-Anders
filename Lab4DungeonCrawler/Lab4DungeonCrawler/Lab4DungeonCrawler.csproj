@@ -71,7 +71,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameObjects\Tiles\TagTile.cs" />
-    <Compile Include="GameObjects\Tiles\TileType.cs" />
+    <Compile Include="GameObjects\Tiles\Tile.cs" />
     <Compile Include="MapFolder\MapCreator.cs" />
     <Compile Include="GameObjects\Tiles\WallTile.cs" />
   </ItemGroup>

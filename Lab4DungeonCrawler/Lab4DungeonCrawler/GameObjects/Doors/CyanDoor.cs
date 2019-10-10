@@ -1,6 +1,6 @@
 ﻿namespace Lab4DungeonCrawler
 {
-    internal class CyanDoor : Door
+    public class CyanDoor : Door
     {
         public CyanDoor(Point point) : base(point)
         {

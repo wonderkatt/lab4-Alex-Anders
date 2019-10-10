@@ -5,21 +5,9 @@ namespace Lab4DungeonCrawler
 {
     public class Renderer
     {
-        //string instructions =
-        //    " __________________________\n" +
-        //    "|    *** FIND EXIT ***     |\n" +
-        //    "|                          |\n" +
-        //    "|Move @ with a,s,d and w,  |\n" +
-        //    "|collect keys(k),          |\n" +
-        //    "|move through doors(D),    |\n" +
-        //    "|watch out for monsters(M),|\n" +
-        //    "|they give you extra steps,|\n" +
-        //    "|find exit(E) with as few  |\n" +
-        //    "|steps as possible.        |\n" +
-        //    "|__________________________|\n";
+       
         public void PrintInstructions()
         {
-            //instructions.Split('\n')
             var point = new Point(2, 60);
             ConsoleHandler.WriteStringAt(" __________________________", point);
             point.row++;

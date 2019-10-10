@@ -14,7 +14,7 @@ namespace Lab4DungeonCrawler
         {
             Console.CursorVisible = false;
             var gamePlayManager = new GamePlayManager();
-            var gameEngine = new GameEngine(gamePlayManager); //var gameEngine = new GameEngine(gamePlayManager);
+            var gameEngine = new GameEngine(gamePlayManager);
             
 
             while (true)
@@ -23,26 +23,20 @@ namespace Lab4DungeonCrawler
                 {
                     case States.StartState:
                         var player = new Player();
-                        
                         var mapCreator = new MapCreator();
                         var renderer = new Renderer();
                         gamePlayManager.Renderer = renderer;
                         gamePlayManager.Player = player;
                         gamePlayManager.GameObjects =  mapCreator.CreateMap();
                         renderer.PrintOutMap(gamePlayManager);
-                        
                         renderer.PrintInstructions();
                         currentState = States.GamePlayState;
                         
                         break;
                     case States.GamePlayState:
-                        // Inkonsekvent asignment av IsExplored i objekt. Dörrar och nycklar har false som default,
-                        // men de andra sätts vid skapade av objekt. FloorTile och WallTile måste bestämmas vid objektskapande.
                         gameEngine.Update();
-                        //gameEngine.Update();
-                        // Om målet nås, kör endstate
-                        //get tile på player pos, om det är exit tile. sätt currentState = EndState
                         break;
+
                     case States.EndState:
                         Console.Clear();
                         Console.WriteLine("Game Over!");
