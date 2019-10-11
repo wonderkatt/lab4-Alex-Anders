@@ -29,7 +29,7 @@ namespace Lab4DungeonCrawler
                 default:
                     if (input.Key == ConsoleKey.Escape)
                     {
-                        System.Environment.Exit(0);
+                        Environment.Exit(0);
                     }
                     point = new Point(0, 0);
                     return point;

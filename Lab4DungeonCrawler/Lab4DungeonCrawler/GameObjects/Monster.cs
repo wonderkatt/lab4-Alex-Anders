@@ -11,6 +11,7 @@ namespace Lab4DungeonCrawler
         public Monster(Point point, bool explored)
         {
             Position = point;
+            IsExplored = explored;
             Color = ConsoleColor.Green;
             Symbol = 'M';
         }

@@ -8,9 +8,9 @@ namespace Lab4DungeonCrawler
         public List<GameObject> GameObjects;
         public Renderer Renderer { get; set; }
 
-        public GameObject GetTileAtPoint(Point point, List<GameObject> gameObjects)
+        public GameObject GetTileAtPoint(Point point)
         {
-            var returnObject = gameObjects.Find(gameObject => gameObject.Position.Equals(point));
+            var returnObject = GameObjects.Find(gameObject => gameObject.Position.Equals(point));
             return returnObject;
         }
     }

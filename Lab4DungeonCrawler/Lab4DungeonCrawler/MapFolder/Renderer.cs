@@ -31,9 +31,9 @@ namespace Lab4DungeonCrawler
             ConsoleHandler.WriteStringAt("|__________________________|", point);
         }
 
-        public void PrintOutMap(GamePlayManager instance)
+        public void PrintOutMap(GamePlayManager gamePlayManager)
         {
-            foreach (var Tile in instance.GameObjects)
+            foreach (var Tile in gamePlayManager.GameObjects)
             {
                 if (Tile.IsExplored == true)
                 {
@@ -41,22 +41,22 @@ namespace Lab4DungeonCrawler
                 }
             }
             
-            ConsoleHandler.WriteCharAt(instance.Player.Symbol, instance.Player.CurrentPlayerPosition, ConsoleColor.Gray);
-            ConsoleHandler.WriteStringAt($"Number of steps: {instance.Player.numberOfMoves.ToString()}", new Point(18, 0));
-            PrintInventory(instance);
+            ConsoleHandler.WriteCharAt(gamePlayManager.Player.Symbol, gamePlayManager.Player.CurrentPlayerPosition, ConsoleColor.Gray);
+            ConsoleHandler.WriteStringAt($"Number of steps: {gamePlayManager.Player.numberOfMoves.ToString()}", new Point(18, 0));
+            PrintInventory(gamePlayManager);
         }
 
-        public void RenderMap(GamePlayManager instance)
+        public void RenderMap(GamePlayManager gamePlayManager)
         {
-            Point currentPlayerPosition = instance.Player.CurrentPlayerPosition;
+            Point currentPlayerPosition = gamePlayManager.Player.CurrentPlayerPosition;
 
-            ExploreTilesAroundPlayer(instance, currentPlayerPosition);
-            ConsoleHandler.WriteCharAt(instance.Player.Symbol, currentPlayerPosition, ConsoleColor.Gray);
-            ConsoleHandler.WriteStringAt(instance.Player.numberOfMoves.ToString(), new Point(18, 17));
-            PrintInventory(instance);  
+            ExploreTilesAroundPlayer(gamePlayManager, currentPlayerPosition);
+            ConsoleHandler.WriteCharAt(gamePlayManager.Player.Symbol, currentPlayerPosition, ConsoleColor.Gray);
+            ConsoleHandler.WriteStringAt(gamePlayManager.Player.numberOfMoves.ToString(), new Point(18, 17));
+            PrintInventory(gamePlayManager);
         }
 
-        private void ExploreTilesAroundPlayer(GamePlayManager instance, Point currentPlayerPosition)
+        private void ExploreTilesAroundPlayer(GamePlayManager gamePlayManager, Point currentPlayerPosition)
         {
             Point point;
             GameObject tempTile;
@@ -65,7 +65,7 @@ namespace Lab4DungeonCrawler
                 for (int column = currentPlayerPosition.column - 1; column < currentPlayerPosition.column + 2; column++)
                 {
                     point = new Point(row, column);
-                    tempTile = instance.GetTileAtPoint(point, instance.GameObjects);
+                    tempTile = gamePlayManager.GetTileAtPoint(point);
                     
                     ConsoleHandler.WriteCharAt(tempTile.Symbol, point, tempTile.Color);
                     tempTile.IsExplored = true;
@@ -73,11 +73,11 @@ namespace Lab4DungeonCrawler
             }
         }
 
-        private void PrintInventory(GamePlayManager instance)
+        private void PrintInventory(GamePlayManager gamePlayManager)
         {
             var point = new Point(20, 0);
             ConsoleHandler.WriteStringAt("Inventory: ", point);
-            foreach (var key in instance.Player.playerInventory)
+            foreach (var key in gamePlayManager.Player.playerInventory)
             {
                 point.row++;
                 ConsoleHandler.WriteStringAt(new string(' ', Console.WindowWidth), point);

@@ -8,12 +8,10 @@ namespace Lab4DungeonCrawler
 {
     public class ConsoleHandler
     {
-        public static void WriteCharAt(char s, Point point, ConsoleColor color)
+        public static void WriteCharAt(char c, Point point, ConsoleColor color)
         {
-            Console.SetCursorPosition(point.column,point.row);
-            Console.ForegroundColor = color;
-            Console.Write(s);
-            Console.ResetColor();
+            string s = c.ToString();
+            WriteStringAt(s, point, color);
         }
 
         public static void WriteStringAt(string s, Point point, ConsoleColor color = ConsoleColor.White)

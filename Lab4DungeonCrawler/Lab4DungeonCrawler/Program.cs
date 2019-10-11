@@ -30,20 +30,20 @@ namespace Lab4DungeonCrawler
                         renderer.PrintOutMap(gamePlayManager);
                         renderer.PrintInstructions();
                         currentState = States.GamePlayState;
-                        
                         break;
+
                     case States.GamePlayState:
                         gameEngine.Update();
                         break;
 
                     case States.EndState:
                         Console.Clear();
-                        Console.WriteLine("Game Over!");
-                        Console.WriteLine($"You finnished the game with {gamePlayManager.Player.numberOfMoves} moves! ");
+                        ConsoleHandler.WriteStringAt("***** Game Over! *****", new Point(3, 22));
+                        ConsoleHandler.WriteStringAt($"You finnished the game with {gamePlayManager.Player.numberOfMoves} moves!", new Point(6, 14));
                         var input = Console.ReadKey(true);
                         if (input.Key == ConsoleKey.Escape)
                         {
-                            System.Environment.Exit(0);
+                            Environment.Exit(0);
                         }
                         break;
                 }
