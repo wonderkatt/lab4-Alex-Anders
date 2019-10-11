@@ -21,12 +21,10 @@ namespace Lab4DungeonCrawler
             if(canWalk)
             {
                 GamePlayManager.Player.MovePlayer(direction); 
-                CheckForInteraction();
-                GamePlayManager.Renderer.RenderMap(GamePlayManager);
-                CheckWinCondition();
             }
-           
-            
+            CheckForInteraction();
+            GamePlayManager.Renderer.RenderMap(GamePlayManager);
+            CheckWinCondition();
         }
 
         public bool CheckForCollision(Point point)
