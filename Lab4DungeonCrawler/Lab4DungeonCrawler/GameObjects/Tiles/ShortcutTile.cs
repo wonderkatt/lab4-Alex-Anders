@@ -16,7 +16,7 @@ namespace Lab4DungeonCrawler
 
         public void Interact(GamePlayManager gamePlayerManager)
         {
-            var tempTile = gamePlayerManager.GetTileAtPoint(new Point(6, 31), gamePlayerManager.GameObjects);
+            var tempTile = gamePlayerManager.GetTileAtPoint(new Point(6, 31));
             if (!tempTile.IsExplored)
             {
                 gamePlayerManager.GameObjects.Remove(tempTile);

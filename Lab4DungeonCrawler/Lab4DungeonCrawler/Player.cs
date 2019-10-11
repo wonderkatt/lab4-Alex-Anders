@@ -12,7 +12,7 @@ namespace Lab4DungeonCrawler
             CurrentPlayerPosition = new Point(1, 1);
         }
 
-        public void MovePlayer(Point point, GamePlayManager instance)
+        public void MovePlayer(Point point)
         {
             var targetPlayerPosition = new Point(CurrentPlayerPosition.row + point.row, CurrentPlayerPosition.column + point.column);
             numberOfMoves++;

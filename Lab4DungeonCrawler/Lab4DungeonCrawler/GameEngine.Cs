@@ -20,11 +20,11 @@ namespace Lab4DungeonCrawler
             var canWalk = CheckForCollision(direction);
             if(canWalk)
             {
-                GamePlayManager.Player.MovePlayer(direction, GamePlayManager); 
+                GamePlayManager.Player.MovePlayer(direction); 
+                CheckForInteraction();
+                GamePlayManager.Renderer.RenderMap(GamePlayManager);
+                CheckWinCondition();
             }
-            CheckForInteraction();
-            GamePlayManager.Renderer.RenderMap(GamePlayManager);
-            CheckWinCondition();
            
             
         }
@@ -32,7 +32,7 @@ namespace Lab4DungeonCrawler
         public bool CheckForCollision(Point point)
         {
             var targetPosition = new Point(GamePlayManager.Player.CurrentPlayerPosition.row + point.row, GamePlayManager.Player.CurrentPlayerPosition.column + point.column);
-            var targetTile = GamePlayManager.GetTileAtPoint(targetPosition, GamePlayManager.GameObjects);
+            var targetTile = GamePlayManager.GetTileAtPoint(targetPosition);
             if (targetTile is WallTile)
             {
                 return false;
@@ -46,7 +46,7 @@ namespace Lab4DungeonCrawler
 
         public void CheckForInteraction()
         {
-            var tempTile = GamePlayManager.GetTileAtPoint(GamePlayManager.Player.CurrentPlayerPosition, GamePlayManager.GameObjects);
+            var tempTile = GamePlayManager.GetTileAtPoint(GamePlayManager.Player.CurrentPlayerPosition);
             if (tempTile is IInteractable interactable)
             {
                 interactable.Interact(GamePlayManager);
@@ -55,7 +55,7 @@ namespace Lab4DungeonCrawler
 
         private void CheckWinCondition()
         {
-            if (GamePlayManager.GetTileAtPoint(GamePlayManager.Player.CurrentPlayerPosition, GamePlayManager.GameObjects) is ExitTile)
+            if (GamePlayManager.GetTileAtPoint(GamePlayManager.Player.CurrentPlayerPosition) is ExitTile)
             {
                 Program.currentState = States.EndState;
             }

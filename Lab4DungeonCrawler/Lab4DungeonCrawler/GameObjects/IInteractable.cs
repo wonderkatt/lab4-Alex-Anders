@@ -10,6 +10,4 @@ namespace Lab4DungeonCrawler
     {
         void Interact(GamePlayManager instance);
     }
-
-   
 }

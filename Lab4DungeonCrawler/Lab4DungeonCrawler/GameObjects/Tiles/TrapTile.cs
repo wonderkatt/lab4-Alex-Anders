@@ -10,7 +10,7 @@ namespace Lab4DungeonCrawler
 
         public void Interact(GamePlayManager gamePlayManager)
         {
-            var tempTile = gamePlayManager.GetTileAtPoint(gamePlayManager.Player.PreviousPlayerPosition, gamePlayManager.GameObjects);
+            var tempTile = gamePlayManager.GetTileAtPoint(gamePlayManager.Player.PreviousPlayerPosition);
             ConsoleHandler.WriteCharAt(tempTile.Symbol, tempTile.Position, tempTile.Color);
             gamePlayManager.Player.CurrentPlayerPosition = new Point(1, 1);
         }
